@@ -17,6 +17,10 @@ sap.ui.define([
 
 		onPressAppointment: function() {
 			this._router.navTo("appointment");
+		},
+
+		onPressSitemap: function() {
+			this._router.navTo("sitemap");
 		}
 
 	});

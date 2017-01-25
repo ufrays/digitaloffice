@@ -27,7 +27,7 @@
 				<CustomListItem>
 					<Button
 						icon="sap-icon://functional-location"
-						text="Site Map"></Button>
+						text="Site Map" press="onPressSitemap"></Button>
 				</CustomListItem>
 				<CustomListItem>
 					<Button

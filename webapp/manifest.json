@@ -21,8 +21,9 @@
 				"controlId": "idSplitApp",
 				"transition": "slide",
 				"bypassed": {
-					"target": [
-					"notFound"]
+					"target": 
+						[	
+						]
 				}
 			},
 			"routes": [{
@@ -36,9 +37,9 @@
 				"target": "notFound"
 			},
 			{
-				"pattern": "",
-				"name": "home",
-				"target": "login"
+				"pattern": "sitemap",
+				"name": "sitemap",
+				"target": "sitemap"
 			},
 			{
 				"pattern": "appointment",
@@ -46,7 +47,7 @@
 				"target": "appointment"
 			},
 			{
-				"pattern": "login",
+				"pattern": "",
 				"name": "login",
 				"target": "login"
 			},
@@ -59,6 +60,11 @@
 				"appointment": {
 					"viewName": "Appointment",
 					"viewLevel": 2,
+					"controlAggregation": "detailPages"
+				},
+				"sitemap": {
+					"viewName": "Sitemap",
+					"viewLevel": 3,
 					"controlAggregation": "detailPages"
 				},
 				"login": {
@@ -80,11 +86,6 @@
 					"viewName": "NotFound",
 					"viewLevel": 3,
 					"controlAggregation": "detailPages"
-				},
-				"home": {
-					"viewName": "Home",
-					"viewLevel": 4,
-					"controlAggregation": "masterPages"
 				}
 			}
 		}

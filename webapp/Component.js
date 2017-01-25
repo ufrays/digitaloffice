@@ -24,15 +24,8 @@ sap.ui.define([
 			this.setModel(oDeviceModel, "device");
 
 			this._router = this.getRouter();
-
-			// navigate to initial page for !phone
-// if (!sap.ui.Device.system.phone) {
 			this._router.getTargets().display("login");
-// }
-
-			// initialize the router
 			this._router.initialize();
-
 		},
 
 		myNavBack: function() {
@@ -41,7 +34,7 @@ sap.ui.define([
 			if (oPrevHash !== undefined) {
 				window.history.go(-1);
 			} else {
-				this._router.navTo("home", {}, true);
+				this._router.navTo("login", {}, true);
 			}
 		}
 	});
