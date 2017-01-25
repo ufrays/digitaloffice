@@ -1,0 +1,76 @@
+<mvc:View
+	controllerName="sap.dm.controller.Appointment"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:control="control"
+	xmlns:h="http://www.w3.org/1999/xhtml">
+	<Page
+		id="page"
+		title="Digital Office"
+		showNavButton="false"
+		navButtonPress="">
+		<customHeader>
+			<Toolbar>
+				<Button
+					icon="sap-icon://menu2"
+					tooltip=""
+					press="onPressMenuBtn">
+				</Button>
+				<ToolbarSpacer></ToolbarSpacer>
+				<Title
+					text="Appointments"
+					level="H3"></Title>
+				<ToolbarSpacer></ToolbarSpacer>
+				<Button text="Thomas">
+				</Button>
+			</Toolbar>
+		</customHeader>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button
+					icon="sap-icon://add"
+					text="appointment"
+					tooltip=""
+					press="" />
+			</Toolbar>
+		</footer>
+		<content>
+			<List items="{path: 'oAppointmentModel>/'}">
+				<CustomListItem>
+					<VBox>
+						<GenericTile
+							class="sapUiTinyMargin tileLayout"
+							header="{oAppointmentModel>type}"
+							frameType="TwoByOne"
+							backgroundImage="img/NewsImage.png"
+							press="onPressAppointment">
+							<tileContent>
+								<TileContent footer="August 21, 2016">
+									<content>
+										<NewsContent
+											contentText="{oAppointmentModel>title}"
+											subheader="{parts: ['oAppointmentModel>location','oAppointmentModel>dateTime'], formatter:'.formatter.formatMeetingInfo'}">
+										</NewsContent>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<VBox
+							class="sapUiTinyMargin"
+							visible="false">
+							<Text
+								class="sapUiTinyMargin"
+								text="{oAppointmentModel>content}"></Text>
+							<Image
+								densityAware="false"
+								src="img/map.png"
+								press="onPressMap"></Image>
+						</VBox>
+					</VBox>
+				</CustomListItem>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

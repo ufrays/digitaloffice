@@ -1,0 +1,38 @@
+[
+	{
+		"id":"1",
+		"hostId": "abc",
+		"attendees" : [],
+		"type":"meeting",
+		"title" : "All Hands Meeting",
+		"dateTime" : "1485331585747",
+		"location" : {
+				"name" : "CTU2 8.02"
+			},
+		"content" : "Test meeting appointment"
+	},
+	{
+		"id":"2",
+		"hostId": "abc",
+		"attendees" : [],
+		"type":"meeting",
+		"title" : "Coffee Corner Session",
+		"dateTime" : "1485331685747",
+		"location" : {
+				"name" : "CTU2 8.14"
+			},
+		"content" : "Prepare the coffee"
+	},
+	{
+		"id":"3",
+		"hostId": "abc",
+		"attendees" : [],
+		"type":"meeting",
+		"title" : "Gaming",
+		"dateTime" : "1485331685747",
+		"location" : {
+				"name" : "CTU2 7.14"
+			},
+		"content" : "Time for fun"
+	}
+]

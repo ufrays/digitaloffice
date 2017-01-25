@@ -1,0 +1,92 @@
+{
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "sap.dm.view.App",
+			"type": "XML"
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}],
+			"js": [{
+				"uri": "lib/underscore-min.js"
+			}]
+		},
+		"includes": ["css/style.css"],
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "sap.dm.view",
+				"controlId": "idSplitApp",
+				"transition": "slide",
+				"bypassed": {
+					"target": [
+					"notFound"]
+				}
+			},
+			"routes": [{
+				"pattern": "menu",
+				"name": "menu",
+				"target": "menu"
+			},
+			{
+				"pattern": "notFound/{id}",
+				"name": "notFoundAppointment",
+				"target": "notFound"
+			},
+			{
+				"pattern": "",
+				"name": "home",
+				"target": "login"
+			},
+			{
+				"pattern": "appointment",
+				"name": "appointment",
+				"target": "appointment"
+			},
+			{
+				"pattern": "login",
+				"name": "login",
+				"target": "login"
+			},
+			{
+				"pattern": "appointment/{id}",
+				"name": "appointmentDetail",
+				"target": "appointmentDetail"
+			}],
+			"targets": {
+				"appointment": {
+					"viewName": "Appointment",
+					"viewLevel": 2,
+					"controlAggregation": "detailPages"
+				},
+				"login": {
+					"viewName": "Login",
+					"viewLevel": 0,
+					"controlAggregation": "masterPages"
+				},
+				"appointmentDetail": {
+					"viewName": "AppointmentDetail",
+					"viewLevel": 3,
+					"controlAggregation": "detailPages"
+				},
+				"menu": {
+					"viewName": "Menu",
+					"viewLevel": 1,
+					"controlAggregation": "masterPages"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewLevel": 3,
+					"controlAggregation": "detailPages"
+				},
+				"home": {
+					"viewName": "Home",
+					"viewLevel": 4,
+					"controlAggregation": "masterPages"
+				}
+			}
+		}
+	}
+}
