@@ -262,17 +262,21 @@ sap.ui.define([
 				}, 500, mina.linear);
 			}
 
+			if (this._oSvg.select(".navi-path")) {
+				this._oSvg.select(".navi-path").remove();
+			}
+
 			this._oNaviPath = this._oSvg.paper.polyline(oPath.path).attr({
 				stroke: "orange",
 				fill: "none",
 				strokeWidth: 3,
-				strokeDashoffset: 200,
+				strokeDashoffset: 1200,
 				strokeDasharray: "20,10,5,5,5,10"
-			});
+			}).addClass("navi-path");
 
 			this._oNaviPath.animate({
 				strokeDashoffset: 0
-			}, 10000, mina.linear);
+			}, 60000, mina.linear);
 			this._oSvg.select(this._getId("navigator")).append(that._oNaviPath);
 		},
 
