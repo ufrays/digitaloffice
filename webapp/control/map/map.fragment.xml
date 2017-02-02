@@ -1,0 +1,330 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core">
+	<VBox>
+		<html:svg id="svg" xmlns="http://www.w3.org/2000/svg" x="0px"
+			y="0px" width="100%" height="100%" viewBox="0 -50 750 1200">
+			<g id="map">
+				<g id="rooms">
+					<g id="itserver">
+						<polygon class="room"
+							points="293.1,1100.4 470.9,1118 486.3,989.5 308.5,971.8" id="polygon12" />
+						<text transform="matrix(1.043873,0.0748206,-0.07963103,0.9522633,0,0)"
+							class="room-name-large" id="text14" x="385.65918" y="1071.073">IT Server
+						</text>
+					</g>
+					<g id="itstorage">
+						<polygon class="room"
+							points="292.4,1003.5 215,995.8 203.4,1092.6 280.8,1100.4" id="polygon19" />
+						<text transform="matrix(1.0375362,0.1385819,-0.11934505,0.94788108,0,0)"
+							class="room-name-small" id="text21" x="347.85568" y="1043.0933">IT</text>
+						<text transform="matrix(1.0420188,0.09941449,-0.08356731,0.9517028,0,0)"
+							class="room-name-small" id="text23" x="291.74881" y="1083.4921">Storage
+						</text>
+					</g>
+					<g id="mr0809">
+						<polygon class="room"
+							points="207,994 123,985.7 111.8,1082.6 195.4,1090.8" id="polygon26" />
+						<text y="1042.376" x="314.06308"
+							transform="matrix(1.0325318,0.1579448,-0.17307838,0.94201764,0,0)"
+							class="room-name-small" id="text33-9-9">MR</text>
+						<text transform="matrix(1.0376217,0.13286834,-0.1382218,0.94604297,0,0)"
+							class="room-name-small" id="text28" x="267.63376" y="1075.0692">08.09</text>
+					</g>
+					<g id="mr0808">
+						<polygon class="room"
+							points="103.8,1081.1 26.1,1073.3 41.4,944.8 118.8,952.6 115,984.2"
+							id="polygon31" />
+						<text y="1031.8074" x="229.32126"
+							transform="matrix(1.0325318,0.1579448,-0.17307838,0.94201764,0,0)"
+							class="room-name-small" id="text33-9">MR</text>
+						<text transform="matrix(1.0325318,0.1579448,-0.17307838,0.94201764,0,0)"
+							class="room-name-small" id="text33" x="220.24272" y="1053.6705">08.08</text>
+					</g>
+					<g id="zoneline">
+						<polygon class="room"
+							points="481.1,1120.3 496.4,989.1 724.8,1011.2 709.5,1142.5" id="polygon36" />
+						<text transform="matrix(1.041676,0.08961889,-0.10374925,0.95106547,0,0)"
+							class="room-name-large" id="text38" x="614.38727" y="1061.5828">Zone Line
+						</text>
+					</g>
+					<g id="stairs" transform="translate(27.052239,3.2462687)">
+						<polygon class="room"
+							points="498.1,775 606.1,785.4 589.3,930.2 481.3,919.8 " id="polygon41" />
+						<text transform="matrix(1.0423383,0.0890832,-0.09760868,0.95103931,0,0)"
+							class="room-name-large" id="text43" x="558.9848" y="848.18445">Stairs</text>
+					</g>
+					<g id="elevator" transform="matrix(1.0226553,0,0,1,15.98514,3.2462687)">
+						<polyline class="room"
+							points="379.6,770.4 488.5,780.9 481.6,842 298,824.2 305,763.1 379.6,770.4"
+							id="polyline46" />
+						<text transform="matrix(1.0421069,0.08012754,-0.09748844,0.95209857,0,0)"
+							class="room-name-large" id="text48" x="400.09192" y="813.95673">Elevator
+						</text>
+					</g>
+					<g id="qt0827" transform="translate(10.3,-1.4)">
+						<polygon class="room"
+							points="296.8,28.5 308.1,98.4 255.6,105.4 244.4,35.5 " id="polygon51" />
+						<text transform="matrix(1.0357819,-0.1475483,0.15010667,0.94407136,0,0)"
+							class="room-name-small" id="text53" x="240.20625" y="107.51713">QT</text>
+						<text transform="matrix(1.038258,-0.12265452,0.13442246,0.94727173,0,0)"
+							class="room-name-small" id="text55" x="229.33521" y="125.61219">O8.27</text>
+					</g>
+					<g id="qt0826">
+						<polygon class="room"
+							points="301.7,27.8 354.1,20.6 364.4,89.9 311.9,97.1" id="polygon58" />
+						<text transform="matrix(1.0886467,-0.21435383,0.22121316,0.87501492,0,0)"
+							class="room-name-small" id="text60" x="269.92761" y="131.77068">QT</text>
+						<text transform="matrix(1.0904361,-0.20756895,0.21424436,0.87628198,0,0)"
+							class="room-name-small" id="text62" x="255.31958" y="156.34615">08.26</text>
+					</g>
+					<g id="qt0825">
+						<polygon class="room" points="359.5,19.9 448,8 459.3,77.9 370.7,89.7"
+							id="polygon65" />
+						<text transform="matrix(1.0299552,-0.17577237,0.18743244,0.93892879,0,0)"
+							class="room-name-small" id="text67" x="359.82028" y="117.82944">QT</text>
+						<text transform="matrix(1.014858,-0.23447149,0.25705378,0.92597019,0,0)"
+							class="room-name-small" id="text69" x="342.6496" y="162.36157">08.25</text>
+					</g>
+					<g id="mr0801">
+						<polygon class="room"
+							points="72.7,76.5 201.3,56.3 217.9,138.1 89.3,158.4" id="polygon72" />
+						<text transform="matrix(1.0477767,-0.20064936,0.20742018,0.91468085,0,0)"
+							class="room-name-small" id="text74" x="71.605865" y="147.1483">MR 08.01
+						</text>
+					</g>
+					<g id="mr0802">
+						<polygon class="room" points="10.6,87.6 61.3,78.2 78.6,160.9 28,170.3"
+							id="polygon77" />
+						<text y="132.50531" x="17.184589"
+							transform="matrix(1.0340743,-0.14750851,0.10683728,0.95180837,0,0)"
+							class="room-name-small" id="text33-9-6">MR</text>
+						<text transform="matrix(1.015532,-0.14957222,0.16184981,0.96086753,0,0)"
+							class="room-name-small" id="text79" x="0.28692704" y="150.62041">08.02</text>
+					</g>
+					<g id="mr0824">
+						<polygon class="room"
+							points="481.4,210.8 460.9,88 299.8,110.2 269.7,114.4 290.2,237.2"
+							id="polygon82" />
+						<text transform="matrix(1.032403,-0.16532641,0.17241847,0.94100332,0,0)"
+							class="room-name-large" id="text84" x="258.91364" y="239.55566">MR 08.24
+						</text>
+						<text xml:space="preserve" x="387.38806" y="132.01492" id="text225" />
+					</g>
+					<g id="vr0803">
+						<polygon class="room"
+							points="156.5,283.9 242.9,269.2 218.6,146.2 132.2,160.4" id="polygon89" />
+						<text transform="matrix(1.108355,-0.24241668,0.19592837,0.85938501,0,0)"
+							class="room-name-middle" id="text91" x="102.07656" y="273.10767">VR</text>
+						<text transform="matrix(1.1133287,-0.21843962,0.17733543,0.8634134,0,0)"
+							class="room-name-middle" id="text93" x="92.107803" y="304.09897">08.03</text>
+					</g>
+					<g id="vr0804" transform="translate(6.923848,23.191053)">
+						<polygon class="room"
+							points="54.2,300.8 96.1,293.7 147.4,284.7 122.3,161.4 29.2,177.2 "
+							id="polygon96" transform="translate(-6.9238472,-23.191065)" />
+						<text transform="matrix(1.0381038,-0.12380704,0.13567108,0.9471143,0,0)"
+							class="room-name-middle" id="text98" x="33.011192" y="218.9285">VR</text>
+						<text transform="matrix(1.0306766,-0.17519542,0.18252727,0.93921027,0,0)"
+							class="room-name-middle" id="text100" x="13.26988" y="251.64886">08.04</text>
+					</g>
+					<g id="painting0802">
+						<polygon class="room"
+							points="58.8,857.7 117.1,863 108.4,943.8 50,938.6 " id="polygon103" />
+						<text transform="matrix(1.0410311,0.05004374,-0.08548504,0.95647671,0,0)"
+							class="room-name-small" id="text105" x="137.04996" y="929.11237">Paint</text>
+						<text transform="matrix(1.035179,0.11376322,-0.14736885,0.94982108,0,0)"
+							class="room-name-small" id="text107" x="190.23799" y="939.73541">08.02</text>
+					</g>
+					<g id="restzone">
+						<polyline id="lks_1_" class="room"
+							points="59.8,851.3 77,704.6 133.5,710.3 116.3,856.8" />
+						<text transform="matrix(1.0386387,0.13126198,-0.11976458,0.947663,0,0)"
+							class="room-name-small" id="text179" x="167.98538" y="791.15826">Rest</text>
+						<text transform="matrix(1.0429457,0.09090862,-0.08294582,0.95159274,0,0)"
+							class="room-name-small" id="text181" x="136.52934" y="820.36285">Zone</text>
+					</g>
+					<g id="frontdesk">
+						<polyline id="wt_1_" class="room"
+							points="121,898.2 135,778 266.7,791 246.5,962.2" />
+						<text transform="matrix(1.0412928,0.1049981,-0.1066614,0.94958954,0,0)"
+							class="room-name-large" id="text113" x="232.41675" y="847.3205">Front</text>
+						<line class="line" x1="121" y1="901.9" x2="246.5" y2="962.2"
+							id="line115" />
+						<text transform="matrix(1.0412928,0.1049981,-0.1066614,0.94958954,0,0)"
+							class="room-name-large" id="text113-0" x="233.32109" y="880.5321">Desk
+						</text>
+					</g>
+					<g id="mail">
+						<polygon id="kcl_1_" class="room"
+							points="137.1,769.8 143.2,718.1 274.8,731 268.8,782.7" />
+						<text transform="matrix(1.0456638,0.05020545,-0.04980347,0.95393909,0,0)"
+							class="room-name-middle" id="text119" x="218.30882" y="769.59454">Mail</text>
+						<text transform="matrix(1.0390126,0.1282645,-0.1174358,0.94795497,0,0)"
+							class="room-name-middle" id="text121" x="255.56671" y="770.34845">Room</text>
+					</g>
+					<g id="cleanstorage" transform="translate(27.052239,3.2462687)">
+						<polygon id="cs_1_" class="room"
+							points="316.8,601.3 309.2,667.5 383.4,674.8 390.7,608.5" />
+						<text transform="matrix(1.041294,0.0659681,-0.0951255,0.95431716,0,0)"
+							class="room-name-small" id="text125" x="369.7352" y="634.10852">Clean</text>
+						<text transform="matrix(1.041294,0.0659681,-0.0951255,0.95431717,0,0)"
+							class="room-name-small" id="text125-3" x="360.67725" y="656.57648">Storage
+						</text>
+					</g>
+					<g id="wc" transform="translate(27.052239,3.2462687)">
+						<polygon class="room"
+							points="308.5,686.3 300.5,756.8 375.1,764 382.6,693.7 " id="polygon130" />
+						<text transform="matrix(1.0394856,0.11735244,-0.12415542,0.94799781,0,0)"
+							class="room-name-middle" id="text132" x="398.14038" y="724.61548">WC</text>
+					</g>
+					<g id="male" transform="translate(27.052239,3.2462687)">
+						<polygon id="mm_1_" class="room"
+							points="509.2,620 399.7,610.3 391.7,677.1 500.9,686.7 " />
+						<text transform="matrix(1.0398995,0.11057063,-0.1211877,0.94874571,0,0)"
+							class="room-name-middle" id="text136" x="478.81543" y="634.62976">male</text>
+					</g>
+					<g id="female" transform="translate(27.052239,3.2462687)">
+						<polygon class="room dest"
+							points="381,764.8 489.9,774.1 498.9,703.7 389.7,694.4 " id="polygon139" />
+						<text transform="matrix(1.0408547,0.10280401,-0.11265407,0.94962215,0,0)"
+							class="room-name-middle" id="text141" x="467.32599" y="728.53845">female
+						</text>
+					</g>
+					<g id="collaboration">
+						<polygon class="room"
+							points="276.7,724.5 290.9,611.3 158.2,600.7 145.7,711.7" id="polygon144" />
+						<text transform="matrix(1.0410803,0.08791566,-0.1073952,0.9514715,0,0)"
+							class="room-name-small" id="text146" x="224.20587" y="661.76538">Collaboration
+						</text>
+						<text transform="matrix(1.0355987,0.13341258,-0.15276994,0.94594417,0,0)"
+							class="room-name-small" id="text148" x="279.96771" y="672.55469">room</text>
+					</g>
+					<g id="painting0801">
+						<polygon class="room"
+							points="161.7,575.4 159.1,593.6 292.2,602.6 299.4,548" id="polygon151" />
+						<text transform="matrix(1.0449969,0.0388349,-0.05560994,0.95487398,0,0)"
+							class="room-name-small" id="text153" x="224.91646" y="605.68781">Painting
+						</text>
+					</g>
+					<g id="mr0805-0806">
+						<polygon class="room"
+							points="108.7,302.1 245.3,278.8 299.1,541.1 162.5,564.4" id="polygon158" />
+						<text transform="matrix(1.0335447,-0.15225943,0.16691081,0.94295511,0,0)"
+							class="room-name-middle" id="text160" x="105.06066" y="449.8884">MR</text>
+						<text transform="matrix(1.0315807,-0.16614088,0.17841157,0.94065208,0,0)"
+							class="room-name-middle" id="text162" x="70.531914" y="479.45737">08.05-06
+						</text>
+					</g>
+					<g id="dt">
+						<polygon class="room"
+							points="290.5,246.7 483.2,218.9 531.4,496.2 338.7,524" id="polygon165" />
+						<text transform="matrix(1.0282786,-0.19219316,0.19246633,0.93652566,0,0)"
+							class="room-name-large" id="text167" x="266.88776" y="455.95367">Design
+						</text>
+						<text class="room-name-large" x="269.5592" y="475.67215" id="text139"
+							transform="rotate(-11.640045)">Thinking</text>
+					</g>
+					<g id="pantry" transform="translate(14.067164)">
+						<polyline class="room"
+							points="510,610.3 533.4,509.3 341.9,530.9 326.8,591.7 510,610.3"
+							id="polyline172" />
+						<text transform="matrix(1.1304623,0.06439148,-0.14462291,0.87635609,0,0)"
+							class="room-name-large" id="text174" x="419.6868" y="623.45978">Pantry</text>
+					</g>
+				</g>
+				<g id="border" class="line">
+					<line x1="10.6" y1="86.6" x2="54.3" y2="300" id="line186" />
+					<line x1="54.2" y1="300.8" x2="105.9" y2="291.9" id="line188" />
+					<line x1="105.9" y1="291.9" x2="108.7" y2="302.1" id="line190" />
+					<line x1="162.5" y1="564.5" x2="144.7" y2="711.7" id="line192" />
+					<line x1="144.7" y1="711.7" x2="133.5" y2="710.3" id="line194" />
+					<line x1="77" y1="704.6" x2="49.9" y2="938.6" id="line196" />
+					<line x1="36.5" y1="989" x2="42.6" y2="937.6" id="line198" />
+					<line x1="49.9" y1="938.6" x2="42.6" y2="937.6" id="line200" />
+					<line x1="26.1" y1="1073.3" x2="709.6" y2="1143.4" id="line202" />
+					<line x1="717" y1="1076.1" x2="732.2" y2="944" id="line204" />
+					<line x1="583.2" y1="929.8" x2="733" y2="944.3" id="line206" />
+					<line x1="498.1" y1="774.9" x2="489.9" y2="774.1" id="line208" />
+					<line x1="533.4" y1="509.3" x2="531.4" y2="496.1" id="line214" />
+					<line x1="483.2" y1="218.8" x2="481.4" y2="210.8" id="line216" />
+					<line x1="460.9" y1="88" x2="459.3" y2="77.9" id="line218" />
+					<line x1="448" y1="8" x2="244.4" y2="35.6" id="line220" />
+					<line x1="214.9" y1="123.5" x2="198.3" y2="41.7" id="line222" />
+					<line x1="244.4" y1="35.6" x2="198.3" y2="41.7" id="line224" />
+					<line class="line" x1="10.6" y1="86.6" x2="201.3" y2="56.3"
+						id="line183" />
+					<path d="m 525.95224,706.94627 10.3,-83.7 L 524.06716,610.3"
+						id="path534" />
+				</g>
+				<g id="navigator">
+					<g id="desticon">
+						<path class="dest-icon" transform="scale(0.05 0.05)"
+							d="M512 0c-176.732 0-320 143.268-320 320 0 320 320 704 320 704s320-384 320-704c0-176.732-143.27-320-320-320zM512 516c-108.248 0-196-87.752-196-196s87.752-196 196-196 196 87.752 196 196-87.752 196-196 196zM388 320c0-68.483 55.517-124 124-124s124 55.517 124 124c0 68.483-55.517 124-124 124s-124-55.517-124-124z"></path>
+					</g>
+					<g id="locationicon">
+						<path class="dest-icon" transform="scale(0.05 0.05)"
+							d="M544.010 1024.004c-2.296 0-4.622-0.25-6.94-0.764-14.648-3.25-25.070-16.238-25.070-31.24v-480h-480c-15.002 0-27.992-10.422-31.24-25.070-3.25-14.646 4.114-29.584 17.708-35.928l960-448c12.196-5.688 26.644-3.144 36.16 6.372 9.516 9.514 12.060 23.966 6.372 36.16l-448 960c-5.342 11.44-16.772 18.47-28.99 18.47zM176.242 448h367.758c17.674 0 32 14.328 32 32v367.758l349.79-749.546-749.548 349.788z"></path>
+					</g>
+				</g>
+				<g id="information" style="opacity: 0; display: none;">
+					<rect x="10" y="10" rx="10" ry="10" width="280" height="150"
+						style="fill: #006699;stroke: #006699;stroke-width:5;opacity:0.7;" />
+					<text x="10" y="0" fill="white" font-family="Verdana"
+						font-size="18">
+						<tspan x="20" dy="2em">information:</tspan>
+						<tspan x="20" dy="2em">blablabla</tspan>
+						<tspan x="20" dy="2em">lala land lala land</tspan>
+						<tspan x="20" dy="2em">never land never land</tspan>
+					</text>
+				</g>
+			</g>
+			<g id="fullscreentoolbar" transform="translate(640,80)">
+				<g id="headertoolbar">
+					<g id="thumbnail" transform="translate(20,0)">
+						<rect x="-13" y="-13" width="66" height="66" class="option-border" />
+						<g transform="scale(0.04 0.04)" fill="#3f5161">
+							<path d="M576 448h416l-160-160 192-192-96-96-192 192-160-160z"></path>
+							<path d="M576 576v416l160-160 192 192 96-96-192-192 160-160z"></path>
+							<path d="M448 575.996h-416l160 160-192 192 96 96 192-192 160 160z"></path>
+							<path d="M448 448v-416l-160 160-192-192-96 96 192 192-160 160z"></path>
+						</g>
+					</g>
+				</g>
+				<g id="footertoolbar" transform="translate(0,400)">
+					<g id="reset" transform="translate(20,40)">
+						<rect x="-13" y="-13" width="66" height="66" class="option-border" />
+						<g transform="scale(0.04 0.04)" fill="#3f5161">
+							<path
+								d="M1024 590.444l-512-397.426-512 397.428v-162.038l512-397.426 512 397.428zM896 576v384h-256v-256h-256v256h-256v-384l384-288z"></path>
+						</g>
+					</g>
+					<g id="zoomin" transform="translate(20,140)">
+						<rect x="-13" y="-13" width="66" height="66" class="option-border" />
+						<g transform="scale(0.04 0.04)" fill="#3f5161">
+							<path
+								d="M992 384h-352v-352c0-17.672-14.328-32-32-32h-192c-17.672 0-32 14.328-32 32v352h-352c-17.672 0-32 14.328-32 32v192c0 17.672 14.328 32 32 32h352v352c0 17.672 14.328 32 32 32h192c17.672 0 32-14.328 32-32v-352h352c17.672 0 32-14.328 32-32v-192c0-17.672-14.328-32-32-32z"></path>
+						</g>
+					</g>
+					<g id="zoomout" transform="translate(20,209)">
+						<rect x="-13" y="-13" width="66" height="66" class="option-border" />
+						<g transform="scale(0.04 0.04)" fill="#3f5161">
+							<path
+								d="M0 416v192c0 17.672 14.328 32 32 32h960c17.672 0 32-14.328 32-32v-192c0-17.672-14.328-32-32-32h-960c-17.672 0-32 14.328-32 32z"></path>
+						</g>
+					</g>
+				</g>
+			</g>
+			<g id="thumbnailtoolbar" transform="translate(640,80)">
+				<g id="fullscreen" transform="translate(20,0)">
+					<rect x="-13" y="-13" width="66" height="66" class="option-border" />
+					<g transform="scale(0.04 0.04)" fill="#3f5161">
+						<path d="M1024 0h-416l160 160-192 192 96 96 192-192 160 160z"></path>
+						<path d="M1024 1024v-416l-160 160-192-192-96 96 192 192-160 160z"></path>
+						<path d="M0 1024h416l-160-160 192-192-96-96-192 192-160-160z"></path>
+						<path d="M0 0v416l160-160 192 192 96-96-192-192 160-160z"></path>
+					</g>
+				</g>
+			</g>
+		</html:svg>
+	</VBox>
+</core:FragmentDefinition>

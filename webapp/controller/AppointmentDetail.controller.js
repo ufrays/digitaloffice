@@ -36,6 +36,10 @@ sap.ui.define([
 		
 		handleNavBack: function() {
 			this.getOwnerComponent().myNavBack();
+		},
+		
+		onPressShowThumb: function() {
+			this._router.navTo("appointment");
 		}
 	});
 });

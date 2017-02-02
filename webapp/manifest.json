@@ -7,9 +7,13 @@
 		"resources": {
 			"css": [{
 				"uri": "css/style.css"
+			},{
+				"uri": "control/map/css/style.css"
 			}],
 			"js": [{
 				"uri": "lib/underscore-min.js"
+			},{
+				"uri": "lib/snap.svg-min.js"
 			}]
 		},
 		"includes": ["css/style.css"],

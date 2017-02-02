@@ -2,22 +2,15 @@
 	controllerName="sap.dm.controller.AppointmentDetail"
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core"
-	xmlns:mvc="sap.ui.core.mvc">
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:map="sap.dm.control.map">
 	<Page
 		title="Appointment Navigation"
 		navButtonPress="handleNavBack"
-		showNavButton="{device>/isPhone}">
-		<footer>
-			<Toolbar>
-			</Toolbar>
-		</footer>
+		showNavButton="{device>/isPhone}"
+		showFooter="false">
 		<content>
-			<VBox>
-				<Label text="{/content}"></Label>
-				<Image
-					densityAware="false"
-					src="img/bigmap.png"></Image>
-			</VBox>
+			<map:Map location="frontdesk" destination="dt" showThumbnail="onPressShowThumb" isThumbnail="false"></map:Map>
 		</content>
 	</Page>
 </mvc:View>

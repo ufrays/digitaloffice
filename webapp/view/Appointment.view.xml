@@ -4,7 +4,8 @@
 	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:control="control"
-	xmlns:h="http://www.w3.org/1999/xhtml">
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:map="sap.dm.control.map">
 	<Page
 		id="page"
 		title="Digital Office"
@@ -60,13 +61,7 @@
 						<VBox
 							class="sapUiTinyMargin"
 							visible="false">
-							<Text
-								class="sapUiTinyMargin"
-								text="{oAppointmentModel>content}"></Text>
-							<Image
-								densityAware="false"
-								src="img/map.png"
-								press="onPressMap"></Image>
+							<map:Map location="frontdesk" destination="dt" showFullsize="onPressMap" isThumbnail="true"></map:Map>
 						</VBox>
 					</VBox>
 				</CustomListItem>
