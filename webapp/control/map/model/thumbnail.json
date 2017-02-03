@@ -6,5 +6,13 @@
 		"y":"210",
 		"width":"750",
 		"height":"750"
+	},
+	{
+		"location":"frontdesk",
+		"destination":"mr0824",
+		"x":"0",
+		"y":"80",
+		"width":"750",
+		"height":"890"
 	}
 ]

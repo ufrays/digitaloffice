@@ -61,7 +61,7 @@
 						<VBox
 							class="sapUiTinyMargin"
 							visible="false">
-							<map:Map location="frontdesk" destination="dt" showFullsize="onPressMap" isThumbnail="true"></map:Map>
+							<map:Map location="frontdesk" destination="{oAppointmentModel>location/name}" showFullsize="onPressMap" isThumbnail="true"></map:Map>
 						</VBox>
 					</VBox>
 				</CustomListItem>

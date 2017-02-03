@@ -138,34 +138,33 @@ sap.ui.define([
 
 		_prepareZoomInBtn: function() {
 			var that = this;
-			this._oZoomInBtn.click(function() {
-				that._iZoomRatio = that._iZoomRatio + 0.2;
-				// that._oMap.transform('t' + that._fCurrentX + ',' + that._fCurrentY + "s" + that._iZoomRatio);
+			this._oZoomInBtn.touchend(function() {
+				that._iZoomRatio = that._iZoomRatio * 1.2;
 				that._oMap.animate({
 					transform: 't' + that._fCurrentX + ',' + that._fCurrentY + "s" + that._iZoomRatio
-				}, 300, mina.linear);
+				}, 200, mina.linear);
 			});
 		},
 
 		_prepareZoomOutBtn: function() {
 			var that = this;
-			this._oZoomOutBtn.click(function() {
-				that._iZoomRatio = that._iZoomRatio - 0.2;
-				//that._oMap.transform('t' + that._fCurrentX + ',' + that._fCurrentY + "s" + that._iZoomRatio);
+			this._oZoomOutBtn.touchend(function() {
+				that._iZoomRatio = that._iZoomRatio * 0.8;
 				that._oMap.animate({
 					transform: 't' + that._fCurrentX + ',' + that._fCurrentY + "s" + that._iZoomRatio
-				}, 300, mina.linear);
+				}, 200, mina.linear);
 			});
 		},
 
 		_prepareResetBtn: function() {
 			var that = this;
-			this._oResetBtn.click(function() {
+			this._oResetBtn.touchend(function() {
 				that._initParams();
-				//that._oMap.transform('t' + that._fCurrentX + ',' + that._fCurrentY + "s" + that._iZoomRatio);
+			
 				that._oMap.animate({
 					transform: 't' + that._fCurrentX + ',' + that._fCurrentY + "s" + that._iZoomRatio
-				}, 300, mina.linear);
+				}, 200, mina.linear);
+				
 				that._oInfoPopup.animate({
 					opacity: 0
 				}, 0, mina.easein, function() {
@@ -252,14 +251,13 @@ sap.ui.define([
 			});
 
 			this._oDestIcon.transform('t' + oPath.dest_coord);
-			//this._oLocIcon.transform('t' + oPath.loc_coord + "r" + this._sOrientation);
 
 			if (this._oLocIcon.attr("transform").string === "") {
 				this._oLocIcon.transform('t' + oPath.loc_coord + "r" + this._sOrientation);
 			} else {
 				this._oLocIcon.animate({
 					transform: 't' + oPath.loc_coord + "r" + this._sOrientation
-				}, 500, mina.linear);
+				}, 200, mina.linear);
 			}
 
 			if (this._oSvg.select(".navi-path")) {
@@ -273,7 +271,25 @@ sap.ui.define([
 				strokeDashoffset: 1200,
 				strokeDasharray: "20,10,5,5,5,10"
 			}).addClass("navi-path");
-
+			
+			/*this._oNaviPath = this._oSvg.select(".navi-path");
+			if (!this._oNaviPath) {
+				this._oNaviPath = this._oSvg.paper.polyline(oPath.path).attr({
+					stroke: "orange",
+					fill: "none",
+					strokeWidth: 3,
+					strokeDashoffset: 1200,
+					strokeDasharray: "20,10,5,5,5,10"
+				}).addClass("navi-path");
+			} else {
+				this._oNaviPath.attr("points", oPath.path);
+				var aPath = _.map(oPath.path, function(fPath){return fPath.toString();});
+				var aPath = ["250", "952.4", "274.8", "907.7", "314.1", "537.6", "280", "345", "400", "325"];
+				this._oNaviPath.animate({
+					points:aPath
+				}, 300, mina.linear);
+			}*/
+			
 			this._oNaviPath.animate({
 				strokeDashoffset: 0
 			}, 60000, mina.linear);
@@ -284,9 +300,6 @@ sap.ui.define([
 			this._sOrientation = this.getProperty("orientation");
 			var sTranslate = this._oLocIcon.attr("transform").string.split("r")[0];
 			this._oLocIcon.transform(sTranslate + "r" + this._sOrientation);
-/*			this._oLocIcon.animate({
- transform: sTranslate + "r" + this._sOrientation
- }, 500, mina.linear);*/
 		},
 
 		_attachShowThumbnailEvt: function() {

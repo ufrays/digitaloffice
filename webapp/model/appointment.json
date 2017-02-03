@@ -7,7 +7,7 @@
 		"title" : "All Hands Meeting",
 		"dateTime" : "1485331585747",
 		"location" : {
-				"name" : "CTU2 8.02"
+				"name" : "dt"
 			},
 		"content" : "Test meeting appointment"
 	},
@@ -19,7 +19,7 @@
 		"title" : "Coffee Corner Session",
 		"dateTime" : "1485331685747",
 		"location" : {
-				"name" : "CTU2 8.14"
+				"name" : "mr0824"
 			},
 		"content" : "Prepare the coffee"
 	},
@@ -31,7 +31,7 @@
 		"title" : "Gaming",
 		"dateTime" : "1485331685747",
 		"location" : {
-				"name" : "CTU2 7.14"
+				"name" : "dt"
 			},
 		"content" : "Time for fun"
 	}
