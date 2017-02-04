@@ -9,6 +9,7 @@
 		"location" : {
 				"name" : "dt"
 			},
+		"curLocation":"frontdesk",
 		"content" : "Test meeting appointment"
 	},
 	{
@@ -19,8 +20,9 @@
 		"title" : "Coffee Corner Session",
 		"dateTime" : "1485331685747",
 		"location" : {
-				"name" : "mr0824"
+				"name" : "dt"
 			},
+		"curLocation":"mr0805-0806",
 		"content" : "Prepare the coffee"
 	},
 	{
@@ -33,6 +35,7 @@
 		"location" : {
 				"name" : "dt"
 			},
+		"curLocation":"mr0824",
 		"content" : "Time for fun"
 	}
 ]

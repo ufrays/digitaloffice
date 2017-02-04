@@ -44,6 +44,7 @@ sap.ui.define([
 
 		_oSvg: null,
 		_oMap: null,
+		_oSettingBtn: null,
 		_oZoomInBtn: null,
 		_oZoomOutBtn: null,
 		_oResetBtn: null,
@@ -88,7 +89,7 @@ sap.ui.define([
 				that._adjustViewBox();
 				that._hideFullScreenToolbar();
 				that._attachShowFullsizeEvt();
-				//that._adjustOrientation();
+				// that._adjustOrientation();
 			});
 		},
 
@@ -98,13 +99,14 @@ sap.ui.define([
 				that._initParams();
 				that._initControls();
 				that._prepareMap();
+				that._prepareSettingBtn();
 				that._prepareZoomInBtn();
 				that._prepareZoomOutBtn();
 				that._prepareResetBtn();
-				that._prepareInfoPopup();
+				//that._prepareInfoPopup();
 				that._hideThumbnailToolbar();
 				that._attachShowThumbnailEvt();
-				//that._adjustOrientation();
+				// that._adjustOrientation();
 			});
 		},
 
@@ -121,6 +123,7 @@ sap.ui.define([
 			this._oSvg = Snap(this._getId("svg"));
 			this._oMap = this._oSvg.select(this._getId("map"));
 
+			this._oSettingBtn = this._oSvg.select(this._getId("setting"));
 			this._oZoomInBtn = this._oSvg.select(this._getId("zoomin"));
 			this._oZoomOutBtn = this._oSvg.select(this._getId("zoomout"));
 			this._oResetBtn = this._oSvg.select(this._getId("reset"));
@@ -134,6 +137,30 @@ sap.ui.define([
 		_prepareMap: function() {
 			this._enableDrag();
 			this._calcPath();
+		},
+		
+		_prepareSettingBtn: function(){
+			var that = this;
+			this._oSettingBtn.touchend(function() {
+				if(that._oResetBtn.attr("display")==="none"){
+					that._showResetBtn();
+					that._showZoomInBtn();
+					that._showZoomOutBtn();
+				}
+				else{
+					that._hideResetBtn();
+					that._hideZoomInBtn();
+					that._hideZoomOutBtn();
+				}
+			});
+		},
+		
+		_showResetBtn: function() {
+			this._oResetBtn.attr("display", "block");
+			this._oResetBtn.attr("transform", "t20,40");
+			this._oResetBtn.animate({
+				transform: "t20,140"
+			}, 200, mina.linear);
 		},
 
 		_prepareZoomInBtn: function() {
@@ -160,11 +187,11 @@ sap.ui.define([
 			var that = this;
 			this._oResetBtn.touchend(function() {
 				that._initParams();
-			
+
 				that._oMap.animate({
 					transform: 't' + that._fCurrentX + ',' + that._fCurrentY + "s" + that._iZoomRatio
 				}, 200, mina.linear);
-				
+
 				that._oInfoPopup.animate({
 					opacity: 0
 				}, 0, mina.easein, function() {
@@ -268,32 +295,30 @@ sap.ui.define([
 				stroke: "orange",
 				fill: "none",
 				strokeWidth: 3,
-				strokeDashoffset: 1200,
+				strokeDashoffset: 555.5,
 				strokeDasharray: "20,10,5,5,5,10"
+			// strokeDasharray: "20,10,20,10"
 			}).addClass("navi-path");
-			
-			/*this._oNaviPath = this._oSvg.select(".navi-path");
-			if (!this._oNaviPath) {
-				this._oNaviPath = this._oSvg.paper.polyline(oPath.path).attr({
-					stroke: "orange",
-					fill: "none",
-					strokeWidth: 3,
-					strokeDashoffset: 1200,
-					strokeDasharray: "20,10,5,5,5,10"
-				}).addClass("navi-path");
-			} else {
-				this._oNaviPath.attr("points", oPath.path);
-				var aPath = _.map(oPath.path, function(fPath){return fPath.toString();});
-				var aPath = ["250", "952.4", "274.8", "907.7", "314.1", "537.6", "280", "345", "400", "325"];
-				this._oNaviPath.animate({
-					points:aPath
-				}, 300, mina.linear);
-			}*/
-			
+
+			this._oNaviPath.animate({
+				strokeDashoffset: 550
+			}, 100, mina.linear, function() {
+				that._animatePath();
+			});
+
+			this._oSvg.select(this._getId("navigator")).append(that._oNaviPath);
+		},
+
+		_animatePath: function() {
+			var that = this
 			this._oNaviPath.animate({
 				strokeDashoffset: 0
-			}, 60000, mina.linear);
-			this._oSvg.select(this._getId("navigator")).append(that._oNaviPath);
+			}, 10000, mina.linear, function() {
+				that._oNaviPath.attr({
+					strokeDashoffset: 550
+				});
+				that._animatePath();
+			});
 		},
 
 		_adjustOrientation: function() {
@@ -366,6 +391,49 @@ sap.ui.define([
 
 		_getId: function(sId) {
 			return ("#" + this.getId() + "--" + sId);
+		},
+		
+		_showZoomInBtn: function() {
+			this._oZoomInBtn.attr("display", "block");
+			this._oZoomInBtn.attr("transform", "t20,40");
+			this._oZoomInBtn.animate({
+				transform: "t20,240"
+			}, 200, mina.linear);
+		},
+		
+		_showZoomOutBtn: function() {
+			this._oZoomOutBtn.attr("display", "block");
+			this._oZoomOutBtn.attr("transform", "t20,40");
+			this._oZoomOutBtn.animate({
+				transform: "t20,309"
+			}, 200, mina.linear);
+		},
+		
+		_hideResetBtn: function() {
+			var that = this;
+			this._oResetBtn.animate({
+				transform: "t20,40"
+			}, 200, mina.linear, function() {
+				that._oResetBtn.attr("display", "none");
+			});
+		},
+		
+		_hideZoomInBtn: function() {
+			var that = this;
+			this._oZoomInBtn.animate({
+				transform: "t20,40"
+			}, 200, mina.linear, function() {
+				that._oZoomInBtn.attr("display", "none");
+			});
+		},
+		
+		_hideZoomOutBtn: function() {
+			var that = this;
+			this._oZoomOutBtn.animate({
+				transform: "t20,40"
+			}, 200, mina.linear, function() {
+				that._oZoomOutBtn.attr("display", "none");
+			});
 		},
 
 		renderer: function(oRm, oControl) {
