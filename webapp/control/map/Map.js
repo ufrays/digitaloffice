@@ -45,6 +45,7 @@ sap.ui.define([
 		_oSvg: null,
 		_oMap: null,
 		_oSettingBtn: null,
+		_oFacilityBtn: null,
 		_oZoomInBtn: null,
 		_oZoomOutBtn: null,
 		_oResetBtn: null,
@@ -53,6 +54,8 @@ sap.ui.define([
 		_oLocIcon: null,
 		_oDestIcon: null,
 		_oNaviPath: null,
+
+		_oFacilityIcon: null,
 
 		_aPathData: null,
 		_aThumbnailData: null,
@@ -108,6 +111,7 @@ sap.ui.define([
 				that._initControls();
 				that._prepareMap();
 				that._prepareSettingBtn();
+				that._prepareFacilityBtn();
 				that._prepareZoomInBtn();
 				that._prepareZoomOutBtn();
 				that._prepareResetBtn();
@@ -133,12 +137,15 @@ sap.ui.define([
 			this._oMap = this._oSvg.select(this._getId("map"));
 
 			this._oSettingBtn = this._oSvg.select(this._getId("setting"));
+			this._oFacilityBtn = this._oSvg.select(this._getId("facility"));
 			this._oZoomInBtn = this._oSvg.select(this._getId("zoomin"));
 			this._oZoomOutBtn = this._oSvg.select(this._getId("zoomout"));
 			this._oResetBtn = this._oSvg.select(this._getId("reset"));
 
 			this._oLocIcon = this._oMap.select(this._getId("locationicon"));
 			this._oDestIcon = this._oMap.select(this._getId("desticon"));
+
+			this._oFacilityIcon = this._oSvg.select(this._getId("facilityicon"));
 
 			this._oInfoPopup = this._oSvg.select(this._getId("information"));
 		},
@@ -155,11 +162,32 @@ sap.ui.define([
 					that._showResetBtn();
 					that._showZoomInBtn();
 					that._showZoomOutBtn();
+					that._showFacilityBtn();
 				} else {
 					that._hideResetBtn();
 					that._hideZoomInBtn();
 					that._hideZoomOutBtn();
+					that._hideFacilityBtn();
 				}
+			});
+		},
+
+		_prepareFacilityBtn: function() {
+			var that = this;
+			var aRoomNames = this._oSvg.selectAll(".room-name")
+			this._oFacilityBtn.touchend(function() {
+				if (that._oFacilityIcon.attr("display") === "none") {
+					that._oFacilityIcon.attr("display", "block");
+					aRoomNames.forEach(function(oRoomName){
+						oRoomName.attr("display", "none");
+					});
+				} else {
+					that._oFacilityIcon.attr("display", "none");
+					aRoomNames.forEach(function(oRoomName){
+						oRoomName.attr("display", "block");
+					});
+				}
+
 			});
 		},
 
@@ -392,7 +420,7 @@ sap.ui.define([
 		_getId: function(sId) {
 			return ("#" + this.getId() + "--" + sId);
 		},
-		
+
 		_showResetBtn: function() {
 			this._oResetBtn.attr("display", "block");
 			this._oResetBtn.attr("transform", "t20,40");
@@ -401,11 +429,19 @@ sap.ui.define([
 			}, 200, mina.linear);
 		},
 
+		_showFacilityBtn: function() {
+			this._oFacilityBtn.attr("display", "block");
+			this._oFacilityBtn.attr("transform", "t20,40");
+			this._oFacilityBtn.animate({
+				transform: "t20,240"
+			}, 200, mina.linear);
+		},
+
 		_showZoomInBtn: function() {
 			this._oZoomInBtn.attr("display", "block");
 			this._oZoomInBtn.attr("transform", "t20,40");
 			this._oZoomInBtn.animate({
-				transform: "t20,240"
+				transform: "t20,340"
 			}, 200, mina.linear);
 		},
 
@@ -413,7 +449,7 @@ sap.ui.define([
 			this._oZoomOutBtn.attr("display", "block");
 			this._oZoomOutBtn.attr("transform", "t20,40");
 			this._oZoomOutBtn.animate({
-				transform: "t20,309"
+				transform: "t20,409"
 			}, 200, mina.linear);
 		},
 
@@ -423,6 +459,15 @@ sap.ui.define([
 				transform: "t20,40"
 			}, 200, mina.linear, function() {
 				that._oResetBtn.attr("display", "none");
+			});
+		},
+
+		_hideFacilityBtn: function() {
+			var that = this;
+			this._oFacilityBtn.animate({
+				transform: "t20,40"
+			}, 200, mina.linear, function() {
+				that._oFacilityBtn.attr("display", "none");
 			});
 		},
 

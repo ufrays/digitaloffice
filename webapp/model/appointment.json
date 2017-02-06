@@ -22,7 +22,7 @@
 		"location" : {
 				"name" : "dt"
 			},
-		"curLocation":"mr0805-0806",
+		"curLocation":"male",
 		"content" : "Prepare the coffee"
 	},
 	{
@@ -35,7 +35,7 @@
 		"location" : {
 				"name" : "dt"
 			},
-		"curLocation":"mr0824",
+		"curLocation":"collaboration",
 		"content" : "Time for fun"
 	}
 ]

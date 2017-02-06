@@ -19,6 +19,10 @@
 	font-size: 16px;
 }
 
+.room-name{
+	fill:#003366;
+}
+
 .line {
 	fill: none;
 	stroke: #000000;
@@ -51,4 +55,8 @@
 
 .dest-icon {
 	fill: #f0ab00;
+}
+
+.facility-icon {
+	fill: #3f5161;
 }
