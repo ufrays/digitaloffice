@@ -31,15 +31,77 @@ sap.ui.define([
 				}
 				var oCurrentAppointmentModel = new JSONModel(oCurrentAppointment);
 				this.getView().setModel(oCurrentAppointmentModel);
+
+				this.initNavModel();
+				this.addDemoAnimation();
 			}
 		},
-		
+
 		handleNavBack: function() {
 			this.getOwnerComponent().myNavBack();
+			clearInterval(this.oTimer);
 		},
-		
+
 		onPressShowThumb: function() {
 			this._router.navTo("appointment");
+			clearInterval(this.oTimer);
+		},
+
+		initNavModel: function() {
+			var oNavData = {
+				location: "frontdesk",
+				destination: "mr0824",
+				orientation: 0
+			}
+
+			var oNavModel = new JSONModel(oNavData);
+			this.getView().setModel(oNavModel, "nav");
+		},
+
+		addDemoAnimation: function() {
+			var aDemoNavData = [
+				{
+					location: "frontdesk",
+					destination: "mr0824",
+					orientation: 0
+				}, {
+					location: "aisle1",
+					destination: "mr0824",
+					orientation: -30
+				}, {
+					location: "aisle2",
+					destination: "mr0824",
+					orientation: -30
+				}, {
+					location: "aisle3",
+					destination: "mr0824",
+					orientation: -30
+				}, {
+					location: "aisle4",
+					destination: "mr0824",
+					orientation: -30
+				}, {
+					location: "aisle5",
+					destination: "mr0824",
+					orientation: -60
+				}, {
+					location: "aisle6",
+					destination: "mr0824",
+					orientation: -60
+				}, {
+					location: "mr0824",
+					destination: "mr0824",
+					orientation: 30
+				}
+			];
+			
+			var that = this;
+			var iIndex = 0;
+			this.oTimer = setInterval(function() {
+				that.getView().getModel("nav").setData(aDemoNavData[iIndex]);
+				that.getView().getModel("nav").refresh(true);
+				iIndex = (++iIndex) % aDemoNavData.length;
+			}, 1000);
 		}
 	});
 });

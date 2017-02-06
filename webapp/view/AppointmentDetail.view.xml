@@ -10,7 +10,7 @@
 		showNavButton="{device>/isPhone}"
 		showFooter="false">
 		<content>
-			<map:Map location="frontdesk" destination="dt" showThumbnail="onPressShowThumb" isThumbnail="false"></map:Map>
+			<map:Map location="{nav>/location}" destination="{nav>/destination}" orientation="{nav>/orientation}" showThumbnail="onPressShowThumb" isThumbnail="false"></map:Map>
 		</content>
 	</Page>
 </mvc:View>

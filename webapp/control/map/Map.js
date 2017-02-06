@@ -61,9 +61,13 @@ sap.ui.define([
 		_sOrientation: null,
 		_bIsThumbnail: null,
 
+		_bToolbarExpanded: null,
+
 		init: function() {
 			var oVBox = sap.ui.xmlfragment(this.getId(), "sap.dm.control.map.map");
 			this.setAggregation("_VBox", oVBox);
+
+			this._initParams();
 		},
 
 		onAfterRendering: function() {
@@ -75,7 +79,12 @@ sap.ui.define([
 			if (this._bIsThumbnail) {
 				this._showInThumbnail();
 			} else {
-				this._showInFullsize();
+				if (this._oSvg) {
+					this._calcPath();
+				} else {
+					this._showInFullsize();
+				}
+
 			}
 		},
 
@@ -96,14 +105,13 @@ sap.ui.define([
 		_showInFullsize: function() {
 			var that = this;
 			this._getPathData().then(function() {
-				that._initParams();
 				that._initControls();
 				that._prepareMap();
 				that._prepareSettingBtn();
 				that._prepareZoomInBtn();
 				that._prepareZoomOutBtn();
 				that._prepareResetBtn();
-				//that._prepareInfoPopup();
+				// that._prepareInfoPopup();
 				that._hideThumbnailToolbar();
 				that._attachShowThumbnailEvt();
 				// that._adjustOrientation();
@@ -117,6 +125,7 @@ sap.ui.define([
 			this._fOriginalY = 0;
 			this._fCurrentX = 0;
 			this._fCurrentY = 0;
+			this._bToolbarExpanded = false;
 		},
 
 		_initControls: function() {
@@ -138,29 +147,20 @@ sap.ui.define([
 			this._enableDrag();
 			this._calcPath();
 		},
-		
-		_prepareSettingBtn: function(){
+
+		_prepareSettingBtn: function() {
 			var that = this;
 			this._oSettingBtn.touchend(function() {
-				if(that._oResetBtn.attr("display")==="none"){
+				if (that._oResetBtn.attr("display") === "none") {
 					that._showResetBtn();
 					that._showZoomInBtn();
 					that._showZoomOutBtn();
-				}
-				else{
+				} else {
 					that._hideResetBtn();
 					that._hideZoomInBtn();
 					that._hideZoomOutBtn();
 				}
 			});
-		},
-		
-		_showResetBtn: function() {
-			this._oResetBtn.attr("display", "block");
-			this._oResetBtn.attr("transform", "t20,40");
-			this._oResetBtn.animate({
-				transform: "t20,140"
-			}, 200, mina.linear);
 		},
 
 		_prepareZoomInBtn: function() {
@@ -393,6 +393,14 @@ sap.ui.define([
 			return ("#" + this.getId() + "--" + sId);
 		},
 		
+		_showResetBtn: function() {
+			this._oResetBtn.attr("display", "block");
+			this._oResetBtn.attr("transform", "t20,40");
+			this._oResetBtn.animate({
+				transform: "t20,140"
+			}, 200, mina.linear);
+		},
+
 		_showZoomInBtn: function() {
 			this._oZoomInBtn.attr("display", "block");
 			this._oZoomInBtn.attr("transform", "t20,40");
@@ -400,7 +408,7 @@ sap.ui.define([
 				transform: "t20,240"
 			}, 200, mina.linear);
 		},
-		
+
 		_showZoomOutBtn: function() {
 			this._oZoomOutBtn.attr("display", "block");
 			this._oZoomOutBtn.attr("transform", "t20,40");
@@ -408,7 +416,7 @@ sap.ui.define([
 				transform: "t20,309"
 			}, 200, mina.linear);
 		},
-		
+
 		_hideResetBtn: function() {
 			var that = this;
 			this._oResetBtn.animate({
@@ -417,7 +425,7 @@ sap.ui.define([
 				that._oResetBtn.attr("display", "none");
 			});
 		},
-		
+
 		_hideZoomInBtn: function() {
 			var that = this;
 			this._oZoomInBtn.animate({
@@ -426,7 +434,7 @@ sap.ui.define([
 				that._oZoomInBtn.attr("display", "none");
 			});
 		},
-		
+
 		_hideZoomOutBtn: function() {
 			var that = this;
 			this._oZoomOutBtn.animate({
