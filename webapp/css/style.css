@@ -19,11 +19,9 @@
 	height: 100%;
 }
 
-
 .menuPage .menuList .sapMBtn {
 	width: 100%;
 }
-
 
 .menuPage .menuList .sapMBtnInner {
 	width: 100%;
@@ -31,6 +29,14 @@
 	padding: 0rem;
 }
 
+.dmSplitContainer aside {
+	position: absolute;
+	z-index: 50;
+}
+
+.dmSplitContainer .sapUiUfdSpltContCanvas {
+	position: initial;
+}
 
 .menuPage {
 	border: none;

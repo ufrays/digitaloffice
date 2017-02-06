@@ -10,7 +10,10 @@ sap.ui.define([
 
 			this._router = oComponent.getRouter();
 			this._router.getRoute("appointment").attachPatternMatched(this._loadAppointment, this);
-
+			this.oSplitContainer = this.getView().byId("idSplitContainer");
+			if (this.oSplitContainer) {
+				this.oSplitContainer.setShowSecondaryContent(false);
+			}
 		},
 
 		_loadAppointment: function(oEvent) {
@@ -19,7 +22,14 @@ sap.ui.define([
 		},
 
 		onPressMenuBtn: function() {
-			this._router.navTo("menu");
+			if (this.oSplitContainer) {
+				var bIsAsideShows = this.oSplitContainer.getShowSecondaryContent();
+				if (bIsAsideShows) {
+					this.oSplitContainer.setShowSecondaryContent(false);
+				} else {
+					this.oSplitContainer.setShowSecondaryContent(true);
+				}
+			}
 		},
 
 		onPressAppointment: function(oEvent) {
@@ -48,8 +58,23 @@ sap.ui.define([
 			}
 		},
 
-		handleNavButtonPress: function() {
-			this.getOwnerComponent().myNavBack();
+		onUserMenuAction: function(oEvent) {
+			var oItem = oEvent.getParameter("item"), sItemPath = "";
+			while (oItem instanceof sap.m.MenuItem) {
+				sItemPath = oItem.getText() + " > " + sItemPath;
+				oItem = oItem.getParent();
+			}
+			sItemPath = sItemPath.substr(0, sItemPath.lastIndexOf(" > "));
+			sap.m.MessageToast.show("Action triggered on item: " + sItemPath);
+		},
+
+// onPressAppointment: function() {
+// this._router.navTo("appointment");
+// },
+
+		onPressMenuSitemap: function() {
+			this._router.navTo("sitemap");
+			this.oSplitContainer.setShowSecondaryContent(false);
 		}
 
 	});

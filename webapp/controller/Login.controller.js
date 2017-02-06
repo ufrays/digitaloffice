@@ -30,7 +30,7 @@ sap.ui.define([
 		onPinCodeLogin: function() {
 			var oUserModel = new JSONModel("model/userProfile.json");
 			var sPin = this.oFormLoginModel.getData().pinCode;
-			this._router.navTo("menu");
+			this._router.navTo("appointment");
 
 		}
 	});

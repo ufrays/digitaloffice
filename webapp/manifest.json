@@ -64,32 +64,32 @@
 				"appointment": {
 					"viewName": "Appointment",
 					"viewLevel": 2,
-					"controlAggregation": "detailPages"
+					"controlAggregation": "pages"
 				},
 				"sitemap": {
 					"viewName": "Sitemap",
 					"viewLevel": 3,
-					"controlAggregation": "detailPages"
+					"controlAggregation": "pages"
 				},
 				"login": {
 					"viewName": "Login",
 					"viewLevel": 0,
-					"controlAggregation": "masterPages"
+					"controlAggregation": "pages"
 				},
 				"appointmentDetail": {
 					"viewName": "AppointmentDetail",
 					"viewLevel": 3,
-					"controlAggregation": "detailPages"
+					"controlAggregation": "pages"
 				},
 				"menu": {
 					"viewName": "Menu",
 					"viewLevel": 1,
-					"controlAggregation": "masterPages"
+					"controlAggregation": "pages"
 				},
 				"notFound": {
 					"viewName": "NotFound",
 					"viewLevel": 3,
-					"controlAggregation": "detailPages"
+					"controlAggregation": "pages"
 				}
 			}
 		}
