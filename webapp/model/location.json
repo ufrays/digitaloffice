@@ -4,8 +4,8 @@
 		"description": "Front Desk",
 		"type":"ROOM",
 		"coordinate":{
-			"xValue":1.1,
-			"yValue":1.1
+			"xValue": 1.1,
+			"yValue": 1.1
 		},
 		"referenceBeacons":[
 			{
