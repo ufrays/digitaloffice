@@ -1,6 +1,6 @@
 sap.ui.define([
-	'sap/ui/core/UIComponent', 'sap/m/routing/Router', 'sap/ui/model/resource/ResourceModel', 'sap/ui/model/odata/ODataModel', 'sap/ui/model/json/JSONModel'
-], function(UIComponent, Router, ResourceModel, ODataModel, JSONModel) {
+	'sap/ui/core/UIComponent', 'sap/m/routing/Router', 'sap/ui/model/resource/ResourceModel', 'sap/ui/model/odata/ODataModel', 'sap/ui/model/json/JSONModel', 'sap/dm/util/Beacon'
+], function(UIComponent, Router, ResourceModel, ODataModel, JSONModel, Beacon) {
 
 	return UIComponent.extend("sap.dm.Component", {
 
@@ -26,6 +26,13 @@ sap.ui.define([
 			this._router = this.getRouter();
 			this._router.getTargets().display("login");
 			this._router.initialize();
+
+			// init beacon
+			try {
+				Beacon.startBeaconRegion();
+			} catch (e) {
+				jQuery.sap.log.error("Beacon cannot start.");
+			}
 		},
 
 		myNavBack: function() {

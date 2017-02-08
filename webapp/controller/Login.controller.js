@@ -9,6 +9,7 @@ sap.ui.define([
 			var oComponent = this.getOwnerComponent();
 			this._router = oComponent.getRouter();
 			this._setupFormVisible();
+
 		},
 
 		_setupFormVisible: function() {
@@ -28,10 +29,24 @@ sap.ui.define([
 		},
 
 		onPinCodeLogin: function() {
-			var oUserModel = new JSONModel("model/userProfile.json");
-			var sPin = this.oFormLoginModel.getData().pinCode;
-			this._router.navTo("appointment");
-
+			var that = this;
+			var oUserModel = new JSONModel();
+			oUserModel.loadData("model/userProfile.json", null, false);
+			if (oUserModel && oUserModel.getData() && oUserModel.getData().length > 0) {
+				var oLoginUser = _.find(oUserModel.getData(), function(oItem) {
+					if (oItem.pingCode === that.oFormLoginModel.getData().pinCode) {
+						return true;
+					}
+				});
+				if (oLoginUser) {
+					var oLoginModel = new JSONModel();
+					oLoginModel.setData(oLoginUser);
+					that.getOwnerComponent().setModel(oLoginModel, "oLoginModel");
+					that._router.navTo("appointment");
+				} else {
+					that.getView().byId("idPinCode").setValueState(sap.ui.core.ValueState.Error);
+				}
+			}
 		}
 	});
 });

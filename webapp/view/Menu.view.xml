@@ -31,11 +31,13 @@
 				</CustomListItem>
 				<CustomListItem>
 					<Button
+					press="onPressAbout"
 						icon="sap-icon://building"
 						text="About Chengdu"></Button>
 				</CustomListItem>
 				<CustomListItem>
 					<Button
+					press="onPressSuccessStories"
 						icon="sap-icon://activity-2"
 						text="Success Story"></Button>
 				</CustomListItem>

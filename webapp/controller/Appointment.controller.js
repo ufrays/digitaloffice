@@ -22,14 +22,7 @@ sap.ui.define([
 		},
 
 		onPressMenuBtn: function() {
-			if (this.oSplitContainer) {
-				var bIsAsideShows = this.oSplitContainer.getShowSecondaryContent();
-				if (bIsAsideShows) {
-					this.oSplitContainer.setShowSecondaryContent(false);
-				} else {
-					this.oSplitContainer.setShowSecondaryContent(true);
-				}
-			}
+			this._router.navTo("menu");
 		},
 
 		onPressAppointment: function(oEvent) {
@@ -66,15 +59,6 @@ sap.ui.define([
 			}
 			sItemPath = sItemPath.substr(0, sItemPath.lastIndexOf(" > "));
 			sap.m.MessageToast.show("Action triggered on item: " + sItemPath);
-		},
-
-// onPressAppointment: function() {
-// this._router.navTo("appointment");
-// },
-
-		onPressMenuSitemap: function() {
-			this._router.navTo("sitemap");
-			this.oSplitContainer.setShowSecondaryContent(false);
 		}
 
 	});

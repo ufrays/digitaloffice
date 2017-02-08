@@ -24,7 +24,7 @@
 					text="Appointments"
 					level="H3"></Title>
 				<ToolbarSpacer></ToolbarSpacer>
-				<MenuButton text="Thomas">
+				<MenuButton id="abc" text="{oLoginModel>/firstName}">
 					<menu>
 						<Menu itemSelected="onUserMenuAction">
 							<items>
@@ -37,67 +37,38 @@
 			</Toolbar>
 		</customHeader>
 		<content>
-			<u:SplitContainer
-				class="dmSplitContainer"
-				id="idSplitContainer"
-				showSecondaryContent="true">
-				<u:secondaryContent>
-					<VBox class="menuPage">
-						<List class="menuList">
-							<CustomListItem>
-								<Button
-									icon="sap-icon://functional-location"
-									text="Site Map"
-									press="onPressMenuSitemap"></Button>
-							</CustomListItem>
-							<CustomListItem>
-								<Button
-									icon="sap-icon://building"
-									text="About Chengdu"></Button>
-							</CustomListItem>
-							<CustomListItem>
-								<Button
-									icon="sap-icon://activity-2"
-									text="Success Story"></Button>
-							</CustomListItem>
-						</List>
+			<List items="{path: 'oAppointmentModel>/'}">
+				<CustomListItem>
+					<VBox>
+						<GenericTile
+							class="sapUiTinyMargin tileLayout"
+							header="{oAppointmentModel>type}"
+							frameType="TwoByOne"
+							backgroundImage="img/NewsImage.png"
+							press="onPressAppointment">
+							<tileContent>
+								<TileContent footer="August 21, 2016">
+									<content>
+										<NewsContent
+											contentText="{oAppointmentModel>title}"
+											subheader="{parts: ['oAppointmentModel>location','oAppointmentModel>dateTime'], formatter:'.formatter.formatMeetingInfo'}">
+										</NewsContent>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<VBox
+							class="sapUiTinyMargin"
+							visible="false">
+							<map:Map
+								location="{oAppointmentModel>curLocation}"
+								destination="{oAppointmentModel>location/name}"
+								showFullsize="onPressMap"
+								isThumbnail="true"></map:Map>
+						</VBox>
 					</VBox>
-				</u:secondaryContent>
-				<u:content>
-					<List items="{path: 'oAppointmentModel>/'}">
-						<CustomListItem>
-							<VBox>
-								<GenericTile
-									class="sapUiTinyMargin tileLayout"
-									header="{oAppointmentModel>type}"
-									frameType="TwoByOne"
-									backgroundImage="img/NewsImage.png"
-									press="onPressAppointment">
-									<tileContent>
-										<TileContent footer="August 21, 2016">
-											<content>
-												<NewsContent
-													contentText="{oAppointmentModel>title}"
-													subheader="{parts: ['oAppointmentModel>location','oAppointmentModel>dateTime'], formatter:'.formatter.formatMeetingInfo'}">
-												</NewsContent>
-											</content>
-										</TileContent>
-									</tileContent>
-								</GenericTile>
-								<VBox
-									class="sapUiTinyMargin"
-									visible="false">
-									<map:Map
-										location="{oAppointmentModel>curLocation}"
-										destination="{oAppointmentModel>location/name}"
-										showFullsize="onPressMap"
-										isThumbnail="true"></map:Map>
-								</VBox>
-							</VBox>
-						</CustomListItem>
-					</List>
-				</u:content>
-			</u:SplitContainer>
+				</CustomListItem>
+			</List>
 		</content>
 	</Page>
 </mvc:View>

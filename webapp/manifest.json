@@ -59,6 +59,15 @@
 				"pattern": "appointment/{id}",
 				"name": "appointmentDetail",
 				"target": "appointmentDetail"
+			},
+			{
+				"pattern": "about",
+				"name": "about",
+				"target": "about"
+			},{
+				"pattern": "successStories",
+				"name": "successStories",
+				"target": "successStories"
 			}],
 			"targets": {
 				"appointment": {
@@ -89,6 +98,16 @@
 				"notFound": {
 					"viewName": "NotFound",
 					"viewLevel": 3,
+					"controlAggregation": "pages"
+				},
+				"about": {
+					"viewName": "About",
+					"viewLevel": 2,
+					"controlAggregation": "pages"
+				},
+				"successStories": {
+					"viewName": "SuccessStories",
+					"viewLevel": 2,
 					"controlAggregation": "pages"
 				}
 			}

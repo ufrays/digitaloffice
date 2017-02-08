@@ -1,0 +1,23 @@
+<mvc:View
+	controllerName="sap.dm.controller.About"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:control="control"
+	xmlns:h="http://www.w3.org/1999/xhtml">
+	<Page
+		title="Site Map"
+		navButtonPress="handleNavBack"
+		showNavButton="{device>/isPhone}"
+		showFooter="{device>/isNoPhone}">
+		<headerContent>
+		</headerContent>
+		<footer>
+			<Toolbar>
+			</Toolbar>
+		</footer>
+		<content>
+			<Text text="About Chengdu"></Text>
+		</content>
+	</Page>
+</mvc:View>

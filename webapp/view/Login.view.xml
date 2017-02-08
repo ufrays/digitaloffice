@@ -38,7 +38,7 @@
 						visible="{oFormLoginModel>/bPinCode}"
 						class="loginForm">
 						<Text text="Please enter the pin code"></Text>
-						<Input value="{oFormLoginModel>/pinCode}"></Input>
+						<Input id="idPinCode" value="{oFormLoginModel>/pinCode}"></Input>
 						<Button
 							text="Login"
 							press="onPinCodeLogin"></Button>

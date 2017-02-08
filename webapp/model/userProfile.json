@@ -1,11 +1,13 @@
 [
 	{
 		"id":"1",
+		"pingCode" : "1001",
 		"firstName": "Henry",
 		"lastName" : "Cao"
 	},
 	{
 		"id":"2",
+		"pingCode" : "1002",
 		"firstName": "Thomas",
 		"lastName" : "Zimen"
 	}

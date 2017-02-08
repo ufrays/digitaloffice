@@ -21,6 +21,12 @@ sap.ui.define([
 
 		onPressSitemap: function() {
 			this._router.navTo("sitemap");
+		},
+		onPressAbout: function() {
+			this._router.navTo("about");
+		},
+		onPressSuccessStories: function() {
+			this._router.navTo("successStories");
 		}
 
 	});
