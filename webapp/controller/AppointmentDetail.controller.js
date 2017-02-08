@@ -50,7 +50,7 @@ sap.ui.define([
 		initNavModel: function() {
 			var oNavData = {
 				location: "frontdesk",
-				destination: "mr0824",
+				destination: "collaboration",
 				orientation: 0
 			}
 
@@ -59,40 +59,74 @@ sap.ui.define([
 		},
 
 		addDemoAnimation: function() {
+			var sDestination = "mr0805-0806";
 			var aDemoNavData = [
 				{
 					location: "frontdesk",
-					destination: "mr0824",
+					destination: sDestination,
+					orientation: 0
+				},{
+					location: "male",
+					destination: sDestination,
+					orientation: 0
+				},{
+					location: "pantry",
+					destination: sDestination,
+					orientation: 0
+				},{
+					location: "collaboration",
+					destination: sDestination,
+					orientation: 0
+				},{
+					location: "mr0805-0806",
+					destination: sDestination,
 					orientation: 0
 				}, {
-					location: "aisle1",
-					destination: "mr0824",
+					location: "dt",
+					destination: sDestination,
 					orientation: -30
 				}, {
-					location: "aisle2",
-					destination: "mr0824",
+					location: "aisle-1-1",
+					destination: sDestination,
 					orientation: -30
 				}, {
-					location: "aisle3",
-					destination: "mr0824",
+					location: "aisle-1-2",
+					destination: sDestination,
 					orientation: -30
 				}, {
-					location: "aisle4",
-					destination: "mr0824",
+					location: "aisle-1-3",
+					destination: sDestination,
 					orientation: -30
 				}, {
-					location: "aisle5",
-					destination: "mr0824",
+					location: "aisle-1-4",
+					destination: sDestination,
+					orientation: -30
+				}, {
+					location: "aisle-2-1",
+					destination: sDestination,
 					orientation: -60
 				}, {
-					location: "aisle6",
-					destination: "mr0824",
+					location: "aisle-2-2",
+					destination: sDestination,
 					orientation: -60
 				}, {
-					location: "mr0824",
-					destination: "mr0824",
-					orientation: 30
+					location: "aisle-2-3",
+					destination: sDestination,
+					orientation: -60
+				}, {
+					location: "aisle-2-4",
+					destination: sDestination,
+					orientation: -60
 				}
+/*				, {
+					location: "aisle-2-2",
+					destination: "dt",
+					orientation: -60
+				}, {
+					location: "aisle-2-3",
+					destination: "dt",
+					orientation: 30
+				}*/
 			];
 			
 			var that = this;

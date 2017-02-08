@@ -1,7 +1,7 @@
 [
 	{
 		"locationId": "106",
-		"description": "Front Desk",
+		"description": "frontdesk",
 		"type":"ROOM",
 		"coordinate":{
 			"xValue": 1.1,
@@ -21,7 +21,7 @@
 	},
 	{
 		"locationId": "101",
-		"description": "MR 08.05-06",
+		"description": "mr0805-0806",
 		"type":"ROOM",
 		"coordinate":{
 			"xValue":1.1,
