@@ -1,7 +1,7 @@
 [
 	{
-		"locationId": "106",
-		"description": "frontdesk",
+		"locationId": "frontdesk",
+		"description": "Front desk",
 		"type":"ROOM",
 		"coordinate":{
 			"xValue": 1.1,
@@ -20,8 +20,8 @@
 		]
 	},
 	{
-		"locationId": "101",
-		"description": "mr0805-0806",
+		"locationId": "mr0805-0806",
+		"description": "MR 0805-0806",
 		"type":"ROOM",
 		"coordinate":{
 			"xValue":1.1,
@@ -43,7 +43,7 @@
 		]
 	},
 	{
-		"locationId": "102",
+		"locationId": "dt",
 		"description": "Design Thinking",
 		"type":"ROOM",
 		"coordinate":{
@@ -66,7 +66,7 @@
 		]
 	},
 	{
-		"locationId": "107",
+		"locationId": "mr0824",
 		"description": "MR 08.24",
 		"type":"ROOM",
 		"coordinate":{
@@ -104,8 +104,8 @@
 		]
 	},
 	{
-		"locationId": "103",
-		"description": "Panty",
+		"locationId": "pantry",
+		"description": "Pantry",
 		"type":"ROOM",
 		"coordinate":{
 			"xValue":1.1,
@@ -142,8 +142,8 @@
 		]
 	},
 	{
-		"locationId": "104",
-		"description": "Collboration Room",
+		"locationId": "collaboration",
+		"description": "Collaboration Room",
 		"type":"ROOM",
 		"coordinate":{
 			"xValue":1.1,
@@ -180,7 +180,7 @@
 		]
 	},
 	{
-		"locationId": "20101",
+		"locationId": "aisle-1-1",
 		"description": "Aisle-1-1",
 		"type":"AISLE",
 		"coordinate":{
@@ -195,7 +195,7 @@
 		]
 	},
 	{
-		"locationId": "20102",
+		"locationId": "aisle-1-2",
 		"description": "Aisle-1-2",
 		"type":"AISLE",
 		"coordinate":{
@@ -210,7 +210,7 @@
 		]
 	},
 	{
-		"locationId": "20103",
+		"locationId": "aisle-1-3",
 		"description": "Aisle-1-3",
 		"type":"AISLE",
 		"coordinate":{
@@ -225,7 +225,7 @@
 		]
 	},
 	{
-		"locationId": "20104",
+		"locationId": "aisle-1-4",
 		"description": "Aisle-1-4",
 		"type":"AISLE",
 		"coordinate":{
@@ -240,7 +240,7 @@
 		]
 	},
 	{
-		"locationId": "20201",
+		"locationId": "aisle-2-1",
 		"description": "Aisle-2-1",
 		"type":"AISLE",
 		"coordinate":{
@@ -255,7 +255,7 @@
 		]
 	},
 	{
-		"locationId": "20202",
+		"locationId": "aisle-2-2",
 		"description": "Aisle-2-2",
 		"type":"AISLE",
 		"coordinate":{
@@ -270,7 +270,7 @@
 		]
 	},
 	{
-		"locationId": "20203",
+		"locationId": "aisle-2-3",
 		"description": "Aisle-2-3",
 		"type":"AISLE",
 		"coordinate":{
@@ -285,7 +285,7 @@
 		]
 	},
 	{
-		"locationId": "20204",
+		"locationId": "aisle-2-4",
 		"description": "Aisle-2-4",
 		"type":"AISLE",
 		"coordinate":{
