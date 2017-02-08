@@ -1,41 +1,41 @@
 [
 	{
 		"id":"1",
-		"hostId": "abc",
-		"attendees" : [],
-		"type":"Meeting",
-		"title" : "All Hands Meeting",
-		"dateTime" : "1485331585747",
+		"hostId": "",
+		"attendees" : [1,2,3,4,5,6,7,8,9,10],
+		"type":"",
+		"title" : "CSC Introduction",
+		"dateTime" : "1487293200000",
 		"location" : {
-				"name" : "dt"
+				"id" : "104",
+				"name" : "Collboration Room"
 			},
-		"curLocation":"frontdesk",
-		"content" : "Test meeting appointment"
+		"content" : ""
 	},
 	{
 		"id":"2",
-		"hostId": "abc",
-		"attendees" : [],
-		"type":"Meeting",
-		"title" : "Coffee Corner Session",
-		"dateTime" : "1485331685747",
+		"hostId": "",
+		"attendees" : [1,2,3,4,5,6,7,8,9,10],
+		"type":"",
+		"title" : "People Development",
+		"dateTime" : "1487296800000",
 		"location" : {
-				"name" : "dt"
+				"id" : "104",
+				"name" : "Collboration Room"
 			},
-		"curLocation":"male",
-		"content" : "Prepare the coffee"
+		"content" : ""
 	},
 	{
 		"id":"3",
-		"hostId": "abc",
-		"attendees" : [],
-		"type":"Meeting",
-		"title" : "Gaming",
-		"dateTime" : "1485331685747",
+		"hostId": "",
+		"attendees" : [1,2,3,4,5,6,7,8,9,10],
+		"type":"",
+		"title" : "All hand meeting with Klaus and Thomas",
+		"dateTime" : "1487302200000",
 		"location" : {
-				"name" : "dt"
+				"id" : "101",
+				"name" : "MR 08.05-06"
 			},
-		"curLocation":"collaboration",
-		"content" : "Time for fun"
+		"content" : ""
 	}
 ]

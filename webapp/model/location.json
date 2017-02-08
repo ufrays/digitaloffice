@@ -81,10 +81,6 @@
 			{
 				"majorId":"107",
 				"minorId":"2"
-			},
-			{
-				"majorId":"107",
-				"minorId":"3"
 			}
 		]
 	},
@@ -104,10 +100,6 @@
 			{
 				"majorId":"108",
 				"minorId":"2"
-			},
-			{
-				"majorId":"108",
-				"minorId":"3"
 			}
 		]
 	},
@@ -126,6 +118,63 @@
 			},
 			{
 				"majorId":"103",
+				"minorId":"2"
+			}
+		]
+	},
+	{
+		"locationId": "105",
+		"description": "Rest Room",
+		"type":"ROOM",
+		"coordinate":{
+			"xValue":1.1,
+			"yValue":1.1
+		},
+		"referenceBeacons":[
+			{
+				"majorId":"105",
+				"minorId":"1"
+			},
+			{
+				"majorId":"105",
+				"minorId":"2"
+			}
+		]
+	},
+	{
+		"locationId": "104",
+		"description": "Collboration Room",
+		"type":"ROOM",
+		"coordinate":{
+			"xValue":1.1,
+			"yValue":1.1
+		},
+		"referenceBeacons":[
+			{
+				"majorId":"104",
+				"minorId":"1"
+			},
+			{
+				"majorId":"104",
+				"minorId":"2"
+			}
+		]
+	},
+	{
+		"locationId": "109",
+		"description": "Painting Room",
+		"type":"ROOM",
+		"coordinate":{
+			"xValue":1.1,
+			"yValue":1.1
+		},
+		"referenceBeacons":[
+			{
+				"majorId":"109",
+				"minorId":"1"
+			},
+			{
+				"majorId":"109",
 				"minorId":"2"
 			}
 		]
@@ -247,6 +296,51 @@
 			{
 				"majorId":"202",
 				"minorId":"4"
+			}
+		]
+	},
+	{
+		"locationId": "20205",
+		"description": "Aisle-2-5",
+		"type":"AISLE",
+		"coordinate":{
+			"xValue":1.1,
+			"yValue":1.1
+		},
+		"referenceBeacons":[
+			{
+				"majorId":"202",
+				"minorId":"5"
+			}
+		]
+	},
+	{
+		"locationId": "20206",
+		"description": "Aisle-2-6",
+		"type":"AISLE",
+		"coordinate":{
+			"xValue":1.1,
+			"yValue":1.1
+		},
+		"referenceBeacons":[
+			{
+				"majorId":"202",
+				"minorId":"6"
+			}
+		]
+	},
+	{
+		"locationId": "20207",
+		"description": "Aisle-2-7",
+		"type":"AISLE",
+		"coordinate":{
+			"xValue":1.1,
+			"yValue":1.1
+		},
+		"referenceBeacons":[
+			{
+				"majorId":"202",
+				"minorId":"7"
 			}
 		]
 	}
