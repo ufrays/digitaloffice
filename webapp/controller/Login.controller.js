@@ -34,7 +34,7 @@ sap.ui.define([
 			oUserModel.loadData("model/userProfile.json", null, false);
 			if (oUserModel && oUserModel.getData() && oUserModel.getData().length > 0) {
 				var oLoginUser = _.find(oUserModel.getData(), function(oItem) {
-					if (oItem.pingCode === that.oFormLoginModel.getData().pinCode) {
+					if (oItem.pinCode === that.oFormLoginModel.getData().pinCode) {
 						return true;
 					}
 				});

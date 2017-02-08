@@ -24,7 +24,9 @@
 					text="Appointments"
 					level="H3"></Title>
 				<ToolbarSpacer></ToolbarSpacer>
-				<MenuButton id="abc" text="{oLoginModel>/firstName}">
+				<MenuButton
+					id="abc"
+					text="{oLoginModel>/firstName}">
 					<menu>
 						<Menu itemSelected="onUserMenuAction">
 							<items>
@@ -61,7 +63,7 @@
 							class="sapUiTinyMargin"
 							visible="false">
 							<map:Map
-								location="{oAppointmentModel>curLocation}"
+								location="{currentLocation>description}"
 								destination="{oAppointmentModel>location/name}"
 								showFullsize="onPressMap"
 								isThumbnail="true"></map:Map>

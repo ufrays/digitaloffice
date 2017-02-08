@@ -2,7 +2,7 @@
 	{
 		"id":"1",
 		"hostId": "",
-		"attendees" : [1,2,3,4,5,6,7,8,9,10],
+		"attendees" : ["1","2","3","4","5","6","7","8","9","10"],
 		"type":"",
 		"title" : "CSC Introduction",
 		"dateTime" : "1487293200000",
@@ -15,20 +15,20 @@
 	{
 		"id":"2",
 		"hostId": "",
-		"attendees" : [1,2,3,4,5,6,7,8,9,10],
+		"attendees" : ["1","2","3","4","5","6","7","8","9","10"],
 		"type":"",
 		"title" : "People Development",
 		"dateTime" : "1487296800000",
 		"location" : {
 				"id" : "104",
-				"name" : "Collboration Room"
+				"name" : "Collaboration Room"
 			},
 		"content" : ""
 	},
 	{
 		"id":"3",
 		"hostId": "",
-		"attendees" : [1,2,3,4,5,6,7,8,9,10],
+		"attendees" : ["1","2","3","4","5","6","7","8","9","10"],
 		"type":"",
 		"title" : "All hand meeting with Klaus and Thomas",
 		"dateTime" : "1487302200000",

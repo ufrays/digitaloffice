@@ -28,11 +28,76 @@ sap.ui.define([
 			this._router.initialize();
 
 			// init beacon
+
 			try {
 				Beacon.startBeaconRegion();
+				// Beacon : {majorId:xx, minorId:xx}
 			} catch (e) {
 				jQuery.sap.log.error("Beacon cannot start.");
 			}
+
+			/* will move to try block */
+
+			var oCurrentLocationModel = new JSONModel();
+			this.setModel(oCurrentLocationModel, "currentLocation");
+
+			// runtime update the beacon info.
+			this._loadBeaconInfo(Beacon, oCurrentLocationModel);
+		},
+
+		_loadBeaconInfo: function(oBeacon, oCurrentLocationModel) {
+			var that = this;
+			var oInterval = new sap.ui.core.IntervalTrigger(1000);
+			oInterval.addListener(function() {
+
+				var oCurrentBeaconInfo = oBeacon.getCurrentBeacon();
+				if (!_.isEmpty(oCurrentBeaconInfo)) {
+					// get location from beacon
+					var oCurrentLocation = that._mapBeaconLocation(oCurrentBeaconInfo);
+					// set location data.
+					oCurrentLocationModel.setData(oCurrentLocation);
+					jQuery.sap.log.error(JSON.stringify(oCurrentBeaconInfo));
+				}
+
+				/* test code , will remove */
+				else {
+					oCurrentBeaconInfo = {
+						majorId: "106",
+						minorId: "1"
+					};
+					jQuery.sap.log.error(JSON.stringify(oCurrentLocationModel.getData()));
+				}
+				var oCurrentLocation = that._mapBeaconLocation(oCurrentBeaconInfo);
+				oCurrentLocationModel.setData(oCurrentLocation);
+				jQuery.sap.log.error(JSON.stringify(oCurrentLocation));
+
+				/* end test */
+
+				// refresh model
+				oCurrentLocationModel.refresh();
+			});
+		},
+
+		_mapBeaconLocation: function(oCurrentBeacon) {
+			var locationsModel = new JSONModel();
+			locationsModel.loadData("model/location.json", null, false);
+			if (locationsModel.getData() && locationsModel.getData().length > 0) {
+				var mappedLocation = _.find(locationsModel.getData(), function(oItem) {
+					var bIsMatched = false;
+					oItem.referenceBeacons.forEach(function(oPoint) {
+						if (_.isEqual(oPoint, oCurrentBeacon)) {
+							bIsMatched = true;
+							return;
+						}
+					});
+					return bIsMatched;
+				});
+				return mappedLocation;
+			}
+		},
+
+		_locationEventDispather: function() {
+
 		},
 
 		myNavBack: function() {
