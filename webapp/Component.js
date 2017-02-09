@@ -34,6 +34,7 @@ sap.ui.define([
 				// Beacon : {majorId:xx, minorId:xx}
 			} catch (e) {
 				jQuery.sap.log.error("Beacon cannot start.");
+				sap.m.MessageToast.show("Beacon cannot start.");
 			}
 
 			/* will move to try block */
@@ -69,6 +70,7 @@ sap.ui.define([
 				}
 				var oCurrentLocation = that._mapBeaconLocation(oCurrentBeaconInfo);
 				oCurrentLocationModel.setData(oCurrentLocation);
+				sap.m.MessageToast.show(oCurrentLocation.locationId);
 				jQuery.sap.log.error(JSON.stringify(oCurrentLocation));
 
 				/* end test */
