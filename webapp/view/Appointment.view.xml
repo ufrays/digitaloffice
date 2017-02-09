@@ -65,6 +65,7 @@
 							<map:Map
 								location="{currentLocation>/locationId}"
 								destination="{oAppointmentModel>location/id}"
+								orientation="{currentOrientation>/heading}"
 								showFullsize="onPressMap"
 								isThumbnail="true"></map:Map>
 						</VBox>

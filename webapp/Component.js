@@ -34,8 +34,9 @@ sap.ui.define([
 			});
 			this.setModel(oDebug, "debug");
 			try {
-				Beacon.startBeaconRegion();
+				
 				Orientatioin.startWatchHeading();
+				Beacon.startBeaconRegion();
 				// Beacon : {majorId:xx, minorId:xx}
 			} catch (e) {
 				var dInfo = oDebug.getData().debugInfo;
