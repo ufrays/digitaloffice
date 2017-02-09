@@ -20,6 +20,7 @@ sap.ui.define([
 		onLocationChange: function(oEvent) {
 			var that = this;
 			var oLocation = arguments[2];
+			sap.m.MessageToast.show("location changed to " + oLocation.locationId);
 			if (oLocation) {
 				switch (oLocation.locationId) {
 					case "pantry":
