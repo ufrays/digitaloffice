@@ -33,7 +33,7 @@ sap.ui.define([
 				this.getView().setModel(oCurrentAppointmentModel);
 
 				this.initNavModel();
-				this.addDemoAnimation();
+				//this.addDemoAnimation();
 			}
 		},
 

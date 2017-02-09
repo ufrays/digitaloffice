@@ -161,7 +161,7 @@
 		]
 	},
 	{
-		"locationId": "109",
+		"locationId": "painting",
 		"description": "Painting Room",
 		"type":"ROOM",
 		"coordinate":{

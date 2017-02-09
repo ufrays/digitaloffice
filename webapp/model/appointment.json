@@ -7,7 +7,7 @@
 		"title" : "CSC Introduction",
 		"dateTime" : "1487293200000",
 		"location" : {
-				"id" : "104",
+				"id" : "collboration",
 				"name" : "Collboration Room"
 			},
 		"content" : ""
@@ -20,7 +20,7 @@
 		"title" : "People Development",
 		"dateTime" : "1487296800000",
 		"location" : {
-				"id" : "104",
+				"id" : "collaboration",
 				"name" : "Collaboration Room"
 			},
 		"content" : ""
@@ -33,7 +33,7 @@
 		"title" : "All hand meeting with Klaus and Thomas",
 		"dateTime" : "1487302200000",
 		"location" : {
-				"id" : "101",
+				"id" : "mr0805-0806",
 				"name" : "MR 08.05-06"
 			},
 		"content" : ""

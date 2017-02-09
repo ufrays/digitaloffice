@@ -1,90 +1,245 @@
 [
 	{
 		"location":"frontdesk",
-		"destination":"dt",
+		"destination":"collaboration",
 		"x":"0",
-		"y":"210",
+		"y":"594",
 		"width":"750",
-		"height":"750"
+		"height":"378"
 	},
 	{
 		"location":"male",
-		"destination":"dt",
+		"destination":"collaboration",
 		"x":"0",
-		"y":"210",
+		"y":"500",
 		"width":"750",
-		"height":"500"
+		"height":"348"
 	},
 	{
 		"location":"collaboration",
-		"destination":"dt",
+		"destination":"collaboration",
 		"x":"0",
-		"y":"210",
+		"y":"500",
 		"width":"750",
-		"height":"525"
+		"height":"348"
 	},
 	{
 		"location":"pantry",
-		"destination":"dt",
+		"destination":"collaboration",
 		"x":"0",
-		"y":"210",
+		"y":"500",
 		"width":"750",
-		"height":"405"
+		"height":"348"
+	},
+	{
+		"location":"painting",
+		"destination":"collaboration",
+		"x":"0",
+		"y":"500",
+		"width":"750",
+		"height":"348"
+	},
+	{
+		"location":"aisle-1-1",
+		"destination":"collaboration",
+		"x":"0",
+		"y":"500",
+		"width":"750",
+		"height":"348"
+	},
+	{
+		"location":"aisle-1-2",
+		"destination":"collaboration",
+		"x":"0",
+		"y":"500",
+		"width":"750",
+		"height":"348"
+	},
+	{
+		"location":"aisle-1-3",
+		"destination":"collaboration",
+		"x":"0",
+		"y":"500",
+		"width":"750",
+		"height":"348"
+	},
+	{
+		"location":"aisle-1-4",
+		"destination":"collaboration",
+		"x":"0",
+		"y":"500",
+		"width":"750",
+		"height":"348"
 	},
 	{
 		"location":"mr0805-0806",
-		"destination":"dt",
+		"destination":"collaboration",
 		"x":"0",
-		"y":"210",
+		"y":"218",
 		"width":"750",
-		"height":"358"
-	},
-	{
-		"location":"mr0824",
-		"destination":"dt",
-		"x":"0",
-		"y":"80",
-		"width":"750",
-		"height":"445"
-	},
-	{
-		"location":"frontdesk",
-		"destination":"mr0824",
-		"x":"0",
-		"y":"80",
-		"width":"750",
-		"height":"890"
-	},
-	{
-		"location":"male",
-		"destination":"mr0824",
-		"x":"0",
-		"y":"80",
-		"width":"750",
-		"height":"635"
-	},
-	{
-		"location":"pantry",
-		"destination":"mr0824",
-		"x":"0",
-		"y":"80",
-		"width":"750",
-		"height":"544"
-	},
-	{
-		"location":"mr0805-0806",
-		"destination":"mr0824",
-		"x":"0",
-		"y":"80",
-		"width":"750",
-		"height":"490"
+		"height":"506"
 	},
 	{
 		"location":"dt",
-		"destination":"mr0824",
+		"destination":"collaboration",
 		"x":"0",
-		"y":"80",
+		"y":"218",
 		"width":"750",
-		"height":"450"
+		"height":"506"
+	},
+	{
+		"location":"aisle-2-1",
+		"destination":"collaboration",
+		"x":"0",
+		"y":"218",
+		"width":"750",
+		"height":"506"
+	},
+	{
+		"location":"aisle-2-2",
+		"destination":"collaboration",
+		"x":"0",
+		"y":"218",
+		"width":"750",
+		"height":"506"
+	},
+	{
+		"location":"aisle-2-3",
+		"destination":"collaboration",
+		"x":"0",
+		"y":"218",
+		"width":"750",
+		"height":"506"
+	},	
+	{
+		"location":"aisle-2-4",
+		"destination":"collaboration",
+		"x":"0",
+		"y":"218",
+		"width":"750",
+		"height":"506"
+	},
+	
+	{
+		"location":"frontdesk",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"273",
+		"width":"750",
+		"height":"688"
+	},		
+	{
+		"location":"male",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"273",
+		"width":"750",
+		"height":"510"
+	},
+	{
+		"location":"collaboration",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"273",
+		"width":"750",
+		"height":"510"
+	},
+	{
+		"location":"pantry",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"273",
+		"width":"750",
+		"height":"510"
+	},
+	{
+		"location":"painting",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"273",
+		"width":"750",
+		"height":"510"
+	},
+	{
+		"location":"aisle-1-1",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"273",
+		"width":"750",
+		"height":"510"
+	},
+	{
+		"location":"aisle-1-2",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"273",
+		"width":"750",
+		"height":"510"
+	},
+	{
+		"location":"aisle-1-3",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"273",
+		"width":"750",
+		"height":"510"
+	},
+	{
+		"location":"aisle-1-4",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"273",
+		"width":"750",
+		"height":"510"
+	},
+	
+	
+	{
+		"location":"dt",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"210",
+		"width":"750",
+		"height":"400"
+	},
+	{
+		"location":"mr0805-0806",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"210",
+		"width":"750",
+		"height":"400"
+	},
+	{
+		"location":"aisle-2-1",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"210",
+		"width":"750",
+		"height":"400"
+	},
+	{
+		"location":"aisle-2-2",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"210",
+		"width":"750",
+		"height":"400"
+	},
+	{
+		"location":"aisle-2-3",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"210",
+		"width":"750",
+		"height":"400"
+	},
+	{
+		"location":"aisle-2-4",
+		"destination":"mr0805-0806",
+		"x":"0",
+		"y":"210",
+		"width":"750",
+		"height":"400"
 	}
 ]
