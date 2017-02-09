@@ -9,9 +9,9 @@
 		<content>
 			<Panel>
 				<Image
-					width="50%"
+					width="40%"
 					class="sapLogo"
-					src="img/saplogo.jpg"
+					src="img/sap_logo_256.png"
 					densityAware="false"></Image>
 				<VBox
 					justifyContent="Center"
