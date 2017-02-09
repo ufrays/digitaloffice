@@ -1,6 +1,6 @@
 sap.ui.define([
-	'sap/ui/core/UIComponent', 'sap/m/routing/Router', 'sap/ui/model/resource/ResourceModel', 'sap/ui/model/odata/ODataModel', 'sap/ui/model/json/JSONModel', 'sap/dm/util/Beacon'
-], function(UIComponent, Router, ResourceModel, ODataModel, JSONModel, Beacon) {
+	'sap/ui/core/UIComponent', 'sap/m/routing/Router', 'sap/ui/model/resource/ResourceModel', 'sap/ui/model/odata/ODataModel', 'sap/ui/model/json/JSONModel', 'sap/dm/util/Beacon', "sap/dm/util/Orientation"
+], function(UIComponent, Router, ResourceModel, ODataModel, JSONModel, Beacon, Orientatioin) {
 
 	return UIComponent.extend("sap.dm.Component", {
 
@@ -35,6 +35,7 @@ sap.ui.define([
 			this.setModel(oDebug, "debug");
 			try {
 				Beacon.startBeaconRegion();
+				Orientatioin.startWatchHeading();
 				// Beacon : {majorId:xx, minorId:xx}
 			} catch (e) {
 				var dInfo = oDebug.getData().debugInfo;
@@ -49,14 +50,24 @@ sap.ui.define([
 			var oCurrentLocationModel = new JSONModel();
 			this.setModel(oCurrentLocationModel, "currentLocation");
 
-			// runtime update the beacon info.
-			this._loadBeaconInfo(Beacon, oCurrentLocationModel);
+			var oCurrentOrientationModel = new JSONModel({
+				heading: 0
+			});
+			this.setModel(oCurrentOrientationModel, "currentOrientation");
+
+			// runtime update the beacon and orientation info.
+			this._loadDeviceInfo(Beacon, Orientatioin, oCurrentLocationModel, oCurrentOrientationModel);
+
 		},
 
-		_loadBeaconInfo: function(oBeacon, oCurrentLocationModel) {
+		_loadDeviceInfo: function(oBeacon, oOrientatioin, oCurrentLocationModel, oCurrentOrientationModel) {
 			var that = this;
 			var oInterval = new sap.ui.core.IntervalTrigger(5000);
 			oInterval.addListener(function() {
+
+				// set orientation.
+				oCurrentOrientationModel.getData().heading = oOrientatioin.getCurrentLocationHeading();
+				oCurrentOrientationModel.refresh();
 
 				var oCurrentBeaconInfo = oBeacon.getCurrentBeacon();
 				sap.m.MessageToast.show(JSON.stringify(oCurrentBeaconInfo));
