@@ -61,8 +61,10 @@ sap.ui.define([
 		_aThumbnailData: null,
 		_sLocation: null,
 		_sDestination: null,
-		_sOrientation: null,
+		_fOrientation: null,
 		_bIsThumbnail: null,
+		
+		_fOriOffset:null,
 
 		_bToolbarExpanded: null,
 
@@ -77,7 +79,7 @@ sap.ui.define([
 			this._sLocation = this.getProperty("location");
 			this._sDestination = this.getProperty("destination");
 			this._bIsThumbnail = this.getProperty("isThumbnail");
-			this._sOrientation = this.getProperty("orientation");
+			this._fOrientation = this.getProperty("orientation") - this._fOriOffset;
 
 			if (this._bIsThumbnail) {
 				this._showInThumbnail();
@@ -133,6 +135,8 @@ sap.ui.define([
 			this._fCurrentX = 0;
 			this._fCurrentY = 0;
 			this._bToolbarExpanded = false;
+			
+			this._fOriOffset = 227;
 		},
 
 		_initControls: function() {
@@ -311,10 +315,10 @@ sap.ui.define([
 			this._oDestIcon.transform('t' + oPath.dest_coord);
 
 			if (this._oLocIcon.attr("transform").string === "") {
-				this._oLocIcon.transform('t' + oPath.loc_coord + "r" + this._sOrientation);
+				this._oLocIcon.transform('t' + oPath.loc_coord + "r" + this._fOrientation);
 			} else {
 				this._oLocIcon.animate({
-					transform: 't' + oPath.loc_coord + "r" + this._sOrientation
+					transform: 't' + oPath.loc_coord + "r" + this._fOrientation
 				}, 200, mina.linear);
 			}
 
@@ -353,9 +357,9 @@ sap.ui.define([
 		},
 
 		_adjustOrientation: function() {
-			this._sOrientation = this.getProperty("orientation");
+			this._fOrientation = this.getProperty("orientation");
 			var sTranslate = this._oLocIcon.attr("transform").string.split("r")[0];
-			this._oLocIcon.transform(sTranslate + "r" + this._sOrientation);
+			this._oLocIcon.transform(sTranslate + "r" + this._fOrientation);
 		},
 
 		_attachShowThumbnailEvt: function() {

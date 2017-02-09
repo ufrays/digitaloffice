@@ -87,6 +87,13 @@
 		"path":[200,902.4,274.8,907.7, 308.4,673.5, 213.9,663.6]
 	},
 	{
+		"location":"painting",
+		"destination":"collaboration",
+		"loc_coord":"223,554",
+		"dest_coord":"198,610",
+		"path":[248,584, 314,579 ,308.4,673.5, 213.9,663.6]
+	},
+	{
 		"location":"male",
 		"destination":"collaboration",
 		"loc_coord":"446,625",
@@ -184,6 +191,13 @@
 		"loc_coord":"160,880",
 		"dest_coord":"160,324",
 		"path":[200,902.4,274.8,907.7,322.5,536.7, 290,348.4, 202.3,364.6]
+	},
+	{
+		"location":"painting",
+		"destination":"mr0805-0806",
+		"loc_coord":"223,554",
+		"dest_coord":"160,324",
+		"path":[248,584, 314,579 ,322.5,536.7, 290,348.4, 202.3,364.6]
 	},
 	{
 		"location":"pantry",
