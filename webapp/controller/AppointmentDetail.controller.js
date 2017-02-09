@@ -30,7 +30,7 @@ sap.ui.define([
 					});
 				}
 				var oCurrentAppointmentModel = new JSONModel(oCurrentAppointment);
-				this.getView().setModel(oCurrentAppointmentModel);
+				this.getView().setModel(oCurrentAppointmentModel,"oCurrentAppointmentModel");
 
 				this.initNavModel();
 				//this.addDemoAnimation();

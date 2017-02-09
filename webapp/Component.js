@@ -29,11 +29,18 @@ sap.ui.define([
 
 			// init beacon
 
+			var oDebug = new JSONModel({
+				debugInfo: "DEBUG: "
+			});
+			this.setModel(oDebug, "debug");
 			try {
 				Beacon.startBeaconRegion();
 				// Beacon : {majorId:xx, minorId:xx}
 			} catch (e) {
-				jQuery.sap.log.error("Beacon cannot start.");
+				var dInfo = oDebug.getData().debugInfo;
+				oDebug.getData().debugInfo = oDebug.getData().debugInfo.concat("     " + e.stack);
+				oDebug.getData().debugInfo = oDebug.getData().debugInfo.concat("     " + "Beacon cannot start.");
+				oDebug.refresh();
 				sap.m.MessageToast.show("Beacon cannot start.");
 			}
 
@@ -48,10 +55,11 @@ sap.ui.define([
 
 		_loadBeaconInfo: function(oBeacon, oCurrentLocationModel) {
 			var that = this;
-			var oInterval = new sap.ui.core.IntervalTrigger(1000);
+			var oInterval = new sap.ui.core.IntervalTrigger(5000);
 			oInterval.addListener(function() {
 
 				var oCurrentBeaconInfo = oBeacon.getCurrentBeacon();
+				sap.m.MessageToast.show(JSON.stringify(oCurrentBeaconInfo));
 				if (!_.isEmpty(oCurrentBeaconInfo)) {
 					// get location from beacon
 					var oCurrentLocation = that._mapBeaconLocation(oCurrentBeaconInfo);
@@ -70,7 +78,7 @@ sap.ui.define([
 				}
 				var oCurrentLocation = that._mapBeaconLocation(oCurrentBeaconInfo);
 				oCurrentLocationModel.setData(oCurrentLocation);
-				sap.m.MessageToast.show(oCurrentLocation.locationId);
+
 				jQuery.sap.log.error(JSON.stringify(oCurrentLocation));
 
 				/* end test */

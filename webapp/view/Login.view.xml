@@ -38,12 +38,17 @@
 						visible="{oFormLoginModel>/bPinCode}"
 						class="loginForm">
 						<Text text="Please enter the pin code"></Text>
-						<Input id="idPinCode" value="{oFormLoginModel>/pinCode}"></Input>
+						<Input
+							id="idPinCode"
+							value="{oFormLoginModel>/pinCode}"></Input>
 						<Button
 							text="Login"
 							press="onPinCodeLogin"></Button>
 					</VBox>
 				</VBox>
+				<Text
+					id="idDebug"
+					text="{debug>/debugInfo}"></Text>
 			</Panel>
 		</content>
 	</Page>
