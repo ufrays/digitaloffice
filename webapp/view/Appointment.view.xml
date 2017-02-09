@@ -64,7 +64,7 @@
 							visible="false">
 							<map:Map
 								location="{currentLocation>locationId}"
-								destination="{oAppointmentModel>location/name}"
+								destination="{oAppointmentModel>location/id}"
 								showFullsize="onPressMap"
 								isThumbnail="true"></map:Map>
 						</VBox>

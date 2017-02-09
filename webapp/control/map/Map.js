@@ -93,14 +93,17 @@ sap.ui.define([
 
 		_showInThumbnail: function() {
 			var that = this;
+			that._initControls();
+			that._hideFullScreenToolbar();
+			that._attachShowFullsizeEvt();
+			
 			this._getPathData().then(function() {
 				return that._getThumbnailData();
 			}).then(function() {
-				that._initControls();
+				
 				that._calcPath();
 				that._adjustViewBox();
-				that._hideFullScreenToolbar();
-				that._attachShowFullsizeEvt();
+			
 				// that._adjustOrientation();
 			});
 		},
