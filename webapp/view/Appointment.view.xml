@@ -63,7 +63,7 @@
 							class="sapUiTinyMargin"
 							visible="false">
 							<map:Map
-								location="{currentLocation>locationId}"
+								location="{currentLocation>/locationId}"
 								destination="{oAppointmentModel>location/id}"
 								showFullsize="onPressMap"
 								isThumbnail="true"></map:Map>
