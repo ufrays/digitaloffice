@@ -112,7 +112,10 @@ sap.ui.define([
 
 		_showInFullsize: function() {
 			var that = this;
+
 			this._getPathData().then(function() {
+				return that._getThumbnailData();
+			}).then(function() {
 				that._initControls();
 				that._prepareMap();
 				that._prepareSettingBtn();
@@ -120,7 +123,7 @@ sap.ui.define([
 				that._prepareZoomInBtn();
 				that._prepareZoomOutBtn();
 				that._prepareResetBtn();
-				// that._prepareInfoPopup();
+				//that._prepareInfoPopup();
 				that._hideThumbnailToolbar();
 				that._attachShowThumbnailEvt();
 				// that._adjustOrientation();
@@ -356,11 +359,11 @@ sap.ui.define([
 			});
 		},
 
-		_adjustOrientation: function() {
+/*		_adjustOrientation: function() {
 			this._fOrientation = this.getProperty("orientation");
 			var sTranslate = this._oLocIcon.attr("transform").string.split("r")[0];
-			this._oLocIcon.transform(sTranslate + "r" + this._fOrientation);
-		},
+			this._oLocIcon.transform("t"+sTranslate + "r" + this._fOrientation);
+		},*/
 
 		_attachShowThumbnailEvt: function() {
 			var that = this;
