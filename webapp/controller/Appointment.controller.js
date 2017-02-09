@@ -10,9 +10,47 @@ sap.ui.define([
 
 			this._router = oComponent.getRouter();
 			this._router.getRoute("appointment").attachPatternMatched(this._loadAppointment, this);
-			this.oSplitContainer = this.getView().byId("idSplitContainer");
-			if (this.oSplitContainer) {
-				this.oSplitContainer.setShowSecondaryContent(false);
+
+			// subscribe location change event
+			var oBus = oComponent.getEventBus();
+			oBus.subscribe("sap.dm", "locationChange", this.onLocationChange, this);
+
+		},
+
+		onLocationChange: function(oEvent) {
+			var that = this;
+			var oLocation = arguments[2];
+			if (oLocation) {
+				switch (oLocation.locationId) {
+					case "pantry":
+						var dialog = new sap.m.Dialog({
+							title: "Success Stories",
+							type: "Message",
+							content: new sap.m.Text({
+								text: "Do you interesting our success stories?"
+							}),
+							beginButton: new sap.m.Button({
+								text: "Sure, Show me",
+								press: function() {
+									that._router.navTo("successStories");
+									dialog.close();
+								}
+							}),
+							endButton: new sap.m.Button({
+								text: "I Don't like",
+								press: function() {
+									dialog.close();
+								}
+							}),
+							afterClose: function() {
+								dialog.destroy();
+							}
+						});
+						dialog.open();
+						break;
+					default:
+						break;
+				}
 			}
 		},
 

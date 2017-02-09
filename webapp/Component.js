@@ -92,12 +92,23 @@ sap.ui.define([
 					});
 					return bIsMatched;
 				});
+
+				this._locationChangeEventDispather(mappedLocation);
 				return mappedLocation;
 			}
 		},
 
-		_locationEventDispather: function() {
-
+		_locationChangeEventDispather: function(oCurrentLocation) {
+			if (oCurrentLocation) {
+				var oPreviousLocationModel = this.getModel("currentLocation");
+				var oPreviousLocationData = null;
+				if (oPreviousLocationModel && oPreviousLocationModel.getData()) {
+					oPreviousLocationData = oPreviousLocationModel.getData();
+				}
+				if (!_.isEqual(oPreviousLocationData, oCurrentLocation)) {
+					this.getEventBus().publish("sap.dm", "locationChange", oCurrentLocation);
+				}
+			}
 		},
 
 		myNavBack: function() {
