@@ -31,7 +31,8 @@
 						</Button>
 						<Button
 							icon=""
-							text="Face Identify">
+							text="Face Identify"
+							press="onPressFaceIdentify">
 						</Button>
 					</VBox>
 					<VBox
@@ -47,6 +48,7 @@
 					</VBox>
 				</VBox>
 				<Text
+					visible="false"
 					id="idDebug"
 					text="{debug>/debugInfo}"></Text>
 			</Panel>

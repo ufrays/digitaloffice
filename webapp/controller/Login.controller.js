@@ -1,6 +1,6 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel"
-], function(Controller, JSONModel) {
+	"sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap/dm/util/FaceIdentify"
+], function(Controller, JSONModel, FaceIdentify) {
 	"use strict";
 
 	return Controller.extend("sap.dm.controller.Login", {
@@ -26,6 +26,10 @@ sap.ui.define([
 			oFormLoginData.bPinCode = true;
 			oFormLoginData.bInital = false;
 			this.oFormLoginModel.refresh();
+		},
+
+		onPressFaceIdentify: function(oEvent) {
+			FaceIdentify.analyzePhoto();
 		},
 
 		onPinCodeLogin: function() {

@@ -46,14 +46,15 @@
 							class="sapUiTinyMargin tileLayout"
 							header="{oAppointmentModel>type}"
 							frameType="TwoByOne"
-							backgroundImage="img/NewsImage.png"
+							backgroundImage="{path:'oAppointmentModel>type',formatter:'.formatter.formatAppointmentImg'}"
 							press="onPressAppointment">
 							<tileContent>
-								<TileContent footer="August 21, 2016">
+								<TileContent
+									footer="{path: 'oAppointmentModel>dateTime', formatter:'.formatter.formatDateTime'}">
 									<content>
 										<NewsContent
 											contentText="{oAppointmentModel>title}"
-											subheader="{parts: ['oAppointmentModel>location','oAppointmentModel>dateTime'], formatter:'.formatter.formatMeetingInfo'}">
+											subheader="Location - {oAppointmentModel>location/name}">
 										</NewsContent>
 									</content>
 								</TileContent>

@@ -6,7 +6,7 @@
 	xmlns:control="control"
 	xmlns:h="http://www.w3.org/1999/xhtml">
 	<Page
-		title="Site Map"
+		title="About Chengdu"
 		navButtonPress="handleNavBack"
 		showNavButton="{device>/isPhone}"
 		showFooter="{device>/isNoPhone}">

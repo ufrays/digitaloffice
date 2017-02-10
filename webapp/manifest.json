@@ -14,6 +14,8 @@
 				"uri": "lib/underscore-min.js"
 			},{
 				"uri": "lib/snap.svg-min-3.0.js"
+			},{
+				"uri": "lib/bmob-min.js"
 			}]
 		},
 		"includes": ["css/style.css"],
