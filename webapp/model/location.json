@@ -123,7 +123,7 @@
 		]
 	},
 	{
-		"locationId": "105",
+		"locationId": "male",
 		"description": "Rest Room",
 		"type":"ROOM",
 		"coordinate":{
