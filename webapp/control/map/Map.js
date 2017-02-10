@@ -56,6 +56,7 @@ sap.ui.define([
 		_oNaviPath: null,
 
 		_oFacilityIcon: null,
+		_oCoffeeIcon:null,
 
 		_aPathData: null,
 		_aThumbnailData: null,
@@ -86,6 +87,9 @@ sap.ui.define([
 			} else {
 				if (this._oSvg) {
 					this._calcPath();
+					this._highlightDestination();
+					var sLocationInfo = "Location: " + this._sLocation + " Destination: " + this._sDestination;
+					this._oSvg.select(this._getId("locationinfo")).attr("text", sLocationInfo);
 				} else {
 					this._showInFullsize();
 				}
@@ -104,6 +108,7 @@ sap.ui.define([
 			}).then(function() {
 				
 				that._calcPath();
+				that._highlightDestination();
 				that._adjustViewBox();
 			
 				// that._adjustOrientation();
@@ -126,7 +131,45 @@ sap.ui.define([
 				//that._prepareInfoPopup();
 				that._hideThumbnailToolbar();
 				that._attachShowThumbnailEvt();
-				// that._adjustOrientation();
+				that._animateCoffeeIcon();
+				that._attachCoffeeIconEvt();
+				// that._adjustOrientation();	
+				var sLocationInfo = "Location: " + that._sLocation + " Destination: " + that._sDestination;
+				that._oSvg.select(that._getId("locationinfo")).attr("text", sLocationInfo);
+			});
+		},
+		
+		_showCoffeeIcon: function(){
+			var oCoffeeInfo = this._oSvg.select(this._getId("coffeeinfo"));
+			oCoffeeInfo.attr("display","block");
+			
+			this._animateCoffeeIcon();
+		},
+		
+		_animateCoffeeIcon: function(){
+			var that = this;
+		/*	this._oCoffeeIcon.animate({
+				transform: "t430,545s0.08,0.08" 
+			}, 100, mina.linear, function(){
+				that._oCoffeeIcon.attr({transform: "t430,545s0.08,0.08"});
+				that._animateCoffeeIcon();
+			});*/
+			//this._oCoffeeIcon.attr("transform","rotate(30)");
+			this._oCoffeeIcon.animate({
+				transform: "s1.2,1.2" 
+			}, 500, mina.linear, function(){
+				that._oCoffeeIcon.animate({
+					transform: "s1.0,1.0" 
+				}, 500, mina.linear,function(){
+					that._animateCoffeeIcon();
+				});
+
+			});
+		},
+		
+		_attachCoffeeIconEvt: function(){
+			this._oCoffeeIcon.touchend(function(){
+				alert("clicked!");
 			});
 		},
 
@@ -154,6 +197,8 @@ sap.ui.define([
 
 			this._oLocIcon = this._oMap.select(this._getId("locationicon"));
 			this._oDestIcon = this._oMap.select(this._getId("desticon"));
+			
+			this._oCoffeeIcon = this._oMap.select(this._getId("coffeeicon"));
 
 			this._oFacilityIcon = this._oSvg.select(this._getId("facilityicon"));
 
@@ -163,6 +208,7 @@ sap.ui.define([
 		_prepareMap: function() {
 			this._enableDrag();
 			this._calcPath();
+			this._highlightDestination();
 		},
 
 		_prepareSettingBtn: function() {
@@ -345,6 +391,14 @@ sap.ui.define([
 			});
 
 			this._oSvg.select(this._getId("navigator")).append(that._oNaviPath);
+			
+			if(this._sLocation === "pantry"){
+				this._showCoffeeIcon();
+			}
+			else{
+				var oCoffeeInfo = this._oSvg.select(this._getId("coffeeinfo"));
+				oCoffeeInfo.attr("display","none");
+			}
 		},
 
 		_animatePath: function() {
@@ -496,6 +550,22 @@ sap.ui.define([
 				transform: "t20,40"
 			}, 200, mina.linear, function() {
 				that._oZoomOutBtn.attr("display", "none");
+			});
+		},
+		
+		_highlightDestination: function(){
+			this._oSvg.selectAll(".dest").forEach(function(oDest){
+				oDest.removeClass("dest");
+			});
+			
+			this._oSvg.selectAll(".dest-text").forEach(function(oDest){
+				oDest.removeClass("dest-text");
+			});
+			
+			var oDestination = this._oSvg.select(this._getId(this._sDestination));
+			oDestination.select("polygon").addClass("dest");
+			oDestination.selectAll("text").forEach(function(oText){
+				oText.addClass("dest-text")
 			});
 		},
 

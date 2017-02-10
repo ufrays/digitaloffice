@@ -1,8 +1,9 @@
 <core:FragmentDefinition xmlns="sap.m"
 	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core">
 	<VBox>
-		<html:svg id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink" x="0px"
-			y="0px" width="100%" height="100%" viewBox="0 -50 750 1200">
+		<html:svg id="svg" xmlns="http://www.w3.org/2000/svg"
+			xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%"
+			height="100%" viewBox="0 -50 750 1200">
 			<g id="map">
 				<g id="rooms">
 					<g id="itserver">
@@ -213,7 +214,7 @@
 						</text>
 					</g>
 					<g id="female" transform="translate(27.052239,3.2462687)">
-						<polygon class="room dest"
+						<polygon class="room"
 							points="381,764.8 489.9,774.1 498.9,703.7 389.7,694.4 " id="polygon139" />
 						<text transform="matrix(1.0408547,0.10280401,-0.11265407,0.94962215,0,0)"
 							class="room-name-middle room-name" id="text141" x="467.32599" y="728.53845">female
@@ -240,10 +241,10 @@
 						<polygon class="room"
 							points="108.7,302.1 245.3,278.8 299.1,541.1 162.5,564.4" id="polygon158" />
 						<text transform="matrix(1.0335447,-0.15225943,0.16691081,0.94295511,0,0)"
-							class="room-name-middle room-name" id="text160" x="105.06066" y="449.8884">MR
+							class="room-name-middle room-name" id="text160" x="100.06066" y="449.8884">MR
 						</text>
 						<text transform="matrix(1.0315807,-0.16614088,0.17841157,0.94065208,0,0)"
-							class="room-name-middle room-name" id="text162" x="70.531914" y="479.45737">08.05-06
+							class="room-name-middle room-name" id="text162" x="65.531914" y="479.45737">08.05-06
 						</text>
 					</g>
 					<g id="dt">
@@ -347,25 +348,38 @@
 					</g>
 					<g id="recipient" class="facility-icon" transform="translate(179 814)">
 						<g transform="scale(0.04 0.04)">
-							<path d="M576 706.612v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h896c0-128.968-166.898-235.64-384-253.388z"></path>
+							<path
+								d="M576 706.612v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h896c0-128.968-166.898-235.64-384-253.388z"></path>
 						</g>
 					</g>
 					<g id="screen1" class="facility-icon" transform="translate(395 322)">
 						<g transform="scale(0.05 0.05)">
-							<path d="M896 704v-512c0-35.2-28.8-64-64-64h-640c-35.2 0-64 28.8-64 64v512h-128v192h1024v-192h-128zM640 832h-256v-64h256v64zM832 704h-640v-511.886c0.034-0.040 0.076-0.082 0.114-0.114h639.77c0.040 0.034 0.082 0.076 0.116 0.116v511.884z"></path>
+							<path
+								d="M896 704v-512c0-35.2-28.8-64-64-64h-640c-35.2 0-64 28.8-64 64v512h-128v192h1024v-192h-128zM640 832h-256v-64h256v64zM832 704h-640v-511.886c0.034-0.040 0.076-0.082 0.114-0.114h639.77c0.040 0.034 0.082 0.076 0.116 0.116v511.884z"></path>
 						</g>
 					</g>
 					<g id="telephone" class="facility-icon" transform="translate(390 26)">
 						<g transform="scale(0.04 0.04)">
-							<path d="M704 640c-64 64-64 128-128 128s-128-64-192-128-128-128-128-192 64-64 128-128-128-256-192-256-192 192-192 192c0 128 131.5 387.5 256 512s384 256 512 256c0 0 192-128 192-192s-192-256-256-192z"></path>
+							<path
+								d="M704 640c-64 64-64 128-128 128s-128-64-192-128-128-128-128-192 64-64 128-128-128-256-192-256-192 192-192 192c0 128 131.5 387.5 256 512s384 256 512 256c0 0 192-128 192-192s-192-256-256-192z"></path>
 						</g>
 					</g>
 					<g id="exit" class="facility-icon" transform="translate(550 831)">
 						<g transform="scale(0.04 0.04)">
-							<path d="M384 512h-320v-128h320v-128l192 192-192 192zM1024 0v832l-384 192v-192h-384v-256h64v192h320v-576l256-128h-576v256h-64v-320z"></path>
+							<path
+								d="M384 512h-320v-128h320v-128l192 192-192 192zM1024 0v832l-384 192v-192h-384v-256h64v192h320v-576l256-128h-576v256h-64v-320z"></path>
 						</g>
 					</g>
 				</g>
+				<g id="coffeeinfo" transform="translate(460,555)" style="display:none">
+					<g id="coffeeicon" >
+						<path transform="scale(0.06 0.06)" class="facility-icon"
+							d="M854 342v-128h-86v128h86zM854 128c48 0 84 38 84 86v128c0 46-36 84-84 84h-86v128c0 94-76 172-170 172h-256c-94 0-172-78-172-172v-426h684z"></path>
+					</g>
+				</g>
+				
+					
+					
 				<g id="information" style="opacity: 0; display: none;">
 					<rect x="10" y="10" rx="10" ry="10" width="280" height="150"
 						style="fill: #006699;stroke: #006699;stroke-width:5;opacity:0.7;" />
@@ -444,8 +458,14 @@
 						<path d="M0 0v416l160-160 192 192 96-96-192-192 160-160z"></path>
 					</g>
 				</g>
-			</g>
+			</g><!-- 
+			<g transform="translate(418,535) scale(0.08 0.08)">
+				<path d="M512 996.956c-20.602 0-37.304-16.702-37.304-37.304v-179.060c0-20.602 16.702-37.304 37.304-37.304 20.604 0 37.304 16.704 37.304 37.304v179.060c0 20.602-16.7 37.304-37.304 37.304z"></path>
+			</g> -->
 			<!-- <image transform="translate(100,300)" xlink:href="img/saplogo.jpg"/> -->
+			<!-- <image xlink:href="img/coffee.jpg"/> -->
+			<rect transform="translate(50,0)" width="600" height="100" style="fill:#3f5161;fill-opacity: 0.5 !important;stroke-width:1;stroke:rgb(255,255,255)" />
+			<text id="locationinfo" x="70" y="60" style="fill:white;font-size:28px">blabla</text>
 		</html:svg>
 	</VBox>
 </core:FragmentDefinition>

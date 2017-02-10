@@ -60,3 +60,13 @@
 .facility-icon {
 	fill: #3f5161;
 }
+
+.dest{
+	fill: #006699;
+	opacity: 0.6;
+}
+
+.dest-text{
+	fill: white;
+	font-weight: bold;
+}
