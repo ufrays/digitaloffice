@@ -78,6 +78,16 @@ sap.ui.define([
 				}
 				oDetailContainer[0].setVisible(true);
 			}
+			var oPage = this.getView().byId("idAppointmentPage");
+			oPage.scrollToElement(oListItem);
+//			var oScrollToElement = oListItem.findAggregatedObjects(true, function(oChild) {
+//				if (oChild.getMetadata().getName() === "sap.dm.map") {
+//					return oChild;
+//				}
+//			});
+//			if (!_.isEmpty(oScrollToElement)) {
+//				oPage.scrollToElement(oScrollToElement);
+//			}
 		},
 
 		onPressMap: function(oEvent) {

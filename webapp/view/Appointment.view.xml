@@ -8,7 +8,7 @@
 	xmlns:h="http://www.w3.org/1999/xhtml"
 	xmlns:map="sap.dm.control.map">
 	<Page
-		id="page"
+		id="idAppointmentPage"
 		title="Digital Office"
 		showNavButton="false"
 		navButtonPress="">
