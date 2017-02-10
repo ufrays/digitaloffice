@@ -6,7 +6,7 @@
 	xmlns:control="control"
 	xmlns:h="http://www.w3.org/1999/xhtml">
 	<Page
-		title="Site Map"
+		title="Success Story"
 		navButtonPress="handleNavBack"
 		showNavButton="{device>/isPhone}"
 		showFooter="{device>/isNoPhone}">
@@ -17,11 +17,29 @@
 			</Toolbar>
 		</footer>
 		<content>
-			<VBox>
-				<Text text="SuccessStory"></Text>
-				<Link text="test1" press="onPressTest1"></Link>
-				<Link text="test1" press="onPressTest2"></Link>
-			</VBox>
+			<Carousel
+				pageChanged="onPageChanged"
+				class="sapUiContentPadding"
+				loop="true">
+				<pages>
+					<Image
+						id="idImgINPEX"
+						src="img/successStories/INPEX_logo.png"
+						alt="INPEX" />
+					<Image
+						id="idImgHILTI"
+						src="img/successStories/HILTI_logo.png"
+						alt="HILTI" />
+					<Image
+						id="idImgPOSTNL"
+						src="img/successStories/POSTNL_logo.png"
+						alt="POSTNL" />
+					<Image
+						id="idImgSHFA"
+						src="img/successStories/SHFA_logo.png"
+						alt="SHFA" />
+				</pages>
+			</Carousel>
 		</content>
 	</Page>
 </mvc:View>
