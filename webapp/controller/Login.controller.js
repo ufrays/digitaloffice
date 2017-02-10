@@ -29,7 +29,13 @@ sap.ui.define([
 		},
 
 		onPressFaceIdentify: function(oEvent) {
-			FaceIdentify.analyzePhoto();
+			try {
+				FaceIdentify.analyzePhoto();
+			} catch (e) {
+				var oDebug = this.getOwnerComponent().getModel("debug");
+				oDebug.getData().debugInfo = oDebug.getData().debugInfo.concat("       " + e.stack);
+				oDebug.refresh();
+			}
 		},
 
 		onPinCodeLogin: function() {

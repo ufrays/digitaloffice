@@ -48,7 +48,7 @@
 					</VBox>
 				</VBox>
 				<Text
-					visible="false"
+					visible="true"
 					id="idDebug"
 					text="{debug>/debugInfo}"></Text>
 			</Panel>
