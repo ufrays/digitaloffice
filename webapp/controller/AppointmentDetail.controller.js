@@ -40,6 +40,7 @@ sap.ui.define([
 		handleNavBack: function() {
 			this.getOwnerComponent().myNavBack();
 			clearInterval(this.oTimer);
+			this.getView().byId("map")._resetMap();
 		},
 
 		onPressShowThumb: function() {

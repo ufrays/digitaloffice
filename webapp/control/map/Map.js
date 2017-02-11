@@ -242,13 +242,7 @@ sap.ui.define([
 				transform: 't' + this._fCurrentX + ',' + this._fCurrentY + "s" + this._iZoomRatio
 			}, 200, mina.linear);
 
-			this._oInfoPopup.animate({
-				opacity: 0
-			}, 0, mina.easein, function() {
-				this.attr({
-					display: "none"
-				});
-			});
+			this._hideInfoPopup();
 		},
 
 		_enableDrag: function() {
@@ -373,28 +367,22 @@ sap.ui.define([
 			});
 		},
 		
-		_attachCoffeeIconEvt: function(){
-			var that = this;		
-			this._oCoffeeIcon.touchend(function(){
-				that._oInfoPopup.attr({
-					display: "block"
-				});
-				that._oInfoPopup.animate({
-					opacity: 1
-				}, 500);
+		_attachCoffeeIconEvt: function() {
+			var that = this;
+			this._oCoffeeIcon.touchend(function() {
+				if (that._oInfoPopup.attr("display") === "none") {
+					that._showInfoPopup();
+				} else {
+					that._hideInfoPopup();
+				}
+
 			});
 		},
 		
 		_attachInfoPopupEvt: function(){
 			var that = this;
 			this._oInfoPopup.touchend(function() {
-				this.animate({
-					opacity: 0
-				}, 500, mina.easein, function() {
-					this.attr({
-						display: "none"
-					});
-				});
+				that._hideInfoPopup();
 			});
 		},
 
@@ -526,6 +514,25 @@ sap.ui.define([
 			oDestination.selectAll("text").forEach(function(oText){
 				oText.addClass("dest-text")
 			});
+		},
+		
+		_hideInfoPopup:function(){
+			this._oInfoPopup.animate({
+				opacity: 0
+			}, 500, mina.easein, function() {
+				this.attr({
+					display: "none"
+				});
+			});
+		},
+		
+		_showInfoPopup: function(){
+			this._oInfoPopup.attr({
+				display: "block"
+			});
+			this._oInfoPopup.animate({
+				opacity: 1
+			}, 500);
 		},
 		
 		_getId: function(sId) {
