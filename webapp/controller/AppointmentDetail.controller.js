@@ -51,7 +51,7 @@ sap.ui.define([
 		initNavModel: function() {
 			var oNavData = {
 				location: "frontdesk",
-				destination: "collaboration",
+				destination: "mr0805-0806",
 				orientation: 0
 			}
 
@@ -60,6 +60,7 @@ sap.ui.define([
 		},
 
 		addDemoAnimation: function() {
+			//var sDestination = "collaboration";
 			var sDestination = "mr0805-0806";
 			var aDemoNavData = [
 				{
@@ -84,6 +85,14 @@ sap.ui.define([
 					orientation: 0
 				}, {
 					location: "dt",
+					destination: sDestination,
+					orientation: -30
+				}, {
+					location: "mr0824",
+					destination: sDestination,
+					orientation: -30
+				}, {
+					location: "vr0803",
 					destination: sDestination,
 					orientation: -30
 				}, {
@@ -119,15 +128,6 @@ sap.ui.define([
 					destination: sDestination,
 					orientation: -60
 				}
-/*				, {
-					location: "aisle-2-2",
-					destination: "dt",
-					orientation: -60
-				}, {
-					location: "aisle-2-3",
-					destination: "dt",
-					orientation: 30
-				}*/
 			];
 			
 			var that = this;

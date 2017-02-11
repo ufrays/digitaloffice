@@ -4,11 +4,19 @@
 	<Page title="Appointment Navigation" navButtonPress="handleNavBack"
 		showNavButton="{device>/isPhone}" showFooter="false">
 		<content>
+			<!-- <map:Map 
+				id="map" 
+				location="vr0803"
+				destination="mr0805-0806" 
+				orientation="{currentOrientation>/heading}"
+				showThumbnail="onPressShowThumb" 
+				isThumbnail="false"> 
+			</map:Map> -->
 			<map:Map 
 				id="map" 
-				location="{currentLocation>/locationId}"
-				destination="{oCurrentAppointmentModel>/location/id}" 
-				orientation="{currentOrientation>/heading}"
+				location="{nav>/location}"
+				destination="{nav>/destination}" 
+				orientation="{nav>/orientation}"
 				showThumbnail="onPressShowThumb" 
 				isThumbnail="false">
 			</map:Map>
