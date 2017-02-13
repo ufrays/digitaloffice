@@ -48,8 +48,8 @@ sap.ui.define([], function() {
 							}
 							for (var i = 0; i < results.length; i++) {
 								var object = results[i];
-								var oBus = sap.ui.getCore().getEventBus();
-								oBus.publish("sap.dm", "faceIdenfied", object);
+								var oBus = sap.ui.getCore().getComponent("dmComponent").getEventBus();
+								oBus.publish("sap.dm", "faceIdentified", object);
 								navigator.notification.alert("Welcome, " + object.get('name'));
 							}
 						},

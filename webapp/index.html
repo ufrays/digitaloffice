@@ -21,12 +21,16 @@
 		], function(Shell, ComponentContainer, mockserver) {
 			//mockserver.init();
 
+			var oComp = sap.ui.getCore().createComponent({
+				name: "sap.dm",
+				id: 'dmComponent'
+			});
+
 			new Shell("Shell", {
 				title: "Digital Office",
 				showLogout: false,
 				app: new ComponentContainer({
-					name: 'sap.dm',
-					id: 'dmComponent'
+					component:oComp
 				}),
 				homeIcon: {
 					'phone': 'img/57_iPhone_Desktop_Launch.png',
