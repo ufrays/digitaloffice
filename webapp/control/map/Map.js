@@ -266,7 +266,7 @@ sap.ui.define([
 			var startY2;
 			var startDistance;
 			
-			var iZoomRatio;
+			var iZoomRatio = this._iZoomRatio;;
 
 			this._oMap.touchstart(function(event) {
 				if (event.changedTouches.length === 1) {
@@ -428,10 +428,12 @@ sap.ui.define([
 		_animateCoffeeIcon: function(){
 			var that = this;
 			this._oCoffeeIcon.animate({
-				transform: "s1.1,1.1" 
+				transform: "s1.2,1.2",
+				opacity:1
 			}, 500, mina.linear, function(){
 				that._oCoffeeIcon.animate({
-					transform: "s0.9,0.9" 
+					transform: "s0.8,0.8",
+					opacity:0.2
 				}, 500, mina.linear,function(){
 					that._animateCoffeeIcon();
 				});
