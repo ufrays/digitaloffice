@@ -5,7 +5,7 @@
 	<Panel>
 		<content>
 			<VBox>
-				<Text text="Do you interest our success story?"></Text>
+				<Text text="Are you interested in success story?"></Text>
 			</VBox>
 		</content>
 	</Panel>
