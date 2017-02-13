@@ -190,7 +190,7 @@
 					</g>
 					<g id="cleanstorage" transform="translate(27.052239,3.2462687)">
 						<polygon id="cs_1_" class="room"
-							points="316.8,601.3 309.2,667.5 383.4,674.8 390.7,608.5" />
+							points="316.8,595.3 309.2,665.5 383.4,672.8 390.7,603.5" />
 						<text transform="matrix(1.041294,0.0659681,-0.0951255,0.95431716,0,0)"
 							class="room-name-small room-name" id="text125" x="369.7352" y="634.10852">Clean
 						</text>
@@ -201,22 +201,21 @@
 					</g>
 					<g id="wc" transform="translate(27.052239,3.2462687)">
 						<polygon class="room"
-							points="308.5,686.3 300.5,756.8 375.1,764 382.6,693.7 " id="polygon130" />
-						<text transform="matrix(1.0394856,0.11735244,-0.12415542,0.94799781,0,0)"
+							points="308.5,694.3 300.5,756.8 375.1,764 382.6,701.7" id="polygon130" />
+						<text transform="matrix(1.0394856,0.11735244,-0.12415542,0.94799781,-2,5)"
 							class="room-name-middle room-name" id="text132" x="398.14038" y="724.61548">WC
 						</text>
 					</g>
 					<g id="male" transform="translate(27.052239,3.2462687)">
-						<polygon id="mm_1_" class="room"
-							points="509.2,620 399.7,610.3 391.7,677.1 500.9,686.7 " />
-						<text transform="matrix(1.0398995,0.11057063,-0.1211877,0.94874571,0,0)"
+						<polygon id="mm_1_" class="room" points="509.2,615 399.7,605.3 391.7,677.1 500.9,686.7 "></polygon>
+						<text transform="matrix(1.0398995,0.11057063,-0.1211877,0.94874571,0,-5)"
 							class="room-name-middle room-name" id="text136" x="478.81543" y="634.62976">male
 						</text>
 					</g>
 					<g id="female" transform="translate(27.052239,3.2462687)">
 						<polygon class="room"
-							points="381,764.8 489.9,774.1 498.9,703.7 389.7,694.4 " id="polygon139" />
-						<text transform="matrix(1.0408547,0.10280401,-0.11265407,0.94962215,0,0)"
+							points="381,764.8 489.9,774.1 498.9,713.7 389.7,704.4 " id="polygon139" />
+						<text transform="matrix(1.0408547,0.10280401,-0.11265407,0.94962215,0,5)"
 							class="room-name-middle room-name" id="text141" x="467.32599" y="728.53845">female
 						</text>
 					</g>
@@ -286,8 +285,7 @@
 					<line x1="244.4" y1="35.6" x2="198.3" y2="41.7" id="line224" />
 					<line class="line" x1="10.6" y1="86.6" x2="201.3" y2="56.3"
 						id="line183" />
-					<path d="m 525.95224,706.94627 10.3,-83.7 L 524.06716,610.3"
-						id="path534" />
+					<path d="m 525.95224,716.94627 10.3,-93.7 L 524.06716,610.3" id="__xmlview2--map--path534"></path>
 				</g>
 				<g id="navigator">
 					<g id="desticon">
@@ -299,7 +297,7 @@
 							d="M544.01 1024.004 c-2.296 0-4.622 -0.25 -6.94,-0.764 C 522.422,1019.99 512,1007.002 512,992 V 512 H 32 C 16.998,512 4.008,501.578 0.76,486.93 -2.49,472.284 4.874,457.346 18.468,451.002 l 960,-448 c 12.196,-5.688 26.644,-3.144 36.16,6.372 9.516,9.514 12.06,23.966 6.372,36.16 l -448,960 c -5.342,11.44 -16.772,18.47 -28.99,18.47 z"></path>
 					</g>
 				</g>
-				<g id="setdest" transform="translate(480, 605)"
+				<g id="setdest" transform="translate(490, 665)"
 					style="fill: rgb(63, 81, 97); display: block;">
 					<rect x="-23" y="-23" width="80" height="80" class="option-border" style="opacity: 0;"></rect>
 					<g transform="scale(0.04 0.04)">

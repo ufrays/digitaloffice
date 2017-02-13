@@ -591,11 +591,13 @@ sap.ui.define([
 				sDestinationId = this._getId(this._sDestination);
 			}
 			
-			var oDestination = this._oSvg.select(sDestinationId);
-			oDestination.select("polygon").addClass("dest");
-			oDestination.selectAll("text").forEach(function(oText){
-				oText.addClass("dest-text")
-			});
+			if(sDestinationId!=this._getId("male")){
+				var oDestination = this._oSvg.select(sDestinationId);
+				oDestination.select("polygon").addClass("dest");
+				oDestination.selectAll("text").forEach(function(oText){
+					oText.addClass("dest-text")
+				});
+			}
 		},
 		
 		_hideInfoPopup:function(){
