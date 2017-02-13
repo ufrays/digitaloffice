@@ -1,0 +1,12 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	<Panel>
+		<content>
+			<VBox>
+				<Text text="Do you interest our success story?"></Text>
+			</VBox>
+		</content>
+	</Panel>
+</core:FragmentDefinition>

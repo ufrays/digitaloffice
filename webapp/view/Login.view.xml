@@ -31,7 +31,7 @@
 						</Button>
 						<Button
 							icon=""
-							text="Face Identify"
+							text="Face Recongnition"
 							press="onPressFaceIdentify">
 						</Button>
 					</VBox>
@@ -47,6 +47,8 @@
 							press="onPinCodeLogin"></Button>
 					</VBox>
 				</VBox>
+				<VBox id="getImageUpload"></VBox>
+				<VBox id="previewImage"></VBox>
 				<Text
 					visible="true"
 					id="idDebug"
