@@ -9,7 +9,7 @@ sap.ui.define([
 			var oComponent = this.getOwnerComponent();
 			this._router = oComponent.getRouter();
 			this._setupFormVisible();
-			this.getEventBus().subscribe("sap.dm", "faceIdentified", this.onFaceIdentified, this);
+			oComponent.getEventBus().subscribe("sap.dm", "faceIdentified", this.onFaceIdentified, this);
 		},
 
 		_setupFormVisible: function() {
