@@ -12,11 +12,19 @@
 				showThumbnail="onPressShowThumb" 
 				isThumbnail="false"> 
 			</map:Map> -->
-			<map:Map 
+			<!-- <map:Map 
 				id="map" 
 				location="{nav>/location}"
 				destination="{nav>/destination}" 
 				orientation="{nav>/orientation}"
+				showThumbnail="onPressShowThumb" 
+				isThumbnail="false">
+			</map:Map> -->
+			<map:Map 
+				id="map" 
+				location="{currentLocation>/locationId}"
+				destination="{oCurrentAppointmentModel>/location/id}" 
+				orientation="{currentOrientation>/heading}"
 				showThumbnail="onPressShowThumb" 
 				isThumbnail="false">
 			</map:Map>
