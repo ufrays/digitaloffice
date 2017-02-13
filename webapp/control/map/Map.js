@@ -259,28 +259,79 @@ sap.ui.define([
 			var that = this;
 			var startX;
 			var startY;
+			
+			var startX1;
+			var startY1;
+			var startX2;
+			var startY2;
+			var startDistance;
+			
+			var iZoomRatio;
 
 			this._oMap.touchstart(function(event) {
-				startX = event.changedTouches[0].screenX;
-				startY = event.changedTouches[0].screenY;
+				if (event.changedTouches.length === 1) {
+					startX = event.changedTouches[0].screenX;
+					startY = event.changedTouches[0].screenY;
+				} else {
+					startX1 = event.changedTouches[0].clientX;
+					startY1 = event.changedTouches[0].clientY;
+
+					startX2 = event.changedTouches[1].clientX;
+					startY2 = event.changedTouches[1].clientY;
+					
+					//startX2 = 161;
+					//startY2 = 356;
+
+					startDistance = Math.sqrt(Math.pow(startX2*1.8 - startX1*1.8, 2) + Math.pow(startY2*1.58 - startY1*1.58, 2));
+					iZoomRatio = that._iZoomRatio;
+				}
+
 			});
 
 			this._oMap.touchmove(function(event) {
-				var curX = event.changedTouches[0].screenX;
-				var curY = event.changedTouches[0].screenY;
+				if(event.changedTouches.length===1){
+					var curX = event.changedTouches[0].screenX;
+					var curY = event.changedTouches[0].screenY;
 
-				var offsetX = curX - startX;
-				var offsetY = curY - startY;
+					var offsetX = curX - startX;
+					var offsetY = curY - startY;
 
-				that._fCurrentX = offsetX + that._fOriginalX;
-				that._fCurrentY = offsetY + that._fOriginalY;
-
-				this.transform('t' + that._fCurrentX * 1.8 + ',' + that._fCurrentY * 1.58 + " s" + that._iZoomRatio);
+					that._fCurrentX = offsetX + that._fOriginalX;
+					that._fCurrentY = offsetY + that._fOriginalY;
+				}
+				else{
+					var curX1 = event.changedTouches[0].clientX;
+					var curY1 = event.changedTouches[0].clientY;
+					
+					//console.log("curX1="+curX1);
+					//console.log("curY1="+curY1);
+					
+					var curX2 = event.changedTouches[1].clientX;
+					var curY2 = event.changedTouches[1].clientY;
+					//var curX2 = 161;
+					//var curY2 = 356;
+						
+					var curDistance = Math.sqrt(Math.pow(curX2*1.58 - curX1*1.8, 2) + Math.pow(curY2*1.58 - curY1*1.58, 2));		
+					iZoomRatio = that._iZoomRatio*(curDistance/startDistance);
+					
+					/*startX1 = curX1;
+					startY1 = curY1;
+					
+					startX2 = curX2;
+					startY2 = curY2;
+					
+					startDistance = Math.sqrt(Math.pow(startX2 - startX1, 2) + Math.pow(startY2 - startY1, 2));*/
+				}
+				
+				this.transform('t' + that._fCurrentX * 1.8 + ',' + that._fCurrentY * 1.58 + " s" + iZoomRatio);
+				
 			});
 
 			this._oMap.touchend(function(event) {
-				that._fOriginalX = that._fCurrentX;
-				that._fOriginalY = that._fCurrentY;
+					that._fOriginalX = that._fCurrentX;
+					that._fOriginalY = that._fCurrentY;
+					
+					that._iZoomRatio = iZoomRatio;
 			});
 		},
 
