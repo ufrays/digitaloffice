@@ -4,15 +4,16 @@ sap.ui.define([], function() {
 	return {
 		onLoadImageFail: function(message) {
 			navigator.notification.alert("Error：" + message, null, "Error");
+			sap.m.MessageToast.show("Error：" + message, null, "Error");
 		},
 		analyzePhoto: function() {
-			navigator.camera.getPicture(onLoadImageUploadSuccess, onLoadImageFail, {
+			navigator.camera.getPicture(this.onLoadImageUploadSuccess, this.onLoadImageFail, {
 				destinationType: Camera.DestinationType.FILE_URI,
 				allowEdit: true
 			});
 		},
 		onLoadImageUploadSuccess: function(imageURI) {
-
+			var that = this;
 			var options = new FileUploadOptions();
 			options.fileKey = "image_file";
 			options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
@@ -36,9 +37,10 @@ sap.ui.define([], function() {
 				$("#getImageUpload").attr("src", imageURI);
 				$("#previewImage").show();
 				if (data.results && data.results.length > 0) {
-					queryFromServer(data.results[0].face_token);
+					that.queryFromServer(data.results[0].face_token);
 				} else {
-					onLoadImageFail("Unfortunately, we don't find out any face.");
+					sap.m.MessageToast.show("Unfortunately, we don't find out any face.");
+					that.onLoadImageFail("Unfortunately, we don't find out any face.");
 				}
 				// navigator.notification.alert("Found："+data.results[0].face_token+", Match "+data.results[0].confidence+"%", null, "Info");
 			}, null, options);
@@ -53,14 +55,17 @@ sap.ui.define([], function() {
 				success: function(results) {
 					if (results.length <= 0) {
 						onLoadImageFail("Unfortunately, we don't know who you are.");
+						sap.m.MessageToast.show("Unfortunately, we don't know who you are.");
 					}
 					for (var i = 0; i < results.length; i++) {
 						var object = results[i];
+						onLoadImageFail("Welcome, " + object.get('name'));
 						navigator.notification.alert("Welcome, " + object.get('name'));
 					}
 				},
 				error: function(error) {
 					onLoadImageFail("Query form server failed.");
+					sap.m.MessageToast.show("Query form server failed.");
 				}
 			});
 		}
