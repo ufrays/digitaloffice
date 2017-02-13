@@ -9,7 +9,7 @@ sap.ui.define([
 			var oComponent = this.getOwnerComponent();
 			this._router = oComponent.getRouter();
 			this._setupFormVisible();
-
+			this.getEventBus().subscribe("sap.dm", "faceIdentified", this.onFaceIdentified, this);
 		},
 
 		_setupFormVisible: function() {
@@ -36,6 +36,11 @@ sap.ui.define([
 				oDebug.getData().debugInfo = oDebug.getData().debugInfo.concat("       " + e.stack);
 				oDebug.refresh();
 			}
+		},
+
+		onFaceIdentified: function(oEvent) {
+			var oData = arguments[2];
+			sap.m.MessageToast.show(JSON.stringify(oData));
 		},
 
 		onPinCodeLogin: function() {
