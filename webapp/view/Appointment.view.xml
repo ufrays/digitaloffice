@@ -21,7 +21,7 @@
 				</Button>
 				<ToolbarSpacer></ToolbarSpacer>
 				<Title
-					text="Appointments"
+					text="appointment"
 					level="H3"></Title>
 				<ToolbarSpacer></ToolbarSpacer>
 				<MenuButton
@@ -30,7 +30,7 @@
 					<menu>
 						<Menu itemSelected="onUserMenuAction">
 							<items>
-								<MenuItem text="Info" />
+								<!-- <MenuItem text="Info" /> -->
 								<MenuItem text="Logout" />
 							</items>
 						</Menu>
@@ -44,10 +44,10 @@
 					<VBox>
 						<GenericTile
 							class="sapUiTinyMargin tileLayout"
-							header="{oAppointmentModel>type}"
+							header=""
 							frameType="TwoByOne"
 							backgroundImage="{path:'oAppointmentModel>type',formatter:'.formatter.formatAppointmentImg'}"
-							press="onPressAppointment">
+							press="onPressMap">
 							<tileContent>
 								<TileContent
 									footer="{path: 'oAppointmentModel>dateTime', formatter:'.formatter.formatDateTime'}">

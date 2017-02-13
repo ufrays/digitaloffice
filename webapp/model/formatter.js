@@ -11,8 +11,12 @@ sap.ui.define([
 			return "Location - " + oLocation.name + " " + sLocalTime;
 		},
 		formatDateTime: function(iDateTime) {
+			var options = {
+				hour: "2-digit",
+				minute: "2-digit"
+			};
 			var oDateTime = new Date(parseInt(iDateTime));
-			var sLocalTime = oDateTime.toLocaleTimeString();
+			var sLocalTime = oDateTime.toLocaleTimeString("en-us", options);
 			return sLocalTime;
 		},
 

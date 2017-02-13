@@ -443,7 +443,7 @@ sap.ui.define([
 		
 		_attachCoffeeIconEvt: function() {
 			var that = this;
-			this._oCoffeeIcon.touchend(function() {
+			this._oSvg.select(this._getId("coffeeinfo")).touchend(function() {
 				if (that._oInfoPopup.attr("display") === "none") {
 					that._showInfoPopup();
 				} else {
