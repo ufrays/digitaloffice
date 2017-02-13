@@ -381,13 +381,13 @@ sap.ui.define([
 
 			this._oSvg.select(this._getId("navigator")).append(that._oNaviPath);
 			
-			if((!this._bIsThumbnail)&&(this._sLocation === "pantry")){
+			//if((!this._bIsThumbnail)&&(this._sLocation === "pantry")){
 				this._showCoffeeIcon();
-			}
-			else{
-				var oCoffeeInfo = this._oSvg.select(this._getId("coffeeinfo"));
-				oCoffeeInfo.attr("display","none");
-			}
+			//}
+			//else{
+			//	var oCoffeeInfo = this._oSvg.select(this._getId("coffeeinfo"));
+			//	oCoffeeInfo.attr("display","none");
+			//}
 			
 			this._highlightDestination();
 		},
