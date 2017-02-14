@@ -24,19 +24,19 @@
 				<pages>
 					<Image
 						id="idImgINPEX"
-						src="img/successStories/INPEX_logo.png"
+						src="img/successStories/logo1.png"
 						alt="INPEX" />
 					<Image
 						id="idImgHILTI"
-						src="img/successStories/HILTI_logo.png"
+						src="img/successStories/logo2.png"
 						alt="HILTI" />
 					<Image
 						id="idImgPOSTNL"
-						src="img/successStories/POSTNL_logo.png"
+						src="img/successStories/logo3.png"
 						alt="POSTNL" />
 					<Image
 						id="idImgSHFA"
-						src="img/successStories/SHFA_logo.png"
+						src="img/successStories/logo4.png"
 						alt="SHFA" />
 				</pages>
 			</Carousel>
