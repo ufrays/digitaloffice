@@ -42,15 +42,27 @@
 						<Input
 							id="idPinCode"
 							value="{oFormLoginModel>/pinCode}"></Input>
-						<Button
-							text="Login"
-							press="onPinCodeLogin"></Button>
+						<HBox
+							class="sapUiTinyMarginTop"
+							alignItems="Center"
+							justifyContent="SpaceBetween"
+							alignContent="Center">
+							<Button
+								type="Accept"
+								width="6rem"
+								text="Login"
+								press="onPinCodeLogin"></Button>
+							<Button
+								width="6rem"
+								text="Cancel"
+								press="onPinCodeCancel"></Button>
+						</HBox>
 					</VBox>
 				</VBox>
 				<VBox id="getImageUpload"></VBox>
 				<VBox id="previewImage"></VBox>
 				<Text
-					visible="true"
+					visible="false"
 					id="idDebug"
 					text="{debug>/debugInfo}"></Text>
 			</Panel>

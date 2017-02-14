@@ -37,28 +37,21 @@ sap.ui.define([], function() {
 				$("#getImageUpload").attr("src", imageURI);
 				$("#previewImage").show();
 				if (data.results && data.results.length > 0) {
-					Bmob.initialize("355ab3ce5e0318f437ec5829d2df3d74", "2a522b8d5d8cbc05dd6fabe47c1e49b2");
-					var Face = Bmob.Object.extend("face");
-					var query = new Bmob.Query(Face);
-					query.equalTo("token", data.results[0].face_token);
-					query.find({
-						success: function(results) {
-							if (results.length <= 0) {
-								sap.m.MessageToast.show("Unfortunately, we don't know who you are.");
-							}
-							for (var i = 0; i < results.length; i++) {
-								var object = results[i];
-								var oBus = sap.ui.getCore().getComponent("dmComponent").getEventBus();
-								oBus.publish("sap.dm", "faceIdentified", object);
-								navigator.notification.alert("Welcome, " + object.get('name'));
-							}
-						},
-						error: function(error) {
-							sap.m.MessageToast.show("Query form server failed.");
-						}
-					});
-					// that.queryFromServer(data.results[0].face_token);
-				} else {
+
+					var oBus = sap.ui.getCore().getComponent("dmComponent").getEventBus();
+					oBus.publish("sap.dm", "faceIdentified", data.results[0].face_token);
+					/*
+					 * Bmob.initialize("355ab3ce5e0318f437ec5829d2df3d74", "2a522b8d5d8cbc05dd6fabe47c1e49b2"); var Face = Bmob.Object.extend("face");
+					 * var query = new Bmob.Query(Face); query.equalTo("token", data.results[0].face_token); query.find({ success: function(results) {
+					 * if (results.length <= 0) { sap.m.MessageToast.show("Unfortunately, we don't know who you are."); } for (var i = 0; i <
+					 * results.length; i++) { var object = results[i]; var oBus = sap.ui.getCore().getComponent("dmComponent").getEventBus();
+					 * oBus.publish("sap.dm", "faceIdentified", object); navigator.notification.alert("Welcome, " + object.get('name')); } }, error:
+					 * function(error) { var oBus = sap.ui.getCore().getComponent("dmComponent").getEventBus(); oBus.publish("sap.dm",
+					 * "faceIdentified", null); sap.m.MessageToast.show("Query form server failed."); } }); //
+					 * that.queryFromServer(data.results[0].face_token);
+					 */} else {
+					var oBus = sap.ui.getCore().getComponent("dmComponent").getEventBus();
+					oBus.publish("sap.dm", "faceIdentified", null);
 					sap.m.MessageToast.show("Unfortunately, we don't find out any face.");
 				}
 				// navigator.notification.alert("Found："+data.results[0].face_token+", Match "+data.results[0].confidence+"%", null, "Info");

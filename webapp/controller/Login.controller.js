@@ -32,8 +32,16 @@ sap.ui.define([
 			});
 		},
 
+		onPinCodeCancel: function() {
+			var oFormLoginData = this.oFormLoginModel.getData();
+			oFormLoginData.bPinCode = false;
+			oFormLoginData.bInital = true;
+			this.oFormLoginModel.refresh();
+		},
+
 		onPressFaceIdentify: function(oEvent) {
 			try {
+				this.getView().setBusy(true);
 				FaceIdentify.analyzePhoto();
 			} catch (e) {
 				var oDebug = this.getOwnerComponent().getModel("debug");
@@ -75,16 +83,20 @@ sap.ui.define([
 		},
 
 		onFaceIdentified: function(oEvent) {
-			var oData = arguments[2];
+			var sToken = arguments[2];
+			if (_.isEmpty(oData)) {
+				sap.m.MessageToast.show("Face Recognition Failed.");
+			}
 			this._router.navTo("appointment");
-			var oLoginModel = this._getUserModel("6", null, null);
+			var oLoginModel = this._getUserModel(null, null, sToken);
 			if (oLoginModel) {
 				this.getOwnerComponent().setModel(oLoginModel, "oLoginModel");
 				this._router.navTo("appointment");
 			} else {
 				sap.m.MessageToast.show("Face Unknown");
 			}
-			// sap.m.MessageToast.show(JSON.stringify(oData));
+			this.getView().setBusy(false);
+			sap.m.MessageToast.show("Welcome, " + oLoginModel.getData().firstName);
 		},
 
 		onPinCodeLogin: function() {
@@ -94,7 +106,7 @@ sap.ui.define([
 				this.getOwnerComponent().setModel(oLoginModel, "oLoginModel");
 				this._router.navTo("appointment");
 			} else {
-				that.getView().byId("idPinCode").setValueState(sap.ui.core.ValueState.Error);
+				this.getView().byId("idPinCode").setValueState(sap.ui.core.ValueState.Error);
 			}
 		}
 	});
