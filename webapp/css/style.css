@@ -90,7 +90,6 @@
 	opacity: 0;
 }
 
-
 html {
 	font-size: 18px;
 }
@@ -161,3 +160,27 @@ html.sap-phone .sapMRespMenuDialog .sapMList .sapMLIBContent .sapMSLITitleOnly,
 	font-size: 1rem !important;
 }
 
+.sapMShell {
+	padding-top: 20px;
+}
+
+.sapUiRootBackground, .sapMShellGlobalOuterBackground {
+	background: none;
+}
+
+.sapMShellBG.sapUiGlobalBackgroundImage {
+	background: none;
+}
+
+.sapMShellBrandingBar {
+	margin-top: 20px;
+}
+
+.sapMDialog {
+	padding-top: 20px !important;
+}
+
+.sapUiBLy {
+	background-color: transparent;
+	opacity: 0;
+}
