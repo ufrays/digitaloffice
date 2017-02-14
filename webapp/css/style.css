@@ -81,3 +81,75 @@
 .welcomeIconFade {
 	opacity: 0;
 }
+
+
+html {
+	font-size: 18px;
+}
+
+.sapMList {
+	font-size: 16px;
+}
+
+.sapMGT.TwoByOne {
+	width: 22.5em;
+	height: 11em;
+}
+
+.sapMGTHdrContent {
+	height: 4em;
+	margin-top: 0.625em;
+	margin-left: 0.94em;
+	margin-right: 0.94em;
+}
+
+.sapMTileCnt.News {
+	height: 6.125em;
+	margin-top: 0.3125em;
+}
+
+.sapMTileCnt.sapMFrameTypeAuto {
+	height: 6.375em;
+	min-width: 10.875em;
+	max-width: 22.5em;
+}
+
+.sapMTileCntContent {
+	height: 3.875em;
+	margin-bottom: 0.25em;
+	margin-top: 0.25em;
+	padding-left: 0.9375em;
+	padding-right: 0.9375em;
+}
+
+.sapMNwCCTxt .sapMText {
+	display: inline;
+	line-height: 1.5rem;
+	font-size: 1rem;
+}
+
+.sapMNwC {
+	display: inline-block;
+	outline: none;
+	width: 20.5em;
+	height: 3.5625em;
+}
+
+.sapMBtnInner {
+	font-size: 1rem;
+}
+
+.sapMNwCSbh {
+	font-size: 0.925rem;
+}
+
+.sapMTileCntFtrTxt {
+	font-size: 0.925rem;
+}
+
+html.sap-phone .sapMRespMenuDialog .sapMList .sapMLIBContent .sapMSLITitleOnly,
+	html.sap-tablet .sapMRespMenuDialog .sapMList .sapMLIBContent .sapMSLITitleOnly
+	{
+	font-size: 1rem !important;
+}
+
