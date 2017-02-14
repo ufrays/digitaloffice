@@ -10,20 +10,20 @@ sap.ui.define([], function() {
 	        var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid);
 
 	        cordova.plugins.locationManager.requestWhenInUseAuthorization();
-	        // cordova.plugins.locationManager.requestAlwaysAuthorization()
+	        cordova.plugins.locationManager.requestAlwaysAuthorization();
 
 	        var delegate = new cordova.plugins.locationManager.Delegate();
 
 	        delegate.didRangeBeaconsInRegion = function (pluginResult) {
 	        	beacons = pluginResult.beacons;
 
-	            console.log(JSON.stringify(pluginResult));
+	            // console.log(JSON.stringify(pluginResult));
 	        };
 
 	        cordova.plugins.locationManager.setDelegate(delegate);
 
 	        cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion)
-	            .fail()
+	            .fail(function(e) {console.log(e);})
 	            .done();
 		},	
 
@@ -36,25 +36,29 @@ sap.ui.define([], function() {
 				return;
 			}
 
-			// Sort beacons by distance
+			// Sort beacons by distance, delete accuracy = -1
+			var sortedBeacon = [];
+			for (var i = beacons.length - 1; i >= 0; i--) {
+				if (beacons[i].accuracy >= 0) {
+					sortedBeacon.push(beacons[i]);
+				}
+			}
+
+			beacons = sortedBeacon;
+			if (beacons.length === 0) { 
+				return;
+			}
+			
 			// beacons[0].accuracy   major    minor   rssi   proximity   uuid
 			beacons.sort(function(a, b) {
-				if (a.accuracy === -1) {
-					return true;
-				}
-				
-				if (b.accuracy === -1) {
-					return true;
-				}
-
-				return a.accuracy < b.accuracy;
+				return a.accuracy - b.accuracy;
 			});
 
 			var firstBeacon = beacons[0];
 
 			// 过道
 			if ((firstBeacon.major === 201) || (firstBeacon.major === 202)) {
-				return {"majorId": firstBeacon.major, "minorId": firstBeacon.minor};
+				return {"majorId": firstBeacon.major.toString(), "minorId": firstBeacon.minor.toString()};
 			}
 
 			// 不在过道 计算加权房间位置
@@ -74,6 +78,8 @@ sap.ui.define([], function() {
 			var count824 = 0;
 			var r803Accuracy = 0;
 			var count803 = 0;
+			var rPaintingAccuracy = 0;
+			var countPainting = 0;
 
 			for (var i = beacons.length - 1; i >= 0; i--) {
 				if (beacons[i].accuracy > 0) {
@@ -101,6 +107,9 @@ sap.ui.define([], function() {
 					} else if (beacons[i].major === 108) {
 					    r803Accuracy += beacons[i].accuracy;
 					    count803 += 1;
+					} else if (beacons[i].major === 109) {
+					    rPaintingAccuracy += beacons[i].accuracy;
+					    countPainting += 1;
 					}
 				}
 			}
@@ -162,9 +171,16 @@ sap.ui.define([], function() {
 			    }
 			}
 
+			if (countPainting != 0) {
+			    var wPaintingAccuracy = rPaintingAccuracy / countPainting;
+			    if (wPaintingAccuracy >= 0) {
+			        wRooms.push({"major": "109", "minor": "1", "rssi": wPaintingAccuracy});
+			    }
+			}
+
 			// Sort
 			wRooms.sort(function(a, b) {
-				return a.rssi < b.rssi;
+				return a.rssi - b.rssi;
 			});
 
 			if (wRooms.length > 0) {
