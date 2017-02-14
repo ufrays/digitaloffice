@@ -9,7 +9,8 @@ sap.ui.define([], function() {
 		analyzePhoto: function() {
 			navigator.camera.getPicture(this.onLoadImageUploadSuccess, this.onLoadImageFail, {
 				destinationType: Camera.DestinationType.FILE_URI,
-				allowEdit: true
+				allowEdit: true,
+				cameraDirection: 1
 			});
 		},
 		onLoadImageUploadSuccess: function(imageURI) {
