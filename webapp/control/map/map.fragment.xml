@@ -380,7 +380,7 @@
 			</g>
 			<g id="fullscreentoolbar" transform="translate(640,80)">
 				<g id="headertoolbar">
-					<g id="thumbnail" transform="translate(20,0)" style="display:none">
+					<!-- <g id="thumbnail" transform="translate(20,0)" style="display:none">
 						<rect x="-13" y="-13" width="66" height="66" class="option-border" />
 						<g transform="scale(0.04 0.04)" fill="#3f5161">
 							<path d="M576 448h416l-160-160 192-192-96-96-192 192-160-160z"></path>
@@ -388,7 +388,7 @@
 							<path d="M448 575.996h-416l160 160-192 192 96 96 192-192 160 160z"></path>
 							<path d="M448 448v-416l-160 160-192-192-96 96 192 192-160 160z"></path>
 						</g>
-					</g>
+					</g> -->
 					<g id="coffeeinfo" transform="translate(10,100)" style="display:none">
 						<rect x="-1" y="-10" width="66" height="66" class="option-border" />
 						<g id="coffeeicon" transform="scale(0.9 0.9)">
@@ -439,7 +439,7 @@
 					</g>
 				</g>
 			</g>
-			<g id="information" transform="translate(50,150)" style="opacity: 0; display: none; ">
+			<g id="information" transform="translate(50,150)" style="opacity: 1; display: none; ">
 				<rect x="10" y="20" rx="10" ry="10" width="578" height="510" style="fill: #3f5161;stroke: #3f5161;stroke-width:5;opacity:0.5;"></rect>
 				<text x="248" y="80" fill="white" style="font-size: 36px;font-family: arial;" font-family="Verdana">Coffee</text>
 				<!-- <image transform="translate(22,120)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="control/map/img/coffeemaker.jpg"></image> -->

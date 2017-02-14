@@ -125,8 +125,7 @@ sap.ui.define([
 				that._prepareZoomOutBtn();
 				that._prepareResetBtn();
 				that._hideThumbnailToolbar();
-				that._attachShowThumbnailEvt();
-				//that._animateCoffeeIcon();
+				//that._attachShowThumbnailEvt();
 				that._attachCoffeeIconEvt();
 				that._attachInfoPopupEvt();
 				
@@ -379,13 +378,13 @@ sap.ui.define([
 
 			this._oSvg.select(this._getId("navigator")).append(that._oNaviPath);
 			
-			//if((!this._bIsThumbnail)&&(this._sLocation === "pantry")){
+			if((!this._bIsThumbnail)&&(this._sLocation === "pantry")){
 				this._showCoffeeIcon();
-			//}
-			//else{
-			//	var oCoffeeInfo = this._oSvg.select(this._getId("coffeeinfo"));
-			//	oCoffeeInfo.attr("display","none");
-			//}
+			}
+			else{
+				var oCoffeeInfo = this._oSvg.select(this._getId("coffeeinfo"));
+				oCoffeeInfo.attr("display","none");
+			}
 			
 			this._highlightDestination();
 		},
@@ -599,26 +598,26 @@ sap.ui.define([
 		},
 		
 		_hideInfoPopup:function(){
-			this._oInfoPopup.animate({
+			/*this._oInfoPopup.animate({
 				opacity: 0
 			}, 200, mina.easein, function() {
 				this.attr({
 					display: "none"
 				});
-			});
-			
-			/*this._oInfoPopup.attr({
-				display: "none"
 			});*/
+			
+			this._oInfoPopup.attr({
+				display: "none"
+			});
 		},
 		
 		_showInfoPopup: function(){
 			this._oInfoPopup.attr({
 				display: "block"
 			});
-			this._oInfoPopup.animate({
+			/*this._oInfoPopup.animate({
 				opacity: 1
-			}, 200);
+			}, 200);*/
 		},
 		
 		_showSetDestIcon: function(){
