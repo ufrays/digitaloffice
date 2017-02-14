@@ -4,8 +4,8 @@
 		"hostId": "",
 		"attendees" : ["1","2","3","4","5","6","7","8","9","10"],
 		"type":"Meeting",
-		"title" : "CSC Introduction",
-		"dateTime" : "1487293200000",
+		"title" : "CSC  history and facts introduction",
+		"dateTime" : "1487294100000",
 		"location" : {
 				"id" : "collaboration",
 				"name" : "Collaboration Room"
@@ -17,7 +17,7 @@
 		"hostId": "",
 		"attendees" : ["1","2","3","4","5","6","7","8","9","10"],
 		"type":"Meeting",
-		"title" : "People Development",
+		"title" : "Customer story",
 		"dateTime" : "1487296800000",
 		"location" : {
 				"id" : "collaboration",
@@ -27,6 +27,19 @@
 	},
 	{
 		"id":"3",
+		"hostId": "",
+		"attendees" : ["1","2","3","4","5","6","7","8","9","10"],
+		"type":"Meeting",
+		"title" : "People development, resource & business discussion",
+		"dateTime" : "1487299500000",
+		"location" : {
+				"id" : "collaboration",
+				"name" : "Collaboration Room"
+			},
+		"content" : ""
+	},
+	{
+		"id":"4",
 		"hostId": "",
 		"attendees" : ["1","2","3","4","5","6","7","8","9","10"],
 		"type":"All Hands",
