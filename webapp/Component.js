@@ -63,7 +63,7 @@ sap.ui.define([
 
 		_loadDeviceInfo: function(oBeacon, oOrientatioin, oCurrentLocationModel, oCurrentOrientationModel) {
 			var that = this;
-			var oInterval = new sap.ui.core.IntervalTrigger(5000);
+			var oInterval = new sap.ui.core.IntervalTrigger(1000);
 			oInterval.addListener(function() {
 
 				// set orientation.
@@ -71,7 +71,7 @@ sap.ui.define([
 				oCurrentOrientationModel.refresh();
 
 				var oCurrentBeaconInfo = oBeacon.getCurrentBeacon();
-				sap.m.MessageToast.show(JSON.stringify(oCurrentBeaconInfo));
+				// sap.m.MessageToast.show(JSON.stringify(oCurrentBeaconInfo));
 				if (!_.isEmpty(oCurrentBeaconInfo)) {
 					// get location from beacon
 					var oCurrentLocation = that._mapBeaconLocation(oCurrentBeaconInfo);
@@ -86,12 +86,12 @@ sap.ui.define([
 						majorId: "106",
 						minorId: "1"
 					};
-					jQuery.sap.log.error(JSON.stringify(oCurrentLocationModel.getData()));
+					// jQuery.sap.log.error(JSON.stringify(oCurrentLocationModel.getData()));
 				}
 				var oCurrentLocation = that._mapBeaconLocation(oCurrentBeaconInfo);
 				oCurrentLocationModel.setData(oCurrentLocation);
 
-				jQuery.sap.log.error(JSON.stringify(oCurrentLocation));
+				// jQuery.sap.log.error(JSON.stringify(oCurrentLocation));
 
 				/* end test */
 
