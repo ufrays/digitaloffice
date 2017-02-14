@@ -30,7 +30,7 @@
 		"hostId": "",
 		"attendees" : ["1","2","3","4","5","6","7","8","9","10"],
 		"type":"Meeting",
-		"title" : "People development, resource & business discussion",
+		"title" : "People development",
 		"dateTime" : "1487299500000",
 		"location" : {
 				"id" : "collaboration",
