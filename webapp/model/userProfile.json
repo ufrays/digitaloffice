@@ -15,8 +15,8 @@
               },
               {
                              "id":"3",
-                             "firstName": "Zimen",
-                             "lastName" : "Thomas",
+                             "firstName": "Thomas",
+                             "lastName" : "Zimen",
                              "pinCode" : "1003",
                              "photoTokenIds" : ["TBD","TBD"]
               },
