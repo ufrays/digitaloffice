@@ -3,8 +3,8 @@ sap.ui.define([], function() {
 
 	return {
 		onLoadImageFail: function(message) {
-			navigator.notification.alert("Error：" + message, null, "Error");
-			sap.m.MessageToast.show("Error：" + message, null, "Error");
+			var oBus = sap.ui.getCore().getComponent("dmComponent").getEventBus();
+			oBus.publish("sap.dm", "faceIdentified", null);
 		},
 		analyzePhoto: function() {
 			navigator.camera.getPicture(this.onLoadImageUploadSuccess, this.onLoadImageFail, {

@@ -25,7 +25,7 @@ sap.ui.define([
 			var oFormLoginData = this.oFormLoginModel.getData();
 			oFormLoginData.bPinCode = true;
 			oFormLoginData.bInital = false;
-			this.oFormLoginModel.refresh()
+			this.oFormLoginModel.refresh();
 
 			jQuery.sap.delayedCall(500, this, function() {
 				this.getView().byId("idPinCode").focus();
@@ -89,7 +89,7 @@ sap.ui.define([
 			}
 			this._router.navTo("appointment");
 			var oLoginModel = this._getUserModel(null, null, sToken);
-			if (oLoginModel) {
+			if (oLoginModel && oLoginModel.getData()) {
 				this.getOwnerComponent().setModel(oLoginModel, "oLoginModel");
 				this._router.navTo("appointment");
 			} else {
