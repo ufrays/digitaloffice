@@ -80,14 +80,14 @@ sap.ui.define([
 			}
 			var oPage = this.getView().byId("idAppointmentPage");
 			oPage.scrollToElement(oListItem);
-//			var oScrollToElement = oListItem.findAggregatedObjects(true, function(oChild) {
-//				if (oChild.getMetadata().getName() === "sap.dm.map") {
-//					return oChild;
-//				}
-//			});
-//			if (!_.isEmpty(oScrollToElement)) {
-//				oPage.scrollToElement(oScrollToElement);
-//			}
+// var oScrollToElement = oListItem.findAggregatedObjects(true, function(oChild) {
+// if (oChild.getMetadata().getName() === "sap.dm.map") {
+// return oChild;
+// }
+// });
+// if (!_.isEmpty(oScrollToElement)) {
+// oPage.scrollToElement(oScrollToElement);
+// }
 		},
 
 		onPressMap: function(oEvent) {
@@ -108,6 +108,9 @@ sap.ui.define([
 			}
 			sItemPath = sItemPath.substr(0, sItemPath.lastIndexOf(" > "));
 			sap.m.MessageToast.show("Action triggered on item: " + sItemPath);
+			if ("Logout" === sItemPath) {
+				this._router.navTo("login");
+			}
 		}
 
 	});

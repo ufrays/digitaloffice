@@ -31,7 +31,7 @@
 						<Menu itemSelected="onUserMenuAction">
 							<items>
 								<!-- <MenuItem text="Info" /> -->
-								<MenuItem text="Logout" />
+								<MenuItem press="onLogoutPress" text="Logout" />
 							</items>
 						</Menu>
 					</menu>

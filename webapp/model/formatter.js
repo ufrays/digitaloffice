@@ -23,10 +23,13 @@ sap.ui.define([
 		formatAppointmentImg: function(sType) {
 			switch (sType) {
 				case "Meeting":
-					return "img/meeting1.jpg";
+					return "img/b1.png";
 					break;
 				case "All Hands":
-					return "img/meeting.jpeg";
+					return "img/c1.png";
+					break;
+				case "People":
+					return "img/a1.png";
 					break;
 				default:
 					return "img/NewsImage.png";

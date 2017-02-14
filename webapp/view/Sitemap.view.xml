@@ -16,9 +16,34 @@
 			</Toolbar>
 		</footer>
 		<content>
-			<Image
-				densityAware="false"
-				src="img/bigmap.png"></Image>
+			<Panel>
+				<SegmentedButton
+					selectedKey="7"
+					select="onSegmentSelected">
+					<items>
+						<SegmentedButtonItem
+							text="7th Floor"
+							key="7" />
+						<SegmentedButtonItem
+							text="8th Floor"
+							key="8" />
+					</items>
+				</SegmentedButton>
+				<Panel class="siteMapPanel">
+					<Image
+						class="sitePic"
+						visible="true"
+						id="id7F"
+						densityAware="false"
+						src="img/7TH.png"></Image>
+					<Image
+						class="sitePic"
+						visible="false"
+						id="id8F"
+						densityAware="false"
+						src="img/8TH.png"></Image>
+				</Panel>
+			</Panel>
 		</content>
 	</Page>
 </mvc:View>

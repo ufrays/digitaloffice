@@ -43,6 +43,14 @@
 	padding: 0rem;
 }
 
+.siteMapPanel {
+	overflow: scroll;
+}
+
+.siteMapPanel .sitePic {
+	max-width: 30rem;
+}
+
 .invisible {
 	display: none;
 }

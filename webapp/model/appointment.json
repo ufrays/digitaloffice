@@ -16,7 +16,7 @@
 		"id":"2",
 		"hostId": "",
 		"attendees" : ["1","2","3","4","5","6","7","8","9","10"],
-		"type":"Meeting",
+		"type":"People",
 		"title" : "Customer story",
 		"dateTime" : "1487296800000",
 		"location" : {
