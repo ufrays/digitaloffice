@@ -21,7 +21,7 @@
 				</Button>
 				<ToolbarSpacer></ToolbarSpacer>
 				<Title
-					text="appointment"
+					text="Appointment"
 					level="H3"></Title>
 				<ToolbarSpacer></ToolbarSpacer>
 				<MenuButton

@@ -28,17 +28,17 @@ sap.ui.define([
 							title: "Success Stories",
 							type: "Message",
 							content: new sap.m.Text({
-								text: "Do you interesting our success stories?"
+								text: "Are you interested with our success stories?"
 							}),
 							beginButton: new sap.m.Button({
-								text: "Sure, Show me",
+								text: "Yes",
 								press: function() {
 									that._router.navTo("successStories");
 									dialog.close();
 								}
 							}),
 							endButton: new sap.m.Button({
-								text: "I Don't like",
+								text: "No",
 								press: function() {
 									dialog.close();
 								}
