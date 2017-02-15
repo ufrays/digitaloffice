@@ -14,10 +14,6 @@ sap.ui.define([
 				orientation: {
 					type: "float",
 					defaultValue: 0
-				},
-				isThumbnail: {
-					type: "boolean",
-					defaultValue: false
 				}
 			},
 
@@ -27,11 +23,6 @@ sap.ui.define([
 					visibility: "hidden",
 					multiple: false
 				}
-			},
-
-			events: {
-				showThumbnail: {},
-				showFullsize: {}
 			}
 		},
 
@@ -44,8 +35,6 @@ sap.ui.define([
 
 		_oSvg: null,
 		_oMap: null,
-		_oSettingBtn: null,
-		_oFacilityBtn: null,
 		_oZoomInBtn: null,
 		_oZoomOutBtn: null,
 		_oResetBtn: null,
@@ -55,20 +44,16 @@ sap.ui.define([
 		_oDestIcon: null,
 		_oNaviPath: null,
 
-		_oFacilityIcon: null,
-		_oCoffeeIcon:null,
+		_oCoffeeIcon: null,
 
 		_aPathData: null,
 		_aThumbnailData: null,
 		_sLocation: null,
 		_sDestination: null,
 		_fOrientation: null,
-		_bIsThumbnail: null,
-		
+
 		_sManualSetDestination: null,
-		
-		_fOriOffset:null,
-		_bToolbarExpanded: null,
+		_fOriOffset: null,
 
 		init: function() {
 			var oVBox = sap.ui.xmlfragment(this.getId(), "sap.dm.control.map.map");
@@ -76,45 +61,38 @@ sap.ui.define([
 
 			this._initParams();
 		},
-		
-		onBeforeRendering: function(){
+
+		onBeforeRendering: function() {
 			this._sLocation = this.getProperty("location");
 			this._sDestination = this.getProperty("destination");
 			var sLocationInfo = "Location: " + this._sLocation + " \nDestination: " + this._sDestination;
-			//this._oSvg.select(this._getId("locationinfo")).attr("text", sLocationInfo);
-			sap.m.MessageToast.show(sLocationInfo,{duration:2000, width:"15em", my:"center top", at:"center top", of:window, offset:"0, 100"});
+			sap.m.MessageToast.show(sLocationInfo, {
+				duration: 2000,
+				width: "15em",
+				my: "center top",
+				at: "center top",
+				of: window,
+				offset: "0, 100"
+			});
 		},
 
 		onAfterRendering: function() {
-			sap.m.MessageToast.show("onAfterRendering",{duration:2000, width:"15em", my:"center top", at:"center top", of:window, offset:"0, 200"});
-			
-			this._bIsThumbnail = this.getProperty("isThumbnail");
+			sap.m.MessageToast.show("onAfterRendering", {
+				duration: 2000,
+				width: "15em",
+				my: "center top",
+				at: "center top",
+				of: window,
+				offset: "0, 200"
+			});
 			this._fOrientation = this.getProperty("orientation") - this._fOriOffset;
 
-			if (this._bIsThumbnail) {
-				this._showInThumbnail();
+			if (this._oSvg) {
+				this._calcPath();
 			} else {
-				if (this._oSvg) {
-					this._calcPath();	
-				} else {
-					this._showInFullsize();
-				}
-
+				this._showInFullsize();
 			}
-		},
 
-		_showInThumbnail: function() {
-			var that = this;
-			that._initControls();
-			that._hideFullScreenToolbar();
-			that._attachShowFullsizeEvt();
-			
-			this._getPathData().then(function() {
-				return that._getThumbnailData();
-			}).then(function() {		
-				that._calcPath();
-				that._adjustViewBox();
-			});
 		},
 
 		_showInFullsize: function() {
@@ -125,25 +103,12 @@ sap.ui.define([
 				return that._getThumbnailData();
 			}).then(function() {
 				that._prepareMap();
-				that._prepareSettingBtn();
-				//that._prepareFacilityBtn();
 				that._prepareZoomInBtn();
 				that._prepareZoomOutBtn();
 				that._prepareResetBtn();
-				that._hideThumbnailToolbar();
-				//that._attachShowThumbnailEvt();
 				that._attachCoffeeIconEvt();
 				that._attachInfoPopupEvt();
-				
-				//var sLocationInfo = "Location: " + that._sLocation + " Destination: " + that._sDestination;
-				//that._oSvg.select(that._getId("locationinfo")).attr("text", sLocationInfo);
-				
-				var oSetdestIcon = that._oMap.select(that._getId("setdest"));
-				oSetdestIcon.touchend(function(){
-					that._sManualSetDestination = "male";
-					that._calcPath();
-					that._hideSetDestIcon();
-				});
+				that._prepareSetDestIcon();
 			});
 		},
 
@@ -154,8 +119,6 @@ sap.ui.define([
 			this._fOriginalY = 0;
 			this._fCurrentX = 0;
 			this._fCurrentY = 0;
-			this._bToolbarExpanded = false;
-			
 			this._fOriOffset = 227;
 		},
 
@@ -163,60 +126,20 @@ sap.ui.define([
 			this._oSvg = Snap(this._getId("svg"));
 			this._oMap = this._oSvg.select(this._getId("map"));
 
-			this._oSettingBtn = this._oSvg.select(this._getId("setting"));
-			this._oFacilityBtn = this._oSvg.select(this._getId("facility"));
 			this._oZoomInBtn = this._oSvg.select(this._getId("zoomin"));
 			this._oZoomOutBtn = this._oSvg.select(this._getId("zoomout"));
 			this._oResetBtn = this._oSvg.select(this._getId("reset"));
 
 			this._oLocIcon = this._oMap.select(this._getId("locationicon"));
 			this._oDestIcon = this._oMap.select(this._getId("desticon"));
-			
-			this._oCoffeeIcon = this._oSvg.select(this._getId("coffeeicon"));
-			this._oFacilityIcon = this._oSvg.select(this._getId("facilityicon"));
 
+			this._oCoffeeIcon = this._oSvg.select(this._getId("coffeeicon"));
 			this._oInfoPopup = this._oSvg.select(this._getId("information"));
 		},
 
 		_prepareMap: function() {
 			this._enableDrag();
 			this._calcPath();
-		},
-
-		_prepareSettingBtn: function() {
-			var that = this;
-			this._oSettingBtn.touchend(function() {
-				if (that._oResetBtn.attr("display") === "none") {
-					that._showResetBtn();
-					that._showZoomInBtn();
-					that._showZoomOutBtn();
-					//that._showFacilityBtn();
-				} else {
-					that._hideResetBtn();
-					that._hideZoomInBtn();
-					that._hideZoomOutBtn();
-					//that._hideFacilityBtn();
-				}
-			});
-		},
-
-		_prepareFacilityBtn: function() {
-			var that = this;
-			var aRoomNames = this._oSvg.selectAll(".room-name")
-			this._oFacilityBtn.touchend(function() {
-				if (that._oFacilityIcon.attr("display") === "none") {
-					that._oFacilityIcon.attr("display", "block");
-					aRoomNames.forEach(function(oRoomName){
-						oRoomName.attr("display", "none");
-					});
-				} else {
-					that._oFacilityIcon.attr("display", "none");
-					aRoomNames.forEach(function(oRoomName){
-						oRoomName.attr("display", "block");
-					});
-				}
-
-			});
 		},
 
 		_prepareZoomInBtn: function() {
@@ -246,7 +169,17 @@ sap.ui.define([
 			});
 		},
 		
-		_resetMap: function(){
+		_prepareSetDestIcon: function(){
+			var that = this;
+			var oSetdestIcon = this._oMap.select(that._getId("setdest"));
+			oSetdestIcon.touchend(function() {
+				that._sManualSetDestination = "male";
+				that._calcPath();
+				that._hideSetDestIcon();
+			});
+		},
+
+		_resetMap: function() {
 			this._initParams();
 
 			this._oMap.animate({
@@ -254,8 +187,8 @@ sap.ui.define([
 			}, 200, mina.linear);
 
 			this._hideInfoPopup();
-			
-			this._sManualSetDestination=null;
+
+			this._sManualSetDestination = null;
 			this._calcPath();
 			this._showSetDestIcon();
 		},
@@ -264,14 +197,15 @@ sap.ui.define([
 			var that = this;
 			var startX;
 			var startY;
-			
+
 			var startX1;
 			var startY1;
 			var startX2;
 			var startY2;
 			var startDistance;
-			
-			var iZoomRatio = this._iZoomRatio;;
+
+			var iZoomRatio = this._iZoomRatio;
+			;
 
 			this._oMap.touchstart(function(event) {
 				iZoomRatio = that._iZoomRatio;
@@ -284,15 +218,15 @@ sap.ui.define([
 
 					startX2 = event.changedTouches[1].clientX;
 					startY2 = event.changedTouches[1].clientY;
-					
-					//startX2 = 161;
-					//startY2 = 356;
-					startDistance = Math.sqrt(Math.pow(startX2*1.8 - startX1*1.8, 2) + Math.pow(startY2*1.58 - startY1*1.58, 2));
+
+					// startX2 = 161;
+					// startY2 = 356;
+					startDistance = Math.sqrt(Math.pow(startX2 * 1.8 - startX1 * 1.8, 2) + Math.pow(startY2 * 1.58 - startY1 * 1.58, 2));
 				}
 			});
 
 			this._oMap.touchmove(function(event) {
-				if(event.changedTouches.length===1){
+				if (event.changedTouches.length === 1) {
 					var curX = event.changedTouches[0].screenX;
 					var curY = event.changedTouches[0].screenY;
 
@@ -301,54 +235,56 @@ sap.ui.define([
 
 					that._fCurrentX = offsetX + that._fOriginalX;
 					that._fCurrentY = offsetY + that._fOriginalY;
-				}
-				else{
+				} else {
 					var curX1 = event.changedTouches[0].clientX;
 					var curY1 = event.changedTouches[0].clientY;
-					
-					//console.log("curX1="+curX1);
-					//console.log("curY1="+curY1);
-					
+
+					// console.log("curX1="+curX1);
+					// console.log("curY1="+curY1);
+
 					var curX2 = event.changedTouches[1].clientX;
 					var curY2 = event.changedTouches[1].clientY;
-					//var curX2 = 161;
-					//var curY2 = 356;
-						
-					var curDistance = Math.sqrt(Math.pow(curX2*1.58 - curX1*1.8, 2) + Math.pow(curY2*1.58 - curY1*1.58, 2));		
-					iZoomRatio = that._iZoomRatio*(curDistance/startDistance);
-					
-					/*startX1 = curX1;
-					startY1 = curY1;
-					
-					startX2 = curX2;
-					startY2 = curY2;
-					
-					startDistance = Math.sqrt(Math.pow(startX2 - startX1, 2) + Math.pow(startY2 - startY1, 2));*/
+					// var curX2 = 161;
+					// var curY2 = 356;
+
+					var curDistance = Math.sqrt(Math.pow(curX2 * 1.58 - curX1 * 1.8, 2) + Math.pow(curY2 * 1.58 - curY1 * 1.58, 2));
+					iZoomRatio = that._iZoomRatio * (curDistance / startDistance);
+
+					/*
+					 * startX1 = curX1; startY1 = curY1; startX2 = curX2; startY2 = curY2; startDistance = Math.sqrt(Math.pow(startX2 - startX1, 2) +
+					 * Math.pow(startY2 - startY1, 2));
+					 */
 				}
-				
+
 				this.transform('t' + that._fCurrentX * 1.8 + ',' + that._fCurrentY * 1.58 + " s" + iZoomRatio);
-				
+
 			});
 
 			this._oMap.touchend(function(event) {
-					that._fOriginalX = that._fCurrentX;
-					that._fOriginalY = that._fCurrentY;
-					
-					that._iZoomRatio = iZoomRatio;
+				that._fOriginalX = that._fCurrentX;
+				that._fOriginalY = that._fCurrentY;
+
+				that._iZoomRatio = iZoomRatio;
 			});
 		},
 
 		_calcPath: function() {
-			sap.m.MessageToast.show("Calc path begin",{duration:2000, width:"15em", my:"center top", at:"center top", of:window, offset:"0, 280"});
+			sap.m.MessageToast.show("Calc path begin", {
+				duration: 2000,
+				width: "15em",
+				my: "center top",
+				at: "center top",
+				of: window,
+				offset: "0, 280"
+			});
 			var that = this;
 			var oPath;
-			
-			if(this._sManualSetDestination){
+
+			if (this._sManualSetDestination) {
 				oPath = _.find(this._aPathData, function(oPath) {
 					return (oPath.location === that._sLocation) && (oPath.destination === that._sManualSetDestination);
 				});
-			}
-			else{
+			} else {
 				oPath = _.find(this._aPathData, function(oPath) {
 					return (oPath.location === that._sLocation) && (oPath.destination === that._sDestination);
 				});
@@ -384,17 +320,23 @@ sap.ui.define([
 			});
 
 			this._oSvg.select(this._getId("navigator")).append(that._oNaviPath);
-			
-			if((!this._bIsThumbnail)&&(this._sLocation === "pantry")){
+
+			if (this._sLocation === "pantry") {
 				this._showCoffeeIcon();
-			}
-			else{
+			} else {
 				var oCoffeeInfo = this._oSvg.select(this._getId("coffeeinfo"));
-				oCoffeeInfo.attr("display","none");
+				oCoffeeInfo.attr("display", "none");
 			}
-			
+
 			this._highlightDestination();
-			sap.m.MessageToast.show("Calc path end",{duration:2000, width:"15em", my:"center top", at:"center top", of:window, offset:"0, 360"});
+			sap.m.MessageToast.show("Calc path end", {
+				duration: 2000,
+				width: "15em",
+				my: "center top",
+				at: "center top",
+				of: window,
+				offset: "0, 360"
+			});
 		},
 
 		_animatePath: function() {
@@ -409,43 +351,27 @@ sap.ui.define([
 			});
 		},
 
-		_attachShowThumbnailEvt: function() {
-			var that = this;
-			this._oThumbnailBtn = this._oSvg.select(this._getId("thumbnail"));
-			this._oThumbnailBtn.touchend(function() {
-				that.fireEvent("showThumbnail");
-			});
-		},
-
-		_attachShowFullsizeEvt: function() {
-			var that = this;
-			this._oThumbnailBtn = this._oSvg.select(this._getId("fullscreen"));
-			this._oThumbnailBtn.touchend(function() {
-				that.fireEvent("showFullsize");
-			});
-		},
-		
-		_showCoffeeIcon: function(){
-			this._oSvg.select(this._getId("coffeeinfo")).attr("display","block");
+		_showCoffeeIcon: function() {
+			this._oSvg.select(this._getId("coffeeinfo")).attr("display", "block");
 			this._animateCoffeeIcon();
 		},
-		
-		_animateCoffeeIcon: function(){
+
+		_animateCoffeeIcon: function() {
 			var that = this;
 			this._oCoffeeIcon.animate({
 				transform: "s1.2,1.2",
-				opacity:1
-			}, 500, mina.linear, function(){
+				opacity: 1
+			}, 500, mina.linear, function() {
 				that._oCoffeeIcon.animate({
 					transform: "s0.8,0.8",
-					opacity:0.2
-				}, 500, mina.linear,function(){
+					opacity: 0.2
+				}, 500, mina.linear, function() {
 					that._animateCoffeeIcon();
 				});
 
 			});
 		},
-		
+
 		_attachCoffeeIconEvt: function() {
 			var that = this;
 			this._oSvg.select(this._getId("coffeeinfo")).touchend(function() {
@@ -457,8 +383,8 @@ sap.ui.define([
 
 			});
 		},
-		
-		_attachInfoPopupEvt: function(){
+
+		_attachInfoPopupEvt: function() {
 			var that = this;
 			this._oInfoPopup.touchend(function() {
 				that._hideInfoPopup();
@@ -479,51 +405,11 @@ sap.ui.define([
 			});
 		},
 
-		_adjustViewBox: function() {
-			if (this._bIsThumbnail) {
-				var that = this;
-				var oThumbnail = _.find(this._aThumbnailData, function(oThumbnail) {
-					return (oThumbnail.location === that._sLocation) && (oThumbnail.destination === that._sDestination);
-				});
-				var sViewBox = oThumbnail.x + "," + oThumbnail.y + "," + oThumbnail.width + "," + oThumbnail.height;
-				this._oSvg.attr({
-					viewBox: sViewBox
-				});
-
-				var oThumbToolbar = this._oSvg.select(this._getId("thumbnailtoolbar"));
-				var fThumbToolbarX = parseFloat(oThumbnail.x) + parseFloat(oThumbnail.width) - 66 - 40;
-				var fThumbToolbarY = parseFloat(oThumbnail.y) + 60;
-				oThumbToolbar.transform("t" + fThumbToolbarX + "," + fThumbToolbarY);
-			}
-		},
-
-		_hideFullScreenToolbar: function() {
-			var oFullScrToolbar = this._oSvg.select(this._getId("fullscreentoolbar"));
-			oFullScrToolbar.attr({
-				display: "none"
-			});
-		},
-
-		_hideThumbnailToolbar: function() {
-			var oThumbToolbar = this._oSvg.select(this._getId("thumbnailtoolbar"));
-			oThumbToolbar.attr({
-				display: "none"
-			});
-		},
-
 		_showResetBtn: function() {
 			this._oResetBtn.attr("display", "block");
 			this._oResetBtn.attr("transform", "t20,40");
 			this._oResetBtn.animate({
 				transform: "t20,140"
-			}, 200, mina.linear);
-		},
-
-		_showFacilityBtn: function() {
-			this._oFacilityBtn.attr("display", "block");
-			this._oFacilityBtn.attr("transform", "t20,40");
-			this._oFacilityBtn.animate({
-				transform: "t20,240"
 			}, 200, mina.linear);
 		},
 
@@ -552,15 +438,6 @@ sap.ui.define([
 			});
 		},
 
-		_hideFacilityBtn: function() {
-			var that = this;
-			this._oFacilityBtn.animate({
-				transform: "t20,40"
-			}, 200, mina.linear, function() {
-				that._oFacilityBtn.attr("display", "none");
-			});
-		},
-
 		_hideZoomInBtn: function() {
 			var that = this;
 			this._oZoomInBtn.animate({
@@ -578,64 +455,59 @@ sap.ui.define([
 				that._oZoomOutBtn.attr("display", "none");
 			});
 		},
-		
-		_highlightDestination: function(){
-			this._oSvg.selectAll(".dest").forEach(function(oDest){
+
+		_highlightDestination: function() {
+			this._oSvg.selectAll(".dest").forEach(function(oDest) {
 				oDest.removeClass("dest");
 			});
-			
-			this._oSvg.selectAll(".dest-text").forEach(function(oDest){
+
+			this._oSvg.selectAll(".dest-text").forEach(function(oDest) {
 				oDest.removeClass("dest-text");
 			});
-			
+
 			var sDestinationId;
-			if(this._sManualSetDestination){
+			if (this._sManualSetDestination) {
 				sDestinationId = this._getId(this._sManualSetDestination);
-			}
-			else{
+			} else {
 				sDestinationId = this._getId(this._sDestination);
 			}
-			
-			if(sDestinationId!=this._getId("male")){
+
+			if (sDestinationId != this._getId("male")) {
 				var oDestination = this._oSvg.select(sDestinationId);
 				oDestination.select("polygon").addClass("dest");
-				oDestination.selectAll("text").forEach(function(oText){
+				oDestination.selectAll("text").forEach(function(oText) {
 					oText.addClass("dest-text")
 				});
 			}
 		},
-		
-		_hideInfoPopup:function(){
-			/*this._oInfoPopup.animate({
-				opacity: 0
-			}, 200, mina.easein, function() {
-				this.attr({
-					display: "none"
-				});
-			});*/
-			
+
+		_hideInfoPopup: function() {
+			/*
+			 * this._oInfoPopup.animate({ opacity: 0 }, 200, mina.easein, function() { this.attr({ display: "none" }); });
+			 */
+
 			this._oInfoPopup.attr({
 				display: "none"
 			});
 		},
-		
-		_showInfoPopup: function(){
+
+		_showInfoPopup: function() {
 			this._oInfoPopup.attr({
 				display: "block"
 			});
-			/*this._oInfoPopup.animate({
-				opacity: 1
-			}, 200);*/
+			/*
+			 * this._oInfoPopup.animate({ opacity: 1 }, 200);
+			 */
 		},
-		
-		_showSetDestIcon: function(){
-			this._oSvg.select(this._getId("setdest")).attr("display","block");
+
+		_showSetDestIcon: function() {
+			this._oSvg.select(this._getId("setdest")).attr("display", "block");
 		},
-		
-		_hideSetDestIcon: function(){
-			this._oSvg.select(this._getId("setdest")).attr("display","none");
+
+		_hideSetDestIcon: function() {
+			this._oSvg.select(this._getId("setdest")).attr("display", "none");
 		},
-		
+
 		_getId: function(sId) {
 			return ("#" + this.getId() + "--" + sId);
 		},
