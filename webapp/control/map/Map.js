@@ -353,7 +353,7 @@ sap.ui.define([
 
 		_showCoffeeIcon: function() {
 			this._oSvg.select(this._getId("coffeeinfo")).attr("display", "block");
-			this._animateCoffeeIcon();
+			//this._animateCoffeeIcon();
 		},
 
 		_animateCoffeeIcon: function() {

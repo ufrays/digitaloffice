@@ -312,7 +312,7 @@
 				<g id="headertoolbar">
 					<g id="coffeeinfo" transform="translate(10,100)" style="display:none">
 						<rect x="-1" y="-10" width="66" height="66" class="option-border" />
-						<g id="coffeeicon" transform="scale(0.9 0.9)">
+						<g id="coffeeicon" transform="scale(1 1)">
 							<path transform="scale(0.06 0.06)" class="facility-icon"
 								d="M854 342v-128h-86v128h86zM854 128c48 0 84 38 84 86v128c0 46-36 84-84 84h-86v128c0 94-76 172-170 172h-256c-94 0-172-78-172-172v-426h684z"></path>
 						</g>
