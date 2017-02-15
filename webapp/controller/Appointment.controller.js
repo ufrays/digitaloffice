@@ -14,6 +14,9 @@ sap.ui.define([
 			// subscribe location change event
 			var oBus = oComponent.getEventBus();
 			oBus.subscribeOnce("sap.dm", "locationChange", this.onLocationChange, this);
+			
+			// manually set the tile to bounded name
+			
 
 		},
 
@@ -107,16 +110,9 @@ sap.ui.define([
 				oItem = oItem.getParent();
 			}
 			sItemPath = sItemPath.substr(0, sItemPath.lastIndexOf(" > "));
-			sap.m.MessageToast.show("Action triggered on item: " + sItemPath);
 			if ("Logout" === sItemPath) {
 				this.getOwnerComponent().getModel("oLoginModel").destroy();
 				this._router.navTo("login");
-			}
-		},
-		onAfterRendering: function(oEvent) {
-			var oLoginModel = this.getOwnerComponent().getModel("oLoginModel");
-			if (oLoginModel && oLoginModel.getData()) {
-				sap.m.MessageToast.show("Welcome, " + oLoginModel.getData().firstName, null, 1000);
 			}
 		}
 

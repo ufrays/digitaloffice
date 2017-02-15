@@ -25,13 +25,16 @@
 					level="H3"></Title>
 				<ToolbarSpacer></ToolbarSpacer>
 				<MenuButton
-					id="abc"
+					id="idMenuButton"
 					text="{oLoginModel>/firstName}">
 					<menu>
-						<Menu itemSelected="onUserMenuAction">
+						<Menu
+							title="{oLoginModel>/firstName}"
+							itemSelected="onUserMenuAction">
 							<items>
-								<!-- <MenuItem text="Info" /> -->
-								<MenuItem press="onLogoutPress" text="Logout" />
+								<MenuItem
+									press="onLogoutPress"
+									text="Logout" />
 							</items>
 						</Menu>
 					</menu>
@@ -60,16 +63,9 @@
 								</TileContent>
 							</tileContent>
 						</GenericTile>
-						<!-- <VBox
-							class="sapUiTinyMargin"
-							visible="false">
-							<map:Map
-								location="{currentLocation>/locationId}"
-								destination="{oAppointmentModel>location/id}"
-								orientation="{currentOrientation>/heading}"
-								showFullsize="onPressMap"
-								isThumbnail="true"></map:Map>
-						</VBox> -->
+						<!-- <VBox class="sapUiTinyMargin" visible="false"> <map:Map location="{currentLocation>/locationId}" 
+							destination="{oAppointmentModel>location/id}" orientation="{currentOrientation>/heading}" 
+							showFullsize="onPressMap" isThumbnail="true"></map:Map> </VBox> -->
 					</VBox>
 				</CustomListItem>
 			</List>

@@ -8,7 +8,7 @@ sap.ui.define([
 		onInit: function() {
 			var oComponent = this.getOwnerComponent();
 			this._router = oComponent.getRouter();
-			this._setupFormVisible();
+			this._router.getRoute("login").attachPatternMatched(this._setupFormVisible, this);
 			oComponent.getEventBus().subscribe("sap.dm", "faceIdentified", this.onFaceIdentified, this);
 		},
 
@@ -95,10 +95,18 @@ sap.ui.define([
 			if (oLoginModel && oLoginModel.getData()) {
 				this.getOwnerComponent().setModel(oLoginModel, "oLoginModel");
 				this._router.navTo("appointment");
+				this.showWelcomeMsg();
 			} else {
 				sap.m.MessageToast.show("Face Unknown");
 			}
 			this.getView().setBusy(false);
+		},
+
+		showWelcomeMsg: function() {
+			var oLoginModel = this.getOwnerComponent().getModel("oLoginModel");
+			if (oLoginModel && oLoginModel.getData()) {
+				sap.m.MessageToast.show("Welcome, " + oLoginModel.getData().firstName, null, 1000);
+			}
 		},
 
 		onPinCodeLogin: function() {
@@ -107,6 +115,7 @@ sap.ui.define([
 			if (oLoginModel) {
 				this.getOwnerComponent().setModel(oLoginModel, "oLoginModel");
 				this._router.navTo("appointment");
+				this.showWelcomeMsg();
 			} else {
 				this.getView().byId("idPinCode").setValueState(sap.ui.core.ValueState.Error);
 			}
