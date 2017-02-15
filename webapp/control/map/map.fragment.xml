@@ -1248,8 +1248,8 @@ D8qdR/DTxcsk4X5cZHaiipZJde7bKjbH0z92pjJujHyp0HaiigqJWvbgw2zFVQHH933rPadri5Kt
      height="388"
      width="552" />
 			</g>
-			<rect transform="translate(50,0)" width="600" height="100" style="fill:#3f5161;fill-opacity: 0.5 !important;stroke-width:1;stroke:rgb(255,255,255)" />
-			<text id="locationinfo" x="70" y="60" style="fill:white;font-size:28px">blabla</text>
+			<!-- <rect transform="translate(50,0)" width="600" height="100" style="fill:#3f5161;fill-opacity: 0.5 !important;stroke-width:1;stroke:rgb(255,255,255)" />
+			<text id="locationinfo" x="70" y="60" style="fill:white;font-size:28px">blabla</text> -->
 		</html:svg>
 	</VBox>
 </core:FragmentDefinition>

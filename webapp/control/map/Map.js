@@ -76,10 +76,18 @@ sap.ui.define([
 
 			this._initParams();
 		},
-
-		onAfterRendering: function() {
+		
+		onBeforeRendering: function(){
 			this._sLocation = this.getProperty("location");
 			this._sDestination = this.getProperty("destination");
+			var sLocationInfo = "Location: " + this._sLocation + " \nDestination: " + this._sDestination;
+			//this._oSvg.select(this._getId("locationinfo")).attr("text", sLocationInfo);
+			sap.m.MessageToast.show(sLocationInfo,{duration:2000, width:"15em", my:"center top", at:"center top", of:window, offset:"0, 100"});
+		},
+
+		onAfterRendering: function() {
+			sap.m.MessageToast.show("onAfterRendering",{duration:2000, width:"15em", my:"center top", at:"center top", of:window, offset:"0, 200"});
+			
 			this._bIsThumbnail = this.getProperty("isThumbnail");
 			this._fOrientation = this.getProperty("orientation") - this._fOriOffset;
 
@@ -87,9 +95,7 @@ sap.ui.define([
 				this._showInThumbnail();
 			} else {
 				if (this._oSvg) {
-					this._calcPath();
-					var sLocationInfo = "Location: " + this._sLocation + " Destination: " + this._sDestination;
-					this._oSvg.select(this._getId("locationinfo")).attr("text", sLocationInfo);
+					this._calcPath();	
 				} else {
 					this._showInFullsize();
 				}
@@ -333,6 +339,7 @@ sap.ui.define([
 		},
 
 		_calcPath: function() {
+			sap.m.MessageToast.show("Calc path begin",{duration:2000, width:"15em", my:"center top", at:"center top", of:window, offset:"0, 280"});
 			var that = this;
 			var oPath;
 			
@@ -387,6 +394,7 @@ sap.ui.define([
 			}
 			
 			this._highlightDestination();
+			sap.m.MessageToast.show("Calc path end",{duration:2000, width:"15em", my:"center top", at:"center top", of:window, offset:"0, 360"});
 		},
 
 		_animatePath: function() {
