@@ -13,7 +13,7 @@ sap.ui.define([
 
 			// subscribe location change event
 			var oBus = oComponent.getEventBus();
-			oBus.subscribe("sap.dm", "locationChange", this.onLocationChange, this);
+			oBus.subscribeOnce("sap.dm", "locationChange", this.onLocationChange, this);
 
 		},
 
@@ -109,6 +109,7 @@ sap.ui.define([
 			sItemPath = sItemPath.substr(0, sItemPath.lastIndexOf(" > "));
 			sap.m.MessageToast.show("Action triggered on item: " + sItemPath);
 			if ("Logout" === sItemPath) {
+				this.getOwnerComponent().getModel("oLoginModel").destroy();
 				this._router.navTo("login");
 			}
 		}

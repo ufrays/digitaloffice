@@ -86,17 +86,18 @@ sap.ui.define([
 			var sToken = arguments[2];
 			if (_.isEmpty(sToken)) {
 				sap.m.MessageToast.show("Face Recognition Failed.");
+				return;
 			}
-			this._router.navTo("appointment");
+// this._router.navTo("appointment");
 			var oLoginModel = this._getUserModel(null, null, sToken);
 			if (oLoginModel && oLoginModel.getData()) {
 				this.getOwnerComponent().setModel(oLoginModel, "oLoginModel");
+				sap.m.MessageToast.show("Welcome, " + oLoginModel.getData().firstName);
 				this._router.navTo("appointment");
 			} else {
 				sap.m.MessageToast.show("Face Unknown");
 			}
 			this.getView().setBusy(false);
-			sap.m.MessageToast.show("Welcome, " + oLoginModel.getData().firstName);
 		},
 
 		onPinCodeLogin: function() {
