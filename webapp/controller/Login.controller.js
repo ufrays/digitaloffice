@@ -86,6 +86,7 @@ sap.ui.define([
 			var sToken = arguments[2];
 			if (_.isEmpty(sToken)) {
 				sap.m.MessageToast.show("Face Recognition Failed.");
+				this.getView().setBusy(false);
 				return;
 			}
 // this._router.navTo("appointment");
