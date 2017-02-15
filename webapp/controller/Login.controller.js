@@ -77,6 +77,7 @@ sap.ui.define([
 				if (oLoginUser) {
 					var oLoginModel = new JSONModel();
 					oLoginModel.setData(oLoginUser);
+					oLoginModel.refresh();
 					return oLoginModel;
 				}
 			}

@@ -132,6 +132,7 @@ sap.ui.define([
 					oPreviousLocationData = oPreviousLocationModel.getData();
 				}
 				if (!_.isEqual(oPreviousLocationData, oCurrentLocation)) {
+					sap.m.MessageToast.show("location changed to " + oCurrentLocation.locationId);
 					this.getEventBus().publish("sap.dm", "locationChange", oCurrentLocation);
 				}
 			}
