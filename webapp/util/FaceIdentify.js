@@ -53,7 +53,7 @@ sap.ui.define([], function() {
 					 */} else {
 					var oBus = sap.ui.getCore().getComponent("dmComponent").getEventBus();
 					oBus.publish("sap.dm", "faceIdentified", null);
-					sap.m.MessageToast.show("Unfortunately, we don't find out any face.");
+					sap.m.MessageToast.show("Face recognition failed.");
 				}
 				// navigator.notification.alert("Found："+data.results[0].face_token+", Match "+data.results[0].confidence+"%", null, "Info");
 			}, null, options);

@@ -1,15 +1,8 @@
-<mvc:View
-	controllerName="sap.dm.controller.About"
-	xmlns="sap.m"
-	xmlns:core="sap.ui.core"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:control="control"
+<mvc:View controllerName="sap.dm.controller.About" xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:control="control"
 	xmlns:h="http://www.w3.org/1999/xhtml">
-	<Page
-		title="About Chengdu"
-		navButtonPress="handleNavBack"
-		showNavButton="{device>/isPhone}"
-		showFooter="{device>/isNoPhone}">
+	<Page title="About Chengdu" navButtonPress="handleNavBack"
+		showNavButton="{device>/isPhone}" showFooter="{device>/isNoPhone}">
 		<headerContent>
 		</headerContent>
 		<footer>
@@ -17,7 +10,9 @@
 			</Toolbar>
 		</footer>
 		<content>
-			<Text text="About Chengdu"></Text>
+			<Panel>
+				<Text text="Under construction"></Text>
+			</Panel>
 		</content>
 	</Page>
 </mvc:View>

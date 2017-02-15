@@ -17,7 +17,7 @@
 		</footer>
 		<content>
 			<Panel>
-				<SegmentedButton
+				<!-- <SegmentedButton
 					selectedKey="7"
 					select="onSegmentSelected">
 					<items>
@@ -28,8 +28,8 @@
 							text="8th Floor"
 							key="8" />
 					</items>
-				</SegmentedButton>
-				<Panel class="siteMapPanel">
+				</SegmentedButton> -->
+				<!-- <Panel class="siteMapPanel">
 					<Image
 						class="sitePic"
 						visible="true"
@@ -42,7 +42,8 @@
 						id="id8F"
 						densityAware="false"
 						src="img/8TH.png"></Image>
-				</Panel>
+				</Panel> -->
+				<Text text="Under construction"/>
 			</Panel>
 		</content>
 	</Page>

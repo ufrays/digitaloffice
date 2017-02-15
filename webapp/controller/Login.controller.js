@@ -86,7 +86,7 @@ sap.ui.define([
 		onFaceIdentified: function(oEvent) {
 			var sToken = arguments[2];
 			if (_.isEmpty(sToken)) {
-				sap.m.MessageToast.show("Face Recognition Failed.");
+				sap.m.MessageToast.show("Face recognition failed.");
 				this.getView().setBusy(false);
 				return;
 			}
@@ -97,7 +97,7 @@ sap.ui.define([
 				this._router.navTo("appointment");
 				this.showWelcomeMsg();
 			} else {
-				sap.m.MessageToast.show("Face Unknown");
+				sap.m.MessageToast.show("Face unknown");
 			}
 			this.getView().setBusy(false);
 		},
