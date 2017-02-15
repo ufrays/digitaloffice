@@ -112,6 +112,12 @@ sap.ui.define([
 				this.getOwnerComponent().getModel("oLoginModel").destroy();
 				this._router.navTo("login");
 			}
+		},
+		onAfterRendering: function(oEvent) {
+			var oLoginModel = this.getOwnerComponent().getModel("oLoginModel");
+			if (oLoginModel && oLoginModel.getData()) {
+				sap.m.MessageToast.show("Welcome, " + oLoginModel.getData().firstName, null, 1000);
+			}
 		}
 
 	});

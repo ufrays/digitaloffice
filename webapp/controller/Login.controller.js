@@ -94,7 +94,6 @@ sap.ui.define([
 			var oLoginModel = this._getUserModel(null, null, sToken);
 			if (oLoginModel && oLoginModel.getData()) {
 				this.getOwnerComponent().setModel(oLoginModel, "oLoginModel");
-				sap.m.MessageToast.show("Welcome, " + oLoginModel.getData().firstName);
 				this._router.navTo("appointment");
 			} else {
 				sap.m.MessageToast.show("Face Unknown");
