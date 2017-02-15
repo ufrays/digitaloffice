@@ -118,9 +118,27 @@
 		"dest_coord":"198,617",
 		"path":[275,290, 322.5,536.7,308.4,680.5,223.9,670.6]
 	},
-	
-	
-	
+	{
+    "location":"aisle-2-5",
+    "destination":"collaboration",
+    "loc_coord":"240,194",
+    "dest_coord":"198,617",
+    "path":[265,220, 322.5,536.7,308.4,680.5,223.9,670.6]
+  },
+  {
+    "location":"aisle-2-6",
+    "destination":"collaboration",
+    "loc_coord":"222,145",
+    "dest_coord":"198,617",
+    "path":[252,170, 322.5,536.7,308.4,680.5,223.9,670.6]
+  },
+  {
+    "location":"aisle-2-7",
+    "destination":"collaboration",
+    "loc_coord":"218,100",
+    "dest_coord":"198,617",
+    "path":[248,125, 322.5,536.7,308.4,680.5,223.9,670.6]
+  },
 	
 	{
 		"location":"frontdesk",
@@ -241,9 +259,27 @@
 		"dest_coord":"170,344",
 		"path":[275,290,  290,368.4, 212.3,384.6]
 	},
-	
-	
-	
+	{
+		"location":"aisle-2-5",
+		"destination":"mr0805-0806",
+		"loc_coord":"240,194",
+		"dest_coord":"170,344",
+		"path":[265,220, 290,368.4, 212.3,384.6]
+	},
+	{
+		"location":"aisle-2-6",
+		"destination":"mr0805-0806",
+		"loc_coord":"222,145",
+		"dest_coord":"170,344",
+		"path":[252,170,290,368.4, 212.3,384.6]
+	},
+	{
+		"location":"aisle-2-7",
+		"destination":"mr0805-0806",
+		"loc_coord":"218,100",
+		"dest_coord":"170,344",
+		"path":[248,125 ,290,368.4, 212.3,384.6]
+	},
 	
 	{
 		"location":"frontdesk",

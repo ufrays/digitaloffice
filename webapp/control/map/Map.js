@@ -297,6 +297,10 @@ sap.ui.define([
 					return (oPath.location === that._sLocation) && (oPath.destination === that._sDestination);
 				});
 			}
+			
+			if(!oPath){
+				return;
+			}
 
 			this._oDestIcon.transform('t' + oPath.dest_coord);
 
