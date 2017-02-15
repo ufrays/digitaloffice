@@ -135,8 +135,8 @@ sap.ui.define([
 				that._attachCoffeeIconEvt();
 				that._attachInfoPopupEvt();
 				
-				var sLocationInfo = "Location: " + that._sLocation + " Destination: " + that._sDestination;
-				that._oSvg.select(that._getId("locationinfo")).attr("text", sLocationInfo);
+				//var sLocationInfo = "Location: " + that._sLocation + " Destination: " + that._sDestination;
+				//that._oSvg.select(that._getId("locationinfo")).attr("text", sLocationInfo);
 				
 				var oSetdestIcon = that._oMap.select(that._getId("setdest"));
 				oSetdestIcon.touchend(function(){
