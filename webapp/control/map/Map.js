@@ -67,7 +67,7 @@ sap.ui.define([
 			this._sDestination = this.getProperty("destination");
 			var sLocationInfo = "Location: " + this._sLocation + " \nDestination: " + this._sDestination;
 			sap.m.MessageToast.show(sLocationInfo, {
-				duration: 2000,
+				duration: 1000,
 				width: "15em",
 				my: "center top",
 				at: "center top",
@@ -78,7 +78,7 @@ sap.ui.define([
 
 		onAfterRendering: function() {
 			sap.m.MessageToast.show("onAfterRendering", {
-				duration: 2000,
+				duration: 1000,
 				width: "15em",
 				my: "center top",
 				at: "center top",
@@ -270,7 +270,7 @@ sap.ui.define([
 
 		_calcPath: function() {
 			sap.m.MessageToast.show("Calc path begin", {
-				duration: 2000,
+				duration: 1000,
 				width: "15em",
 				my: "center top",
 				at: "center top",
@@ -330,7 +330,7 @@ sap.ui.define([
 
 			this._highlightDestination();
 			sap.m.MessageToast.show("Calc path end", {
-				duration: 2000,
+				duration: 1000,
 				width: "15em",
 				my: "center top",
 				at: "center top",

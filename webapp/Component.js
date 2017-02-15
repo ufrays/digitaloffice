@@ -100,7 +100,7 @@ sap.ui.define([
 				/* end test */
 
 				// refresh model
-				oCurrentLocationModel.refresh(true);
+				oCurrentLocationModel.refresh();
 			});
 		},
 
