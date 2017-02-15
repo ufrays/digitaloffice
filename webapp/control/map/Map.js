@@ -65,7 +65,15 @@ sap.ui.define([
 		onBeforeRendering: function() {
 			this._sLocation = this.getProperty("location");
 			this._sDestination = this.getProperty("destination");
-			this._sLocationInfo = "Location: " + this._sLocation + " \nDestination: " + this._sDestination;
+			
+			if(!this.getProperty("orientation")){
+				this._fOrientation = 0;
+			}
+			else{
+				this._fOrientation = this.getProperty("orientation") - this._fOriOffset;
+			}
+			
+			this._sLocationInfo = "Location: " + this._sLocation + "\nDestination: " + this._sDestination + "\nOrientation: " + this._fOrientation;
 			sap.m.MessageToast.show(this._sLocationInfo, {
 				duration: 1000,
 				width: "15em",
@@ -85,7 +93,7 @@ sap.ui.define([
 				of: window,
 				offset: "0, 200"
 			});
-			this._fOrientation = this.getProperty("orientation") - this._fOriOffset;
+			
 
 			if (this._oSvg) {
 				this._calcPath();

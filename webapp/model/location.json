@@ -300,7 +300,7 @@
 		]
 	},
 	{
-		"locationId": "20205",
+		"locationId": "aisle-2-5",
 		"description": "Aisle-2-5",
 		"type":"AISLE",
 		"coordinate":{
@@ -315,7 +315,7 @@
 		]
 	},
 	{
-		"locationId": "20206",
+		"locationId": "aisle-2-6",
 		"description": "Aisle-2-6",
 		"type":"AISLE",
 		"coordinate":{
@@ -330,7 +330,7 @@
 		]
 	},
 	{
-		"locationId": "20207",
+		"locationId": "aisle-2-7",
 		"description": "Aisle-2-7",
 		"type":"AISLE",
 		"coordinate":{
