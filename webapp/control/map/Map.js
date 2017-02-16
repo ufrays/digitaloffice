@@ -80,12 +80,16 @@ sap.ui.define([
 			 * of: window, offset: "0, 200" });
 			 */
 			var bOnlyOrientationChanged = false
-			if ((this.getProperty("location") === this._sLocation) && (this.getProperty("destination") === this._sDestination)) {
+			if ((this._sLocation)&&(this._sDestination)&&(this.getProperty("location") === this._sLocation) && (this.getProperty("destination") === this._sDestination)) {
 				bOnlyOrientationChanged = true;
 			}
 
 			this._sLocation = this.getProperty("location");
 			this._sDestination = this.getProperty("destination");
+			
+			if(!this._sLocation){
+				this._sLocation = "frontdesk";
+			}
 
 			if (!this.getProperty("orientation")) {
 				this._fOrientation = 0;
