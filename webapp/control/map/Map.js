@@ -75,34 +75,40 @@ sap.ui.define([
 		},
 
 		onAfterRendering: function() {
-			/*sap.m.MessageToast.show("onAfterRendering\n"+this._sLocationInfo, {
-				duration: 1000,
-				width: "15em",
-				my: "center top",
-				at: "center top",
-				of: window,
-				offset: "0, 200"
-			});*/
-			
+			/*
+			 * sap.m.MessageToast.show("onAfterRendering\n"+this._sLocationInfo, { duration: 1000, width: "15em", my: "center top", at: "center top",
+			 * of: window, offset: "0, 200" });
+			 */
+			var bOnlyOrientationChanged = false
+			if ((this.getProperty("location") === this._sLocation) && (this.getProperty("destination") === this._sDestination)) {
+				bOnlyOrientationChanged = true;
+			}
+
 			this._sLocation = this.getProperty("location");
 			this._sDestination = this.getProperty("destination");
-			
-			if(!this.getProperty("orientation")){
+
+			if (!this.getProperty("orientation")) {
 				this._fOrientation = 0;
-			}
-			else{
+			} else {
 				this._fOrientation = this.getProperty("orientation") - this._fOriOffset;
 			}
-			
-			if(this._fOrientation<-180){
+
+			if (this._fOrientation < -180) {
 				this._fOrientation = this._fOrientation + 360;
-				if(this._fOrientation<-180){
+				if (this._fOrientation < -180) {
 					this._fOrientation = this._fOrientation + 360;
 				}
 			}
-			
+
 			if (this._oSvg) {
-				this._calcPath();
+				if (bOnlyOrientationChanged) {
+					var sTransformStr = this._oLocIcon.attr("transform").string;
+					this._oLocIcon.animate({
+						transform: sTransformStr.split("r")[0] + "r" + this._fOrientation
+					}, 200, mina.linear);
+				} else {
+					this._calcPath();
+				}
 			} else {
 				this._showInFullsize();
 			}
