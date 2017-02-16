@@ -79,17 +79,17 @@ sap.ui.define([
 			 * sap.m.MessageToast.show("onAfterRendering\n"+this._sLocationInfo, { duration: 1000, width: "15em", my: "center top", at: "center top",
 			 * of: window, offset: "0, 200" });
 			 */
-			var bOnlyOrientationChanged = false
+			/*var bOnlyOrientationChanged = false
 			if ((this._sLocation)&&(this._sDestination)&&(this.getProperty("location") === this._sLocation) && (this.getProperty("destination") === this._sDestination)) {
 				bOnlyOrientationChanged = true;
-			}
+			}*/
 
 			this._sLocation = this.getProperty("location");
 			this._sDestination = this.getProperty("destination");
 			
-			if(!this._sLocation){
+			/*if(!this._sLocation){
 				this._sLocation = "frontdesk";
-			}
+			}*/
 
 			if (!this.getProperty("orientation")) {
 				this._fOrientation = 0;
@@ -105,14 +105,14 @@ sap.ui.define([
 			}
 
 			if (this._oSvg) {
-				if (bOnlyOrientationChanged) {
+				/*if (bOnlyOrientationChanged) {
 					var sTransformStr = this._oLocIcon.attr("transform").string;
 					this._oLocIcon.animate({
 						transform: sTransformStr.split("r")[0] + "r" + this._fOrientation
 					}, 200, mina.linear);
-				} else {
+				} else {*/
 					this._calcPath();
-				}
+				//}
 			} else {
 				this._showInFullsize();
 			}
