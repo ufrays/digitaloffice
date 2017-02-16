@@ -13,10 +13,9 @@ sap.ui.define([
 
 			// subscribe location change event
 			var oBus = oComponent.getEventBus();
-			oBus.subscribeOnce("sap.dm", "locationChange", this.onLocationChange, this);
-			
+			oBus.subscribe("sap.dm", "locationChange", this.onLocationChange, this);
+
 			// manually set the tile to bounded name
-			
 
 		},
 
@@ -26,31 +25,33 @@ sap.ui.define([
 			if (oLocation) {
 				switch (oLocation.locationId) {
 					case "pantry":
-						var dialog = new sap.m.Dialog({
-							title: "Success Stories",
-							type: "Message",
-							content: new sap.m.Text({
-								text: "Are you interested with our success stories?"
-							}),
-							beginButton: new sap.m.Button({
-								text: "Yes",
-								press: function() {
-									that._router.navTo("successStories");
-									dialog.close();
+						if (!this.bSuccessStoryShowed) {
+							var dialog = new sap.m.Dialog({
+								title: "Success Stories",
+								type: "Message",
+								content: new sap.m.Text({
+									text: "Are you interested with our success stories?"
+								}),
+								beginButton: new sap.m.Button({
+									text: "Yes",
+									press: function() {
+										that._router.navTo("successStories");
+										dialog.close();
+									}
+								}),
+								endButton: new sap.m.Button({
+									text: "No",
+									press: function() {
+										dialog.close();
+									}
+								}),
+								afterClose: function() {
+									dialog.destroy();
 								}
-							}),
-							endButton: new sap.m.Button({
-								text: "No",
-								press: function() {
-									dialog.close();
-								}
-							}),
-							afterClose: function() {
-								dialog.destroy();
-							}
-						});
-						dialog.open();
-						this.bSuccessStoryShowed = true;
+							});
+							dialog.open();
+							this.bSuccessStoryShowed = true;
+						}
 						break;
 					default:
 						break;
