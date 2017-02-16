@@ -60,7 +60,7 @@
 		"destination":"collaboration",
 		"loc_coord":"198,650",
 		"dest_coord":"198,617",
-		"path":[213.9,623.6,223.9,670.6]
+		"path":[213.9,623.6,213.9,623.6]
 	},
 	{
 		"location":"aisle-1-1",
@@ -180,7 +180,7 @@
 		"destination":"mr0805-0806",
 		"loc_coord":"160,384",
 		"dest_coord":"170,344",
-		"path":[202.3,384.6,212.3,384.6]
+		"path":[180.3,410,180.3,410]
 	},
 	{
 		"location":"dt",

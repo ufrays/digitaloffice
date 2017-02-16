@@ -332,16 +332,18 @@ sap.ui.define([
 				stroke: "orange",
 				fill: "none",
 				strokeWidth: 3,
-				strokeDashoffset: 555.5,
+				strokeDashoffset: 550,
 				strokeDasharray: "20,10,5,5,5,10"
 			// strokeDasharray: "20,10,20,10"
 			}).addClass("navi-path");
 
-			this._oNaviPath.animate({
+			/*this._oNaviPath.animate({
 				strokeDashoffset: 550
 			}, 100, mina.linear, function() {
 				that._animatePath();
-			});
+			});*/
+			
+			this._animatePath();
 
 			this._oSvg.select(this._getId("navigator")).append(that._oNaviPath);
 
